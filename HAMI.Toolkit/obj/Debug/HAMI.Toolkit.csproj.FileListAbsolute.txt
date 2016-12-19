@@ -1,0 +1,9 @@
+C:\Users\Razer\Documents\Visual Studio 2015\EMRPractice\HAMI.Toolkit\bin\Debug\HAMI.Toolkit.dll
+C:\Users\Razer\Documents\Visual Studio 2015\EMRPractice\HAMI.Toolkit\bin\Debug\HAMI.Toolkit.pdb
+C:\Users\Razer\Documents\Visual Studio 2015\EMRPractice\HAMI.Toolkit\obj\Debug\HAMI.Toolkit.dll
+C:\Users\Razer\Documents\Visual Studio 2015\EMRPractice\HAMI.Toolkit\obj\Debug\HAMI.Toolkit.pdb
+C:\Users\Razer\Documents\Visual Studio 2015\Projects\EMRPractice\HAMI.Toolkit\bin\Debug\HAMI.Toolkit.dll
+C:\Users\Razer\Documents\Visual Studio 2015\Projects\EMRPractice\HAMI.Toolkit\bin\Debug\HAMI.Toolkit.pdb
+C:\Users\Razer\Documents\Visual Studio 2015\Projects\EMRPractice\HAMI.Toolkit\obj\Debug\HAMI.Toolkit.csprojResolveAssemblyReference.cache
+C:\Users\Razer\Documents\Visual Studio 2015\Projects\EMRPractice\HAMI.Toolkit\obj\Debug\HAMI.Toolkit.dll
+C:\Users\Razer\Documents\Visual Studio 2015\Projects\EMRPractice\HAMI.Toolkit\obj\Debug\HAMI.Toolkit.pdb

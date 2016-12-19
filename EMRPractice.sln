@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMRPractice", "EMRPractice\EMRPractice.csproj", "{AE6FDC1E-D7C0-4846-9477-8B8DDB64E653}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAMI.BussinessLayer", "HAMI.BussinessLayer\HAMI.BussinessLayer.csproj", "{9622017C-B2CC-4973-9CC1-29B123213921}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAMI.DataAccessLayer", "HAMI.DataAccessLayer\HAMI.DataAccessLayer.csproj", "{B722694C-06B4-4AC0-BB6E-8A82635C9F5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAMI.Toolkit", "HAMI.Toolkit\HAMI.Toolkit.csproj", "{3D276D8A-0B8A-47CF-8996-90AD87240859}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsrControlTemplate", "UsrControlTemplate\UsrControlTemplate.csproj", "{0CC4391A-D8A7-49BB-99E1-1E8CD3777EB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE6FDC1E-D7C0-4846-9477-8B8DDB64E653}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE6FDC1E-D7C0-4846-9477-8B8DDB64E653}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE6FDC1E-D7C0-4846-9477-8B8DDB64E653}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE6FDC1E-D7C0-4846-9477-8B8DDB64E653}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9622017C-B2CC-4973-9CC1-29B123213921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9622017C-B2CC-4973-9CC1-29B123213921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9622017C-B2CC-4973-9CC1-29B123213921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9622017C-B2CC-4973-9CC1-29B123213921}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B722694C-06B4-4AC0-BB6E-8A82635C9F5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B722694C-06B4-4AC0-BB6E-8A82635C9F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B722694C-06B4-4AC0-BB6E-8A82635C9F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B722694C-06B4-4AC0-BB6E-8A82635C9F5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D276D8A-0B8A-47CF-8996-90AD87240859}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D276D8A-0B8A-47CF-8996-90AD87240859}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D276D8A-0B8A-47CF-8996-90AD87240859}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D276D8A-0B8A-47CF-8996-90AD87240859}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CC4391A-D8A7-49BB-99E1-1E8CD3777EB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CC4391A-D8A7-49BB-99E1-1E8CD3777EB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CC4391A-D8A7-49BB-99E1-1E8CD3777EB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CC4391A-D8A7-49BB-99E1-1E8CD3777EB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
