@@ -53,3 +53,5 @@ C:\Users\hannah\Desktop\EMRPractice\EMRPractice\bin\Debug\UsrControlTemplate.pdb
 C:\Users\hannah\Documents\GitHub\EMRPractice\EMRPractice\bin\Debug\EMRPractice.exe.config
 C:\Users\hannah\Documents\GitHub\EMRPractice\EMRPractice\obj\Debug\EMRPractice.exe
 C:\Users\hannah\Documents\GitHub\EMRPractice\EMRPractice\obj\Debug\EMRPractice.pdb
+C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\EMRPractice\bin\Debug\ModelLayer.dll
+C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\EMRPractice\bin\Debug\ModelLayer.pdb

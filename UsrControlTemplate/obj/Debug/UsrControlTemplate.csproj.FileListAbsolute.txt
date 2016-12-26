@@ -8,3 +8,5 @@ C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\UsrControlTempl
 C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\UsrControlTemplate\obj\Debug\ucRadioButton.baml
 C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\UsrControlTemplate\obj\Debug\UsrControlTemplate.g.resources
 C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\UsrControlTemplate\obj\Debug\UsrControlTemplate.csprojResolveAssemblyReference.cache
+C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\UsrControlTemplate\bin\Debug\ModelLayer.dll
+C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\UsrControlTemplate\bin\Debug\ModelLayer.pdb

@@ -1,0 +1,5 @@
+C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\UsrControlTemplate\obj\Debug\ucRadioButton.g.cs
+C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\UsrControlTemplate\obj\Debug\UsrControlTemplate_MarkupCompile.cache
+C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\UsrControlTemplate\obj\Debug\UsrControlTemplate_MarkupCompile.lref
+C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\UsrControlTemplate\obj\Debug\UsrControlTemplate.dll
+C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\UsrControlTemplate\obj\Debug\UsrControlTemplate.pdb

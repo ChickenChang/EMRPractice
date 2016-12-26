@@ -13,12 +13,17 @@
             <Grid.Background>
                 <ImageBrush ImageSource="Theme\kkk.jpg" Stretch="UniformToFill"></ImageBrush>
             </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"></RowDefinition>
-                <RowDefinition Height="5*"></RowDefinition>
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="24*" />
+                <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
 
-            <TabControl Grid.Row="1">
+            <TabControl Grid.Row="1" Grid.Column="0">
                 <TabItem Header="#1">
                     <StackPanel>
                         <uc:PaddedGrid Padding="10" ShowGridLines="False">
@@ -89,7 +94,7 @@
 
                             <!--2-->
                             <Label Grid.Row="1" Grid.Column="0" Content="科別：" Style="{StaticResource GridTitle}"/>
-                            <uc:ucRadioButton Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
+                            <uc:ucRadioButton Name="ucRB" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
 
                             <!--3-->
                             <Label Grid.Row="2" Grid.Column="0" Content="醫師：" Style="{StaticResource GridTitle}"/>

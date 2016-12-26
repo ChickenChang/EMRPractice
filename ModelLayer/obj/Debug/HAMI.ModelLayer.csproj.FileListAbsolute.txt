@@ -1,0 +1,5 @@
+C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\ModelLayer\bin\Debug\ModelLayer.dll
+C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\ModelLayer\bin\Debug\ModelLayer.pdb
+C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\ModelLayer\obj\Debug\HAMI.ModelLayer.csprojResolveAssemblyReference.cache
+C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\ModelLayer\obj\Debug\ModelLayer.dll
+C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\ModelLayer\obj\Debug\ModelLayer.pdb

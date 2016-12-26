@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HAMI.ModelLayer.UsrControl;
 
 namespace EMRPractice
 {
@@ -23,6 +24,10 @@ namespace EMRPractice
         public MainWindow()
         {
             InitializeComponent();
+
+            List<ucRadioButtonDTO> list = new List<ucRadioButtonDTO>();
+            list.Add(new ucRadioButtonDTO { ItemNo = 1, DisplayName = "test", Value = "test_val" });
+            this.ucRB.ItemList = list;
         }
     }
 }

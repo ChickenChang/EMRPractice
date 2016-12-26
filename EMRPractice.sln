@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAMI.Toolkit", "HAMI.Toolki
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsrControlTemplate", "UsrControlTemplate\UsrControlTemplate.csproj", "{0CC4391A-D8A7-49BB-99E1-1E8CD3777EB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelLayer", "ModelLayer\ModelLayer.csproj", "{521A0F4F-8FDA-445E-8EFF-1DF0C1F561CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAMI.ModelLayer", "ModelLayer\HAMI.ModelLayer.csproj", "{521A0F4F-8FDA-445E-8EFF-1DF0C1F561CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
