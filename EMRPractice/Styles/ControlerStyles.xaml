@@ -14,6 +14,11 @@
         <Setter Property="Height" Value="27"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
     </Style>
-    
+
+    <Style x:Key="GridTitle" TargetType="Label">
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="FontSize" Value="13" />
+    </Style>
     
 </ResourceDictionary>

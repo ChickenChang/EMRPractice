@@ -1,5 +1,0 @@
-C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\UsrControlTemplate\obj\Debug\UsrControlTemplate.csprojResolveAssemblyReference.cache
-C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\UsrControlTemplate\bin\Debug\UsrControlTemplate.dll
-C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\UsrControlTemplate\bin\Debug\UsrControlTemplate.pdb
-C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\UsrControlTemplate\obj\Debug\UsrControlTemplate.dll
-C:\Users\Razer\documents\visual studio 2015\Projects\EMRPractice\UsrControlTemplate\obj\Debug\UsrControlTemplate.pdb
