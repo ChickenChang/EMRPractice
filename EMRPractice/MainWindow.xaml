@@ -13,9 +13,14 @@
             <Grid.Background>
                 <ImageBrush ImageSource="Theme\kkk.jpg" Stretch="UniformToFill"></ImageBrush>
             </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"></RowDefinition>
-                <RowDefinition Height="5*"></RowDefinition>
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="24*" />
+                <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
 
             <TabControl Grid.Row="1">
@@ -35,7 +40,7 @@
                             </Grid.RowDefinitions>
 
                             <!--1-->
-                            <Label Grid.Row="0" Grid.Column="0" Content="基本資料：" Style="{StaticResource lbl}"/>
+                            <Label Grid.Row="0" Grid.Column="0" Content="基本資料：" Style="{StaticResource GridTitle}"/>
                             <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="auto"/>
@@ -88,45 +93,11 @@
                             </Grid>
 
                             <!--2-->
-                            <Grid Grid.Row="1" Grid.Column="0">
-                                <Label Content="科別：" Style="{StaticResource lbl}"/>
-                                <TextBox Width="45" Height="27" Margin="49,0,0,0" Style="{StaticResource txt}" />
-                            </Grid>
-
-                            <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                </Grid.RowDefinitions>
-
-                                <Label Grid.Row="0" Grid.Column="0" Content="1. ㄧ般外科" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="0" Grid.Column="1" Content="2. 婦產科" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="0" Grid.Column="2" Content="3. 骨科" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="0" Grid.Column="3" Content="4. 泌尿外科" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="0" Grid.Column="4" Content="5. 神經外科" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="1" Grid.Column="0" Content="6. 整形外科" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="1" Grid.Column="1" Content="7. 口腔外科" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="1" Grid.Column="2" Content="8. 大腸直腸外科" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="1" Grid.Column="3" Content="9. 胸腔外科" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="1" Grid.Column="4" Content="10. 耳鼻喉科" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="2" Grid.Column="0" Content="11. 心血管外科" Style="{StaticResource lbl}"/>
-                            </Grid>
+                            <Label Grid.Row="1" Grid.Column="0" Content="科別：" Style="{StaticResource GridTitle}"/>
+                            <uc:ucRadioButton Name="ucRB" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
 
                             <!--3-->
-
-                            <Grid Grid.Row="2" Grid.Column="0">
-                                <Label Content="醫師：" Style="{StaticResource lbl}"/>
-                                <TextBox Width="45" Margin="49,0,0,0" Style="{StaticResource txt}"/>
-                            </Grid>
-
+                            <Label Grid.Row="2" Grid.Column="0" Content="醫師：" Style="{StaticResource GridTitle}"/>
                             <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -154,7 +125,7 @@
                         <StackPanel>
                             <uc:PaddedGrid Padding="10" ShowGridLines="False">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1.2*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
                                     <ColumnDefinition Width="3*"></ColumnDefinition>
                                     <ColumnDefinition Width="1*"></ColumnDefinition>
                                     <ColumnDefinition Width="3*"></ColumnDefinition>
@@ -169,10 +140,7 @@
                                 </Grid.RowDefinitions>
 
                                 <!--1-->
-                                <Grid Grid.Row="0" Grid.Column="0">
-                                    <Label  Content="手術種類：" Style="{StaticResource lbl}" />
-                                    <TextBox Width="45" Style="{StaticResource txt}" Margin="75,0,0,0"/>
-                                </Grid>
+                                <Label Grid.Row="0" Grid.Column="0" Content="手術種類：" Style="{StaticResource GridTitle}" />
 
                                 <Grid Grid.Row="0" Grid.Column="1">
                                     <StackPanel Grid.Column="1" Orientation="Horizontal">
