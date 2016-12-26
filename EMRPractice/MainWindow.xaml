@@ -508,7 +508,266 @@
                         </StackPanel>
                     </ScrollViewer>
                 </TabItem>
-                <TabItem Header="#3"></TabItem>
+                <TabItem Header="#3">
+                    <StackPanel>
+                        <uc:PaddedGrid Padding="10" ShowGridLines="False">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="7*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!--1-->
+                            <Label Grid.Row="0" Grid.Column="0" Content="轉入ICU主因：" Style="{StaticResource lbl}"/>
+                            <Grid Grid.Row="0" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBox Grid.Row="0" Grid.Column="0" Style="{StaticResource txt}" Width="58"/>
+                                <Label Grid.Row="0" Grid.Column="1" Content="1. Servere sepsis / Septic shock" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="0" Grid.Column="2" Content="2. Acute conscious deterioration" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="0" Grid.Column="3" Content="3. Hemorrhangic shock" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="1" Grid.Column="1" Content="4. Post-CPCR" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="1" Grid.Column="2" Content="5. Heart failure" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="1" Grid.Column="3" Content="6. High risk major operation" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="2" Grid.Column="1" Content="7. Respiratory failure" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="2" Grid.Column="2" Content="8. Scheduled for major operation" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="2" Grid.Column="3" Content="9. Major trauma" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="3" Grid.Column="1" Content="10. Unstable vital sign" Style="{StaticResource lbl}"/>
+                            </Grid>
+
+                            <!--2-->
+                            <Grid Grid.Row="1" Grid.Column="0">
+                                <Label Content="主訴(C.C.)：" Style="{StaticResource lbl}"/>
+                            </Grid>
+
+                            <TextBox Grid.Row="1" Grid.Column="1" Height="60"/>
+
+                            <!--3-->
+
+                            <Grid Grid.Row="2" Grid.Column="0">
+                                <Label Content="現況病史(P.I.)：" Style="{StaticResource lbl}"/>
+                            </Grid>
+
+                            <TextBox Grid.Row="2" Grid.Column="1" Height="60"/>
+
+                            <Grid Grid.Row="3" Grid.Column="0">
+                                <Label Content="過去重大病史：" Style="{StaticResource lbl}"/>
+                            </Grid>
+
+                            <Grid Grid.Row="3" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBox Grid.Row="0" Grid.Column="0" Style="{StaticResource txt}" Width="43"/>
+                                <Label Grid.Row="0" Grid.Column="1" Content="1. DM" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="0" Grid.Column="2" Content="2. HTN" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="0" Grid.Column="3" Content="3. CVA" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="0" Grid.Column="4" Content="4. CAD" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="1" Grid.Column="1" Content="5. HF" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="1" Grid.Column="2" Content="6. Arrhythmia" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="1" Grid.Column="3" Content="7. COPD" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="1" Grid.Column="4" Content="8. CRI" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="2" Grid.Column="1" Content="9. ESRD" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="2" Grid.Column="2" Content="10. Liver cirrhosis" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="2" Grid.Column="3" Content="10. Steroid use" Style="{StaticResource lbl}"/>
+                            </Grid>
+
+                        </uc:PaddedGrid>
+                    </StackPanel>
+                </TabItem>
+
+                <TabItem Header="#4">
+                    <StackPanel>
+                        <uc:PaddedGrid Padding="10" ShowGridLines="False">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="3.5*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!--1-->
+                            <Label Grid.Row="0" Grid.Column="0" Content="轉入SICU 前24小時內最差狀況：" Style="{StaticResource lbl}"/>
+                            <Grid Grid.Row="0" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Content="Hemodynamics" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="0" Grid.Column="1" Content="BT：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="0" Grid.Column="1" Margin="0,0,52,0" HorizontalAlignment="Right" Width="30"/>
+                                <Label Grid.Row="0" Grid.Column="2" Content="HR：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="0" Grid.Column="2" Margin="0,0,52,0" HorizontalAlignment="Right" Width="30"/>
+                                <Label Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" Content="SBP/DBP (MAP)：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" Margin="0,0,93,0" HorizontalAlignment="Right" Width="30"/>
+                                <Label Grid.Row="1" Grid.Column="1" Content="RR：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,52,0" HorizontalAlignment="Right" Width="30"/>
+                                <Label Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Content="WBC(B/S)：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="1" Grid.Column="2" Margin="0,0,8,0" HorizontalAlignment="Right" Width="30"/>
+                                <Label Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Content="(" Style="{StaticResource lbl}" Margin="112,0,0,0"/>
+                                <TextBox Grid.Row="1" Grid.Column="3" Margin="0,0,85,0" HorizontalAlignment="Right" Width="30"/>
+                                <Label Grid.Row="1" Grid.Column="3" Content="/" Style="{StaticResource lbl}" Margin="36,0,0,0"/>
+                                <TextBox Grid.Row="1" Grid.Column="3" Margin="0,0,41,0" HorizontalAlignment="Right" Width="30"/>
+                                <Label Grid.Row="1" Grid.Column="3" Content=")" Style="{StaticResource lbl}" Margin="80,0,0,0"/>
+                                <Label Grid.Row="2" Grid.Column="1" Content="PCT：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="2" Grid.Column="1" Margin="0,0,43,0" HorizontalAlignment="Right" Width="30"/>
+                                <Label Grid.Row="2" Grid.Column="2" Content="Lactate：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="2" Grid.Column="2" Margin="0,0,23,0" HorizontalAlignment="Right" Width="30"/>
+                                <Label Grid.Row="2" Grid.Column="3" Content="BNP：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="2" Grid.Column="3" Margin="0,0,42,0" HorizontalAlignment="Right" Width="30"/>
+
+                                <Label Grid.Row="3" Grid.Column="0" Content="Neurological" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Content="GCS(E/V/M)：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,114,0" HorizontalAlignment="Right" Width="30"/>
+                                <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Content="/" Style="{StaticResource lbl}" Margin="126,0,0,0"/>
+                                <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,69,0" HorizontalAlignment="Right" Width="30"/>
+                                <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Content="/" Style="{StaticResource lbl}" Margin="171,0,0,0"/>
+                                <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,24,0" HorizontalAlignment="Right" Width="30"/>
+                                <Label Grid.Row="3" Grid.Column="3" Content="Albumin：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="3" Grid.Column="3" Margin="0,0,16,0" HorizontalAlignment="Right" Width="30"/>
+                                <Label Grid.Row="3" Grid.Column="4" Content="Glucose：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="3" Grid.Column="4" Margin="0,0,18,0" HorizontalAlignment="Right" Width="30"/>
+
+                                <Label Grid.Row="4" Grid.Column="0" Content="ABG" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="4" Grid.Column="1" Content="Arterial pH：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,0,1,0" HorizontalAlignment="Right" Width="30"/>
+                                <Label Grid.Row="4" Grid.Column="2" Content="PaCO2：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="4" Grid.Column="2" Margin="0,0,25,0" HorizontalAlignment="Right" Width="30"/>
+                                <Label Grid.Row="4" Grid.Column="2" Content="%" Style="{StaticResource lbl}" Margin="95,0,0,0"/>
+                                <Label Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Content="PaO2/FiO2：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="4" Grid.Column="3" HorizontalAlignment="Right" Width="30" Grid.ColumnSpan="2" Margin="0,0,121,0"/>
+                                <Label Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Content="/" Style="{StaticResource lbl}" Margin="120,0,0,0"/>
+                                <TextBox Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="30" Margin="0,0,76,0"/>
+                                <Label Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Content="比值：" Style="{StaticResource lbl}" Margin="165,0,0,0"/>
+                                <Label Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Content="XX" Style="{StaticResource lbl}" Margin="215,0,0,0"/>
+                                <Label Grid.Row="5" Grid.Column="1" Content="HCO3：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" Width="30" Margin="0,0,31,0"/>
+                                <Label Grid.Row="5" Grid.Column="2" Content="BE：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="5" Grid.Column="2" HorizontalAlignment="Right" Width="30" Margin="0,0,52,0"/>
+                                <Label Grid.Row="5" Grid.Column="3" Content="SpO2：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="5" Grid.Column="3" HorizontalAlignment="Right" Width="30" Margin="0,0,34,0"/>
+                                <Label Grid.Row="6" Grid.Column="1" Content="HB：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="6" Grid.Column="1" HorizontalAlignment="Right" Width="30" Margin="0,0,49,0"/>
+                                <Label Grid.Row="6" Grid.Column="2" Content="Hct：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="6" Grid.Column="2" HorizontalAlignment="Right" Width="30" Margin="0,0,46,0"/>
+
+                                <Label Grid.Row="7" Grid.Column="0" Content="Hematology" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="7" Grid.Column="1" Content="Platelet：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="7" Grid.Column="1" HorizontalAlignment="Right" Width="30" Margin="0,0,21,0"/>
+                                <Label Grid.Row="7" Grid.Column="2" Content="PT/PT control：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="7" Grid.Column="2" HorizontalAlignment="Right" Width="30" Margin="0,0,105,0" Grid.ColumnSpan="2"/>
+                                <Label Grid.Row="7" Grid.Column="2" Content="/" Style="{StaticResource lbl}" Grid.ColumnSpan="2" Margin="135,0,0,0"/>
+                                <TextBox Grid.Row="7" Grid.Column="2" HorizontalAlignment="Right" Width="30" Margin="0,0,61,0" Grid.ColumnSpan="2"/>
+                                <Label Grid.Row="7" Grid.Column="4" Content="aPTT/aPTT control：" Style="{StaticResource lbl}" Grid.ColumnSpan="2"/>
+                                <TextBox Grid.Row="7" Grid.Column="4" HorizontalAlignment="Right" Width="30" Margin="0,0,76,0" Grid.ColumnSpan="2"/>
+                                <Label Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2" Content="/" Style="{StaticResource lbl}" Margin="0,0,61,0" HorizontalAlignment="Right"/>
+                                <TextBox Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="30" Margin="0,0,31,0"/>
+
+                                <Label Grid.Row="8" Grid.Column="0" Content="Hepatic" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="8" Grid.Column="1" Content="GPT：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="8" Grid.Column="1" HorizontalAlignment="Right" Width="30" Margin="0,0,43,0"/>
+                                <Label Grid.Row="8" Grid.Column="2" Content="GOT：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="8" Grid.Column="2" HorizontalAlignment="Right" Width="30" Margin="0,0,40,0"/>
+                                <Label Grid.Row="8" Grid.Column="3" Content="D-bil：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="8" Grid.Column="3" HorizontalAlignment="Right" Width="30" Margin="0,0,38,0"/>
+                                <Label Grid.Row="8" Grid.Column="4" Content="T-bil：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="8" Grid.Column="4" HorizontalAlignment="Right" Width="30" Margin="0,0,39,0"/>
+
+                                <Label Grid.Row="9" Grid.Column="0" Content="Renal" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="9" Grid.Column="1" Content="BUN：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="9" Grid.Column="1" HorizontalAlignment="Right" Width="30" Margin="0,0,39,0"/>
+                                <Label Grid.Row="9" Grid.Column="2" Content="Cr：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="9" Grid.Column="2" HorizontalAlignment="Right" Width="30" Margin="0,0,53,0"/>
+                                <Label Grid.Row="9" Grid.Column="3" Content="Urine(24Hr)：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="9" Grid.Column="3" HorizontalAlignment="Right" Width="30" Grid.ColumnSpan="2" Margin="0,0,117,0"/>
+                                <Label Grid.Row="10" Grid.Column="1" Content="Na：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="10" Grid.Column="1" HorizontalAlignment="Right" Width="30" Margin="0,0,49,0"/>
+                                <Label Grid.Row="10" Grid.Column="2" Content="K：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="10" Grid.Column="2" HorizontalAlignment="Right" Width="30" Margin="0,0,59,0"/>
+                                <Label Grid.Row="10" Grid.Column="3" Content="i-Calcium：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="10" Grid.Column="3" HorizontalAlignment="Right" Width="30" Margin="0,0,10,0"/>
+                                <Label Grid.Row="10" Grid.Column="4" Content="T-Calcium：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="10" Grid.Column="4" HorizontalAlignment="Right" Width="30" Margin="0,0,5,0"/>
+                            </Grid>
+
+                            <!--2-->
+                            <Grid Grid.Row="1" Grid.Column="0">
+                                <Label Content="ICU severity score：" Style="{StaticResource lbl}"/>
+                            </Grid>
+
+                            <Grid Grid.Row="1" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="16*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Content="APACHE II：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txt}" Width="69"/>
+                                <Label Grid.Row="0" Grid.Column="2" Content="檢查資料有缺，故APACHE II分數僅供參考。" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="1" Grid.Column="0" Content="TISS：" Style="{StaticResource lbl}"/>
+                                <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txt}" Width="69"/>
+                                <Label Grid.Row="1" Grid.Column="2" Content="轉入ICU主要原因是Major trauma，請務必填寫此分數。" Style="{StaticResource lbl}"/>
+                            </Grid>
+
+                            <!--3-->
+
+                            <Grid Grid.Row="2" Grid.Column="0"/>
+
+                        </uc:PaddedGrid>
+                    </StackPanel>
+                </TabItem>
             </TabControl>
         </Grid>
     </Viewbox>
