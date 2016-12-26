@@ -18,19 +18,13 @@
         <TextBox Name="txtInput" Grid.Row="0" Grid.Column="0" Width="50" Height="25" Style="{StaticResource txt}"/>
         <Grid Grid.Row="0" Grid.Column="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <!--後端生成-->
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
+                <!--後端生成-->
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Content="1. ㄧ般外科" Style="{StaticResource lbl}"/>
+            <!--<Label Grid.Row="0" Grid.Column="0" Content="1. ㄧ般外科" Style="{StaticResource lbl}"/>
             <Label Grid.Row="0" Grid.Column="1" Content="2. 婦產科" Style="{StaticResource lbl}"/>
             <Label Grid.Row="0" Grid.Column="2" Content="3. 骨科" Style="{StaticResource lbl}"/>
             <Label Grid.Row="0" Grid.Column="3" Content="4. 泌尿外科" Style="{StaticResource lbl}"/>
@@ -40,7 +34,7 @@
             <Label Grid.Row="1" Grid.Column="2" Content="8. 大腸直腸外科" Style="{StaticResource lbl}"/>
             <Label Grid.Row="1" Grid.Column="3" Content="9. 胸腔外科" Style="{StaticResource lbl}"/>
             <Label Grid.Row="1" Grid.Column="4" Content="10. 耳鼻喉科" Style="{StaticResource lbl}"/>
-            <Label Grid.Row="2" Grid.Column="0" Content="11. 心血管外科" Style="{StaticResource lbl}"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="11. 心血管外科" Style="{StaticResource lbl}"/>-->
         </Grid>
     </Grid>
 </UserControl>
