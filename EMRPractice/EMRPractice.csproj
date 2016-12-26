@@ -103,7 +103,7 @@
     <Resource Include="Theme\kkk.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ModelLayer\HAMI.ModelLayer.csproj">
+    <ProjectReference Include="..\HAMI.ModelLayer\HAMI.ModelLayer.csproj">
       <Project>{521a0f4f-8fda-445e-8eff-1df0c1f561cf}</Project>
       <Name>HAMI.ModelLayer</Name>
     </ProjectReference>
