@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HAMI.ModelLayer.UsrControl;
 
 namespace EMRPractice
 {
@@ -20,9 +21,28 @@ namespace EMRPractice
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        ViewModel vm;
         public MainWindow()
         {
             InitializeComponent();
+
+            vm = new ViewModel();
+            vm.Subject = new List<ucRadioButtonDTO>();
+            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 1, DisplayName = "ㄧ般外科", Value = "val_1" });
+            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 2, DisplayName = "婦產科", Value = "val_2" });
+            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 3, DisplayName = "骨科", Value = "val_3" });
+            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 4, DisplayName = "泌尿外科", Value = "val_4" });
+            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 5, DisplayName = "神經外科", Value = "val_5" });
+            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 6, DisplayName = "整形外科", Value = "val_6" });
+            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 7, DisplayName = "口腔外科", Value = "val_7" });
+            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 8, DisplayName = "大腸直腸外科", Value = "val_8" });
+            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 9, DisplayName = "胸腔外科", Value = "val_9" });
+            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 10, DisplayName = "耳鼻喉科", Value = "val_10" });
+            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 11, DisplayName = "心血管外科", Value = "val_11" });
+            this.ucRB.ItemList = vm.Subject;
+            //this.DataContext = this;
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
