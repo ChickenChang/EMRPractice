@@ -24,5 +24,79 @@ namespace EMRPractice
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
+            btnPrevious.IsEnabled = false;
+        }
+
+        void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.F1:
+                    tcMain.SelectedIndex = 0;
+                    break;
+                case Key.F2:
+                    tcMain.SelectedIndex = 1;
+                    break;
+                case Key.F3:
+                    tcMain.SelectedIndex = 2;
+                    break;
+                case Key.F4:
+                    tcMain.SelectedIndex = 3;
+                    break;
+                default:
+                    break;
+            }
+
+            if (tcMain.SelectedIndex == 0)
+            {
+                btnPrevious.IsEnabled = false;
+                btnNext.IsEnabled = true;
+            }
+            else if (tcMain.SelectedIndex == 3)
+            {
+                btnPrevious.IsEnabled = true;
+                btnNext.IsEnabled = false;
+            }
+            else
+            {
+                btnPrevious.IsEnabled = true;
+                btnNext.IsEnabled = true;
+            }
+        }
+
+        private void btnClick(object sender, RoutedEventArgs e)
+        {
+            switch (((Button)sender).Name)
+            {
+                case "btnPrevious":
+                    tcMain.SelectedIndex = tcMain.SelectedIndex - 1;
+                    break;
+                case "btnNext":
+                    tcMain.SelectedIndex = tcMain.SelectedIndex + 1;
+                    break;
+                default:
+                    break;
+            }
+
+            if(tcMain.SelectedIndex == 0)
+            {
+                btnPrevious.IsEnabled = false;
+                btnNext.IsEnabled = true;
+            }
+            else if(tcMain.SelectedIndex == 3)
+            {
+                btnPrevious.IsEnabled = true;
+                btnNext.IsEnabled = false;
+            }
+            else
+            {
+                btnPrevious.IsEnabled = true;
+                btnNext.IsEnabled = true;
+            }
+        }
     }
 }
