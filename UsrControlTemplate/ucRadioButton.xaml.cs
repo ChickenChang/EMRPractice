@@ -22,24 +22,18 @@ namespace UsrControlTemplate
     /// </summary>
     public partial class ucRadioButton : UserControl, INotifyPropertyChanged
     {
-        #region PublicProperty
-
-
-
-        #endregion
 
         #region DependenyProperty (DP)
 
         /// <summary>
         /// Data Source
         /// </summary>
-        private List<ucRadioButtonDTO> _itemList;
         public List<ucRadioButtonDTO> ItemList
         {
             get{ return (List<ucRadioButtonDTO>)GetValue(ItemListProperty); }
             set
             {
-                if (!object.Equals(_itemList, value))
+                if (!object.Equals(ItemListProperty, value))
                 {
                     SetValue(ItemListProperty, value);
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ItemList"));
@@ -48,7 +42,7 @@ namespace UsrControlTemplate
         }
         public static readonly DependencyProperty ItemListProperty =
             DependencyProperty.Register("ItemList", typeof(List<ucRadioButtonDTO>), typeof(ucRadioButton), new PropertyMetadata(null));
-
+        
         /// <summary>
         /// How many items in one row
         /// </summary>
@@ -85,7 +79,7 @@ namespace UsrControlTemplate
             {
                 var definition = new ColumnDefinition();
                 definition.Width = new GridLength(1, GridUnitType.Star);
-                this.MainGrid.ColumnDefinitions.Add(definition);
+                this.ContentGrid.ColumnDefinitions.Add(definition);
             }
 
             //Set Row
@@ -93,7 +87,18 @@ namespace UsrControlTemplate
             {
                 var definition = new RowDefinition();
                 definition.Height = GridLength.Auto;
-                this.MainGrid.RowDefinitions.Add(definition);
+                this.ContentGrid.RowDefinitions.Add(definition);
+            }
+
+            for (int i = 0; i < ItemList.Count; i++)
+            {
+                Label label = new Label();
+                label.Content = string.Format("{0}. {1}", i.ToString(), ItemList[i].DisplayName);
+                //label.Style = (Style)FindResource("lbl");
+
+                Grid.SetRow(label, Convert.ToInt16(Math.Floor((decimal)i / ItemsInRow)));
+                Grid.SetColumn(label, i % ItemsInRow);
+                this.ContentGrid.Children.Add(label);
             }
         }
 
@@ -106,7 +111,7 @@ namespace UsrControlTemplate
             InitializeComponent();
 
             // 事件註冊
-            PropertyChanged += DataBind;
+            PropertyChanged += DataBind;            
         }
 
         #endregion

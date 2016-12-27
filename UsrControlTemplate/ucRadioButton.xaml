@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <TextBox Name="txtInput" Grid.Row="0" Grid.Column="0" Width="50" Height="25" Style="{StaticResource txt}"/>
-        <Grid Grid.Row="0" Grid.Column="1">
+        <Grid Grid.Row="0" Grid.Column="1" Name="ContentGrid">
             <Grid.ColumnDefinitions>
                 <!--後端生成-->
             </Grid.ColumnDefinitions>
