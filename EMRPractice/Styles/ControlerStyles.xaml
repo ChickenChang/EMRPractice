@@ -18,7 +18,7 @@
     <Style x:Key="GridTitle" TargetType="Label">
         <Setter Property="HorizontalAlignment" Value="Right" />
         <Setter Property="VerticalAlignment" Value="Top" />
-        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontSize" Value="12" />
     </Style>
     
 </ResourceDictionary>
