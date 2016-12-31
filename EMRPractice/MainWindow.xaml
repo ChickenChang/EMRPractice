@@ -7,14 +7,10 @@
         xmlns:uc="clr-namespace:UsrControlTemplate;assembly=UsrControlTemplate"
         mc:Ignorable="d"
         WindowState="Maximized"
-<<<<<<< HEAD
         Title="MainWindow" Height="540" Width="960" Loaded="Window_Loaded">
-=======
-        Title="MainWindow" Height="540" Width="960">
     <!--<Window.DataContext>
         <local:MainWindow></local:MainWindow>
     </Window.DataContext>-->
->>>>>>> origin/master
     <Viewbox>
         <Grid Height="540" Width="960">
             <Grid.Background>
@@ -30,7 +26,7 @@
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
 
-            <TabControl x:Name="tcMain" Grid.Row="1">
+            <TabControl x:Name="tcMain" Grid.Row="1" Grid.ColumnSpan="2" Margin="4,0,103,0">
                 <TabItem Header="#1">
                     <StackPanel>
                         <uc:PaddedGrid Padding="10" ShowGridLines="False">
@@ -65,12 +61,12 @@
                                 <Label Grid.Row="1" Content="入ICU時間：" Style="{StaticResource lbl}" Width="81"/>
                                 <TextBox Grid.Row="1" Margin="81,0,0,0" Style="{StaticResource txt}" Width="50" RenderTransformOrigin="0.507,0.509"/>
                                 <Label Grid.Row="1" Content="/" Margin="131,0,0,0" Style="{StaticResource lbl}" Width="17"/>
-                                <TextBox Grid.Row="1" Margin="148,0,638,0" Style="{StaticResource txt}" Width="29" />
+                                <TextBox Grid.Row="1" Margin="148,0,0,0" Style="{StaticResource txt}" Width="29" />
                                 <Label Content="/" Margin="177,27,0,0" Style="{StaticResource lbl}" Width="17" Grid.RowSpan="2"/>
-                                <TextBox Grid.Row="1" Margin="194,0,592,0" Style="{StaticResource txt}" Width="29"/>
-                                <TextBox Grid.Row="1" Margin="246,0,540,0" Style="{StaticResource txt}" Width="29"/>
+                                <TextBox Grid.Row="1" Margin="194,0,0,0" Style="{StaticResource txt}" Width="29"/>
+                                <TextBox Grid.Row="1" Margin="241,0,0,0" Style="{StaticResource txt}" Width="29"/>
                                 <Label Grid.Row="1" Content=":" Margin="275,0,0,0" Style="{StaticResource lbl}" Width="17"/>
-                                <TextBox Margin="292,0,494,0" Width="29" Style="{StaticResource txt}" Grid.Row="1"/>
+                                <TextBox Margin="292,0,0,0" Width="29" Style="{StaticResource txt}" Grid.Row="1"/>
 
                                 <Grid Grid.Row="2">
                                     <Grid.ColumnDefinitions>
@@ -101,7 +97,7 @@
 
                             <!--2-->
                             <Label Grid.Row="1" Grid.Column="0" Content="科別：" Style="{StaticResource GridTitle}"/>
-                            <uc:ucRadioButton Grid.Row="1" Grid.Column="1" Name="ucRB" Grid.ColumnSpan="3""/>
+                            <uc:ucRadioButton Grid.Row="1" Grid.Column="1" Name="ucRB" Grid.ColumnSpan="3"/>
 
                             <!--3-->
                             <Label Grid.Row="2" Grid.Column="0" Content="醫師：" Style="{StaticResource GridTitle}"/>

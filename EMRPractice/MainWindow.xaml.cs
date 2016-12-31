@@ -40,7 +40,7 @@ namespace EMRPractice
             vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 9, DisplayName = "胸腔外科", Value = "val_9" });
             vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 10, DisplayName = "耳鼻喉科", Value = "val_10" });
             vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 11, DisplayName = "心血管外科", Value = "val_11" });
-            this.ucRB.ItemList = vm.Subject;
+            //this.ucRB.ItemList = vm.Subject;
             //this.DataContext = this;
 
         }
