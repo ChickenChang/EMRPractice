@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="UsrControlTemplate.DateTimeBlock"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UsrControlTemplate"
+             mc:Ignorable="d" 
+             d:DesignHeight="270" d:DesignWidth="480">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <TextBox x:Name="txtYear" Width="50" Style="{StaticResource txtStyle}" PreviewTextInput="PreviewTextInput"/>
+            <Label Content="/" />
+            <TextBox x:Name="txtMonth" Width="30" Style="{StaticResource txtStyle}" PreviewTextInput="PreviewTextInput"/>
+            <Label Content="/" />
+            <TextBox x:Name="txtDay" Width="30" Style="{StaticResource txtStyle}" PreviewTextInput="PreviewTextInput"/>
+            <Label Content="    " />
+            <TextBox x:Name="txtHour" Width="30"    Style="{StaticResource txtStyle}" PreviewTextInput="PreviewTextInput"/>
+            <Label Content="：" />
+            <TextBox x:Name="txtMinute" Width="30" Style="{StaticResource txtStyle}" PreviewTextInput="PreviewTextInput" />
+        </StackPanel>
+    </Grid>
+</UserControl>

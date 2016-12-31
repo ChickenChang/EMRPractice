@@ -90,10 +90,11 @@ namespace UsrControlTemplate
                 this.ContentGrid.RowDefinitions.Add(definition);
             }
 
+            // 將選項Bind上Grid
             for (int i = 0; i < ItemList.Count; i++)
             {
                 Label label = new Label();
-                label.Content = string.Format("{0}. {1}", i.ToString(), ItemList[i].DisplayName);
+                label.Content = string.Format("{0}. {1}", ItemList[i].ItemNo, ItemList[i].DisplayName);
                 //label.Style = (Style)FindResource("lbl");
 
                 Grid.SetRow(label, Convert.ToInt16(Math.Floor((decimal)i / ItemsInRow)));
