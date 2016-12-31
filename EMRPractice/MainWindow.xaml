@@ -8,9 +8,6 @@
         mc:Ignorable="d"
         WindowState="Maximized"
         Title="MainWindow" Height="540" Width="960">
-    <!--<Window.DataContext>
-        <local:MainWindow></local:MainWindow>
-    </Window.DataContext>-->
     <Viewbox>
         <Grid Height="540" Width="960">
             <Grid.Background>
@@ -27,7 +24,7 @@
             </Grid.RowDefinitions>
 
             <TabControl Grid.Row="1">
-                <TabItem Header="#1">
+                <TabItem Header="#入住資訊" Style="{StaticResource TabItem}">
                     <StackPanel>
                         <uc:PaddedGrid Padding="10" ShowGridLines="False">
                             <Grid.ColumnDefinitions>
@@ -45,59 +42,35 @@
                             <!--1-->
                             <Label Grid.Row="0" Grid.Column="0" Content="基本資料：" Style="{StaticResource GridTitle}"/>
                             <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="6*" />
+                                </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
 
-                                <Label Grid.Row="0" Content="病歷號：" Style="{StaticResource lbl}" Width="56"/>
-                                <TextBox Grid.Row="0" Margin="56,0,686,2" Width="73" Style="{StaticResource txt}"/>
-                                <Label Grid.Row="0" Content="姓名：" Margin="134,0,0,0" Width="43" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="0" Content="王小明" Margin="177,0,0,0" Style="{StaticResource lbl}" Width="55"/>
-                                <Label Grid.Row="0"  Content="性別：" Margin="232,0,0,0" Style="{StaticResource lbl}" Width="43"/>
-                                <Label Grid.Row="0" Content="男" Margin="275,0,0,0" Style="{StaticResource lbl}" Width="25"/>
+                                <Label Grid.Row="0" Grid.Column="0" Content="病歷號：" Style="{StaticResource  GridTitle}"/>
+                                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                                    <TextBox Style="{StaticResource txtStyle}" Width="100"/>
+                                    <Label Content="姓名：" Style="{StaticResource lbl}" HorizontalContentAlignment="Right"/>
+                                    <Label Content="王小明" Style="{StaticResource lbl}" HorizontalContentAlignment="Left"/>
+                                    <Label Content="性別：" Style="{StaticResource lbl}" HorizontalContentAlignment="Right"/>
+                                    <Label Content="男" Style="{StaticResource lbl}" HorizontalContentAlignment="Left"/>
+                                </StackPanel>
 
-                                <Label Grid.Row="1" Content="入ICU時間：" Style="{StaticResource lbl}" Width="81"/>
-                                <TextBox Grid.Row="1" Margin="81,0,0,0" Style="{StaticResource txt}" Width="50" RenderTransformOrigin="0.507,0.509"/>
-                                <Label Grid.Row="1" Content="/" Margin="131,0,0,0" Style="{StaticResource lbl}" Width="17"/>
-                                <TextBox Grid.Row="1" Margin="148,0,638,0" Style="{StaticResource txt}" Width="29" />
-                                <Label Content="/" Margin="177,27,0,0" Style="{StaticResource lbl}" Width="17" Grid.RowSpan="2"/>
-                                <TextBox Grid.Row="1" Margin="194,0,592,0" Style="{StaticResource txt}" Width="29"/>
-                                <TextBox Grid.Row="1" Margin="246,0,540,0" Style="{StaticResource txt}" Width="29"/>
-                                <Label Grid.Row="1" Content=":" Margin="275,0,0,0" Style="{StaticResource lbl}" Width="17"/>
-                                <TextBox Margin="292,0,494,0" Width="29" Style="{StaticResource txt}" Grid.Row="1"/>
+                                <Label Grid.Row="1" Grid.Column="0" Content="入ICU時間：" Style="{StaticResource GridTitle}" Width="81"/>
+                                <uc:DateTimeBlock Grid.Row="1" Grid.Column="1" />
 
-                                <Grid Grid.Row="2">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="1*"/>
-                                        <ColumnDefinition Width="4*"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <Label Grid.Column="0" Content="來源單位：" Style="{StaticResource lbl}" Width="73"/>
-                                    <TextBox Grid.Column="0" Margin="73,1,0,1" Style="{StaticResource txt}" Width="50" />
-                                    <Grid Grid.Column="1">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="auto"/>
-                                        </Grid.RowDefinitions>
-
-                                        <Label Grid.Row="0" Grid.Column="0" Content="1. ER" Style="{StaticResource lbl}"/>
-                                        <Label Grid.Row="0" Grid.Column="1" Content="2. OR" Style="{StaticResource lbl}"/>
-                                        <Label Grid.Row="0" Grid.Column="2" Content="3. ICU" Style="{StaticResource lbl}"/>
-                                        <Label Grid.Row="0" Grid.Column="3" Content="4. Ward" Style="{StaticResource lbl}"/>
-                                    </Grid>
-                                </Grid>
+                                <Label Grid.Row="2" Grid.Column="0" Content="來源單位：" Style="{StaticResource GridTitle}" Width="73"/>
+                                <uc:ucRadioButton Grid.Row="2" Grid.Column="1" Name="ucRB_SourceUnit" />
                             </Grid>
 
                             <!--2-->
                             <Label Grid.Row="1" Grid.Column="0" Content="科別：" Style="{StaticResource GridTitle}"/>
-                            <uc:ucRadioButton Grid.Row="1" Grid.Column="1" Name="ucRB" Grid.ColumnSpan="3""/>
+                            <uc:ucRadioButton Grid.Row="1" Grid.Column="1" Name="ucRB_Subect0" Grid.ColumnSpan="3"/>
 
                             <!--3-->
                             <Label Grid.Row="2" Grid.Column="0" Content="醫師：" Style="{StaticResource GridTitle}"/>
@@ -106,7 +79,7 @@
                         </uc:PaddedGrid>
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="#2">
+                <TabItem Header="#2" Style="{StaticResource TabItem}">
                     <ScrollViewer CanContentScroll="True" VerticalScrollBarVisibility="Auto">
                         <StackPanel>
                             <uc:PaddedGrid Padding="10" ShowGridLines="False">
@@ -404,7 +377,7 @@
                         </StackPanel>
                     </ScrollViewer>
                 </TabItem>
-                <TabItem Header="#3">
+                <TabItem Header="#3" Style="{StaticResource TabItem}">
                     <StackPanel>
                         <uc:PaddedGrid Padding="10" ShowGridLines="False">
                             <Grid.ColumnDefinitions>
@@ -434,7 +407,7 @@
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Style="{StaticResource txt}" Width="58"/>
+                                <TextBox Grid.Row="0" Grid.Column="0" Style="{StaticResource txtStyle}" Width="58"/>
                                 <Label Grid.Row="0" Grid.Column="1" Content="1. Servere sepsis / Septic shock" Style="{StaticResource lbl}"/>
                                 <Label Grid.Row="0" Grid.Column="2" Content="2. Acute conscious deterioration" Style="{StaticResource lbl}"/>
                                 <Label Grid.Row="0" Grid.Column="3" Content="3. Hemorrhangic shock" Style="{StaticResource lbl}"/>
@@ -472,7 +445,7 @@
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Style="{StaticResource txt}" Width="43"/>
+                                <TextBox Grid.Row="0" Grid.Column="0" Style="{StaticResource txtStyle}" Width="43"/>
                                 <Label Grid.Row="0" Grid.Column="1" Content="1. DM" Style="{StaticResource lbl}"/>
                                 <Label Grid.Row="0" Grid.Column="2" Content="2. HTN" Style="{StaticResource lbl}"/>
                                 <Label Grid.Row="0" Grid.Column="3" Content="3. CVA" Style="{StaticResource lbl}"/>
@@ -490,7 +463,7 @@
                     </StackPanel>
                 </TabItem>
 
-                <TabItem Header="#4">
+                <TabItem Header="#4" Style="{StaticResource TabItem}">
                     <StackPanel>
                         <uc:PaddedGrid Padding="10" ShowGridLines="False">
                             <Grid.ColumnDefinitions>
@@ -641,10 +614,10 @@
                                 </Grid.RowDefinitions>
 
                                 <Label Grid.Row="0" Grid.Column="0" Content="APACHE II：" Style="{StaticResource GridTitle}"/>
-                                <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txt}" Width="69"/>
+                                <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtStyle}" Width="69"/>
                                 <Label Grid.Row="0" Grid.Column="2" Content="檢查資料有缺，故APACHE II分數僅供參考。" Style="{StaticResource lbl}"/>
                                 <Label Grid.Row="1" Grid.Column="0" Content="TISS：" Style="{StaticResource GridTitle}"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txt}" Width="69"/>
+                                <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtStyle}" Width="69"/>
                                 <Label Grid.Row="1" Grid.Column="2" Content="轉入ICU主要原因是Major trauma，請務必填寫此分數。" Style="{StaticResource lbl}"/>
                             </Grid>
 
