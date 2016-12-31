@@ -46,6 +46,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DateTimeBlock.xaml.cs">
+      <DependentUpon>DateTimeBlock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PaddedGrid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ucRadioButton.xaml.cs">
@@ -53,6 +56,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="DateTimeBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ucRadioButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

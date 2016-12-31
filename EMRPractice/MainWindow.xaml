@@ -7,10 +7,14 @@
         xmlns:uc="clr-namespace:UsrControlTemplate;assembly=UsrControlTemplate"
         mc:Ignorable="d"
         WindowState="Maximized"
+<<<<<<< HEAD
         Title="MainWindow" Height="540" Width="960" Loaded="Window_Loaded">
     <!--<Window.DataContext>
         <local:MainWindow></local:MainWindow>
     </Window.DataContext>-->
+=======
+        Title="MainWindow" Height="540" Width="960">
+>>>>>>> origin/master
     <Viewbox>
         <Grid Height="540" Width="960">
             <Grid.Background>
@@ -26,8 +30,13 @@
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
 
+<<<<<<< HEAD
             <TabControl x:Name="tcMain" Grid.Row="1" Grid.ColumnSpan="2" Margin="4,0,103,0">
                 <TabItem Header="#1">
+=======
+            <TabControl Grid.Row="1">
+                <TabItem Header="#入住資訊" Style="{StaticResource TabItem}">
+>>>>>>> origin/master
                     <StackPanel>
                         <uc:PaddedGrid Padding="10" ShowGridLines="False">
                             <Grid.ColumnDefinitions>
@@ -45,12 +54,17 @@
                             <!--1-->
                             <Label Grid.Row="0" Grid.Column="0" Content="基本資料：" Style="{StaticResource GridTitle}"/>
                             <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="6*" />
+                                </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
 
+<<<<<<< HEAD
                                 <Label Grid.Row="0" Content="病歷號：" Style="{StaticResource lbl}" Width="56"/>
                                 <TextBox Grid.Row="0" Margin="56,0,686,2" Width="73" Style="{StaticResource txt}"/>
                                 <Label Grid.Row="0" Content="姓名：" Margin="134,0,0,0" Width="43" Style="{StaticResource lbl}"/>
@@ -73,31 +87,31 @@
                                         <ColumnDefinition Width="1*"/>
                                         <ColumnDefinition Width="4*"/>
                                     </Grid.ColumnDefinitions>
+=======
+                                <Label Grid.Row="0" Grid.Column="0" Content="病歷號：" Style="{StaticResource  GridTitle}"/>
+                                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                                    <TextBox Style="{StaticResource txtStyle}" Width="100"/>
+                                    <Label Content="姓名：" Style="{StaticResource lbl}" HorizontalContentAlignment="Right"/>
+                                    <Label Content="王小明" Style="{StaticResource lbl}" HorizontalContentAlignment="Left"/>
+                                    <Label Content="性別：" Style="{StaticResource lbl}" HorizontalContentAlignment="Right"/>
+                                    <Label Content="男" Style="{StaticResource lbl}" HorizontalContentAlignment="Left"/>
+                                </StackPanel>
+>>>>>>> origin/master
 
-                                    <Label Grid.Column="0" Content="來源單位：" Style="{StaticResource lbl}" Width="73"/>
-                                    <TextBox Grid.Column="0" Margin="73,1,0,1" Style="{StaticResource txt}" Width="50" />
-                                    <Grid Grid.Column="1">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="auto"/>
-                                        </Grid.RowDefinitions>
+                                <Label Grid.Row="1" Grid.Column="0" Content="入ICU時間：" Style="{StaticResource GridTitle}" Width="81"/>
+                                <uc:DateTimeBlock Grid.Row="1" Grid.Column="1" />
 
-                                        <Label Grid.Row="0" Grid.Column="0" Content="1. ER" Style="{StaticResource lbl}"/>
-                                        <Label Grid.Row="0" Grid.Column="1" Content="2. OR" Style="{StaticResource lbl}"/>
-                                        <Label Grid.Row="0" Grid.Column="2" Content="3. ICU" Style="{StaticResource lbl}"/>
-                                        <Label Grid.Row="0" Grid.Column="3" Content="4. Ward" Style="{StaticResource lbl}"/>
-                                    </Grid>
-                                </Grid>
+                                <Label Grid.Row="2" Grid.Column="0" Content="來源單位：" Style="{StaticResource GridTitle}" Width="73"/>
+                                <uc:ucRadioButton Grid.Row="2" Grid.Column="1" Name="ucRB_SourceUnit" />
                             </Grid>
 
                             <!--2-->
                             <Label Grid.Row="1" Grid.Column="0" Content="科別：" Style="{StaticResource GridTitle}"/>
+<<<<<<< HEAD
                             <uc:ucRadioButton Grid.Row="1" Grid.Column="1" Name="ucRB" Grid.ColumnSpan="3"/>
+=======
+                            <uc:ucRadioButton Grid.Row="1" Grid.Column="1" Name="ucRB_Subect0" Grid.ColumnSpan="3"/>
+>>>>>>> origin/master
 
                             <!--3-->
                             <Label Grid.Row="2" Grid.Column="0" Content="醫師：" Style="{StaticResource GridTitle}"/>
@@ -106,7 +120,7 @@
                         </uc:PaddedGrid>
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="#2">
+                <TabItem Header="#2" Style="{StaticResource TabItem}">
                     <ScrollViewer CanContentScroll="True" VerticalScrollBarVisibility="Auto">
                         <StackPanel>
                             <uc:PaddedGrid Padding="10" ShowGridLines="False">
@@ -404,7 +418,7 @@
                         </StackPanel>
                     </ScrollViewer>
                 </TabItem>
-                <TabItem Header="#3">
+                <TabItem Header="#3" Style="{StaticResource TabItem}">
                     <StackPanel>
                         <uc:PaddedGrid Padding="10" ShowGridLines="False">
                             <Grid.ColumnDefinitions>
@@ -434,7 +448,7 @@
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Style="{StaticResource txt}" Width="58"/>
+                                <TextBox Grid.Row="0" Grid.Column="0" Style="{StaticResource txtStyle}" Width="58"/>
                                 <Label Grid.Row="0" Grid.Column="1" Content="1. Servere sepsis / Septic shock" Style="{StaticResource lbl}"/>
                                 <Label Grid.Row="0" Grid.Column="2" Content="2. Acute conscious deterioration" Style="{StaticResource lbl}"/>
                                 <Label Grid.Row="0" Grid.Column="3" Content="3. Hemorrhangic shock" Style="{StaticResource lbl}"/>
@@ -472,7 +486,7 @@
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
 
-                                <TextBox Grid.Row="0" Grid.Column="0" Style="{StaticResource txt}" Width="43"/>
+                                <TextBox Grid.Row="0" Grid.Column="0" Style="{StaticResource txtStyle}" Width="43"/>
                                 <Label Grid.Row="0" Grid.Column="1" Content="1. DM" Style="{StaticResource lbl}"/>
                                 <Label Grid.Row="0" Grid.Column="2" Content="2. HTN" Style="{StaticResource lbl}"/>
                                 <Label Grid.Row="0" Grid.Column="3" Content="3. CVA" Style="{StaticResource lbl}"/>
@@ -490,7 +504,7 @@
                     </StackPanel>
                 </TabItem>
 
-                <TabItem Header="#4">
+                <TabItem Header="#4" Style="{StaticResource TabItem}">
                     <StackPanel>
                         <uc:PaddedGrid Padding="10" ShowGridLines="False">
                             <Grid.ColumnDefinitions>
@@ -641,10 +655,10 @@
                                 </Grid.RowDefinitions>
 
                                 <Label Grid.Row="0" Grid.Column="0" Content="APACHE II：" Style="{StaticResource GridTitle}"/>
-                                <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txt}" Width="69"/>
+                                <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtStyle}" Width="69"/>
                                 <Label Grid.Row="0" Grid.Column="2" Content="檢查資料有缺，故APACHE II分數僅供參考。" Style="{StaticResource lbl}"/>
                                 <Label Grid.Row="1" Grid.Column="0" Content="TISS：" Style="{StaticResource GridTitle}"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txt}" Width="69"/>
+                                <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtStyle}" Width="69"/>
                                 <Label Grid.Row="1" Grid.Column="2" Content="轉入ICU主要原因是Major trauma，請務必填寫此分數。" Style="{StaticResource lbl}"/>
                             </Grid>
 
