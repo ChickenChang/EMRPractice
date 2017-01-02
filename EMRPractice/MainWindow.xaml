@@ -412,40 +412,22 @@
                 </TabItem>
 
                 <TabItem Header="#狀況評估" Style="{StaticResource TabItem}">
-                    <StackPanel>
-                        <uc:PaddedGrid Padding="10" ShowGridLines="False">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                            </Grid.RowDefinitions>
-
-                            <!--1-->
-                            <Label Grid.Row="0" Grid.Column="0" Content="轉入前24hr內最差狀況：" Style="{StaticResource GridTitle}"/>
-                            <uc:PaddedGrid Padding="5" Grid.Row="0" Grid.Column="1">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <uc:PaddedGrid Padding="10" ShowGridLines="False">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto"/>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
 
-                                <Label Grid.Row="0" Grid.Column="0" Content="Hemodynamics" Style="{StaticResource GridTitle}"/>
-                                <Grid Grid.Row="0" Grid.Column="1">
+                                <!--1-->
+                                <Label Grid.Row="0" Grid.Column="0" Content="轉入前24hr內最差狀況：" Style="{StaticResource GridTitle}"/>
+                                <uc:PaddedGrid Padding="5" Grid.Row="0" Grid.Column="1">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="auto"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
@@ -453,165 +435,250 @@
                                         <RowDefinition Height="auto"/>
                                         <RowDefinition Height="auto"/>
                                         <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
                                     </Grid.RowDefinitions>
 
-                                    <Label Grid.Row="0" Grid.Column="0" Content="BT：" Style="{StaticResource GridTitle}"/>
-                                    <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtStyle}"/>
-                                    <Label Grid.Row="0" Grid.Column="2" Content="HR：" Style="{StaticResource GridTitle}"/>
-                                    <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource txtStyle}"/>
-                                    <Label Grid.Row="0" Grid.Column="4" Content="SBP/DBP (MAP)：" Style="{StaticResource GridTitle}"/>
-                                    <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource txtStyle}" />
+                                    <Label Grid.Row="0" Grid.Column="0" Content="Hemodynamics" Style="{StaticResource GridTitle}"/>
+                                    <Grid Grid.Row="0" Grid.Column="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
 
-                                    <Label Grid.Row="1" Grid.Column="0" Content="RR：" Style="{StaticResource GridTitle}"/>
-                                    <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtStyle}"/>
-                                    <Label Grid.Row="1" Grid.Column="2" Content="WBC(B/S)：" Style="{StaticResource GridTitle}"/>
-                                    <StackPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" Orientation="Horizontal">
-                                        <TextBox Style="{StaticResource txtStyle}"/>
-                                        <Label Content="(" Style="{StaticResource lbl}"/>
-                                        <TextBox Style="{StaticResource txtStyle}"/>
-                                        <Label Content="/" Style="{StaticResource lbl}"/>
-                                        <TextBox Style="{StaticResource txtStyle}"/>
-                                        <Label Content=")" Style="{StaticResource lbl}"/>
-                                    </StackPanel>
+                                        <Label Grid.Row="0" Grid.Column="0" Content="BT：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                        <Label Grid.Row="0" Grid.Column="2" Content="HR：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource txtStyle}"/>
+                                        <Label Grid.Row="0" Grid.Column="4" Content="SBP/DBP (MAP)：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource txtStyle}" />
 
-                                    <Label Grid.Row="2" Grid.Column="0" Content="PCT：" Style="{StaticResource GridTitle}"/>
-                                    <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txtStyle}"/>
-                                    <Label Grid.Row="2" Grid.Column="2" Content="Lactate：" Style="{StaticResource GridTitle}"/>
-                                    <TextBox Grid.Row="2" Grid.Column="3" Style="{StaticResource txtStyle}"/>
-                                    <Label Grid.Row="2" Grid.Column="4" Content="BNP：" Style="{StaticResource GridTitle}"/>
-                                    <TextBox Grid.Row="2" Grid.Column="5" Style="{StaticResource txtStyle}"/>
-                                </Grid>
+                                        <Label Grid.Row="1" Grid.Column="0" Content="RR：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                        <Label Grid.Row="1" Grid.Column="2" Content="WBC(B/S)：" Style="{StaticResource GridTitle}"/>
+                                        <StackPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" Orientation="Horizontal">
+                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <Label Content="(" Style="{StaticResource lbl}"/>
+                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <Label Content="/" Style="{StaticResource lbl}"/>
+                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <Label Content=")" Style="{StaticResource lbl}"/>
+                                        </StackPanel>
 
-                                <Label Grid.Row="1" Grid.Column="0" Content="Neurological" Style="{StaticResource GridTitle}"/>
+                                        <Label Grid.Row="2" Grid.Column="0" Content="PCT：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                        <Label Grid.Row="2" Grid.Column="2" Content="Lactate：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="2" Grid.Column="3" Style="{StaticResource txtStyle}"/>
+                                        <Label Grid.Row="2" Grid.Column="4" Content="BNP：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="2" Grid.Column="5" Style="{StaticResource txtStyle}"/>
+                                    </Grid>
+
+                                    <Label Grid.Row="1" Grid.Column="0" Content="Neurological" Style="{StaticResource GridTitle}"/>
+                                    <Grid Grid.Row="1" Grid.Column="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Label Grid.Row="0" Grid.Column="0" Content="GCS(E/V/M)：" Style="{StaticResource GridTitle}"/>
+                                        <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal">
+                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <Label Content="/" Style="{StaticResource lbl}"/>
+                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <Label Content="/" Style="{StaticResource lbl}"/>
+                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                        </StackPanel>
+                                        <Label Grid.Row="0" Grid.Column="4" Content="Albumin：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource txtStyle}"/>
+
+                                        <Label Grid.Row="1" Grid.Column="0" Content="Glucose：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                    </Grid>
+
+                                    <Label Grid.Row="2" Grid.Column="0" Content="ABG" Style="{StaticResource GridTitle}"/>
+                                    <Grid Grid.Row="2" Grid.Column="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Label Grid.Row="0" Grid.Column="0" Content="Arterial pH：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                        <Label Grid.Row="0" Grid.Column="2" Content="PaCO2：" Style="{StaticResource GridTitle}"/>
+                                        <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal">
+                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <Label Content="%" Style="{StaticResource lbl}"/>
+                                        </StackPanel>
+
+                                        <Label Grid.Row="1" Grid.Column="0" Content="PaO2/FiO2：" Style="{StaticResource GridTitle}"/>
+                                        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal">
+                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <Label Content="/" Style="{StaticResource lbl}" />
+                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <Label Content="比值：" Style="{StaticResource lbl}"/>
+                                        </StackPanel>
+                                        <Label Grid.Row="1" Grid.Column="4" Content="HCO3：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="1" Grid.Column="5" Style="{StaticResource txtStyle}"/>
+
+                                        <Label Grid.Row="2" Grid.Column="0" Content="BE：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                        <Label Grid.Row="2" Grid.Column="2" Content="SpO2：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="2" Grid.Column="3" Style="{StaticResource txtStyle}"/>
+                                        <Label Grid.Row="2" Grid.Column="4" Content="HB：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="2" Grid.Column="5" Style="{StaticResource txtStyle}"/>
+
+                                        <Label Grid.Row="3" Grid.Column="0" Content="Hct：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                    </Grid>
+
+                                    <Label Grid.Row="3" Grid.Column="0" Content="Hematology" Style="{StaticResource GridTitle}"/>
+                                    <Grid Grid.Row="3" Grid.Column="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Label Grid.Row="0" Grid.Column="0" Content="Platelet：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                        <Label Grid.Row="0" Grid.Column="2" Content="PT/PT control：" Style="{StaticResource  GridTitle}"/>
+                                        <StackPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3" Orientation="Horizontal">
+                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <Label Content="/" Style="{StaticResource lbl}"/>
+                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                        </StackPanel>
+
+                                        <Label Grid.Row="1" Grid.Column="2" Content="aPTT/aPTT control：" Style="{StaticResource GridTitle}"/>
+                                        <StackPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" Orientation="Horizontal">
+                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <Label Content="/" Style="{StaticResource lbl}"/>
+                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Label Grid.Row="4" Grid.Column="0" Content="Hepatic" Style="{StaticResource GridTitle}"/>
+                                    <Grid Grid.Row="4" Grid.Column="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Label Grid.Row="0" Grid.Column="0" Content="GPT：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                        <Label Grid.Row="0" Grid.Column="2" Content="GOT：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource txtStyle}"/>
+                                        <Label Grid.Row="0" Grid.Column="4" Content="D-bil：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource txtStyle}"/>
+                                        <Label Grid.Row="0" Grid.Column="6" Content="T-bil：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="7" Style="{StaticResource txtStyle}" />
+                                    </Grid>
+
+                                    <Label Grid.Row="5" Grid.Column="0" Content="Renal" Style="{StaticResource GridTitle}"/>
+                                    <Grid Grid.Row="5" Grid.Column="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Label Grid.Row="0" Grid.Column="0" Content="BUN：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                        <Label Grid.Row="0" Grid.Column="2" Content="Cr：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource txtStyle}"/>
+                                        <Label Grid.Row="0" Grid.Column="4" Content="Urine(24Hr)：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource txtStyle}"/>
+                                        <Label Grid.Row="0" Grid.Column="6" Content="Na：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="7" Style="{StaticResource txtStyle}"/>
+
+                                        <Label Grid.Row="1" Grid.Column="0" Content="K：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                        <Label Grid.Row="1" Grid.Column="2" Content="i-Calcium：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource txtStyle}"/>
+                                        <Label Grid.Row="1" Grid.Column="4" Content="T-Calcium：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="1" Grid.Column="5" Style="{StaticResource txtStyle}"/>
+                                    </Grid>
+                                </uc:PaddedGrid>
+
+                                <!--2-->
+                                <Label Grid.Row="1" Grid.Column="0" Content="ICU severity score：" Style="{StaticResource GridTitle}"/>
                                 <Grid Grid.Row="1" Grid.Column="1">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"/>
                                         <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="auto"/>
                                         <RowDefinition Height="auto"/>
                                     </Grid.RowDefinitions>
-                                    
-                                    <Label Grid.Row="0" Grid.Column="0" Content="GCS(E/V/M)：" Style="{StaticResource GridTitle}"/>
-                                    <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal">
-                                        <TextBox Style="{StaticResource txtStyle}"/>
-                                        <Label Content="/" Style="{StaticResource lbl}"/>
-                                        <TextBox Style="{StaticResource txtStyle}"/>
-                                        <Label Content="/" Style="{StaticResource lbl}"/>
-                                        <TextBox Style="{StaticResource txtStyle}"/>
+
+                                    <Label Grid.Row="0" Grid.Column="0" Content="APACHE II：" Style="{StaticResource GridTitle}"/>
+                                    <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                                        <TextBox Style="{StaticResource txtStyle}" Width="69"/>
+                                        <Label Content="檢查資料有缺，故APACHE II分數僅供參考。" Style="{StaticResource lbl}"/>
                                     </StackPanel>
-                                    <Label Grid.Row="0" Grid.Column="4" Content="Albumin：" Style="{StaticResource GridTitle}"/>
-                                    <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource txtStyle}"/>
-                                    
-                                    <Label Grid.Row="1" Grid.Column="0" Content="Glucose：" Style="{StaticResource GridTitle}"/>
-                                    <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtStyle}"/>
-
+                                    <Label Grid.Row="1" Grid.Column="0" Content="TISS：" Style="{StaticResource GridTitle}"/>
+                                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                                        <TextBox Style="{StaticResource txtStyle}" Width="69"/>
+                                        <Label Content="轉入ICU主要原因是Major trauma，請務必填寫此分數。" Style="{StaticResource lbl}"/>
+                                    </StackPanel>
                                 </Grid>
-                                <!--
-                                <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Content="GCS(E/V/M)：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,114,0" HorizontalAlignment="Right" Width="30"/>
-                                <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Content="/" Style="{StaticResource lbl}" Margin="126,0,0,0"/>
-                                <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,69,0" HorizontalAlignment="Right" Width="30"/>
-                                <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Content="/" Style="{StaticResource lbl}" Margin="171,0,0,0"/>
-                                <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,24,0" HorizontalAlignment="Right" Width="30"/>
-                                <Label Grid.Row="3" Grid.Column="3" Content="Albumin：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="3" Grid.Column="3" Margin="0,0,16,0" HorizontalAlignment="Right" Width="30"/>
-                                <Label Grid.Row="3" Grid.Column="4" Content="Glucose：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="3" Grid.Column="4" Margin="0,0,18,0" HorizontalAlignment="Right" Width="30"/>
 
-                                <Label Grid.Row="4" Grid.Column="0" Content="ABG" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="4" Grid.Column="1" Content="Arterial pH：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="4" Grid.Column="1" Margin="0,0,1,0" HorizontalAlignment="Right" Width="30"/>
-                                <Label Grid.Row="4" Grid.Column="2" Content="PaCO2：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="4" Grid.Column="2" Margin="0,0,25,0" HorizontalAlignment="Right" Width="30"/>
-                                <Label Grid.Row="4" Grid.Column="2" Content="%" Style="{StaticResource lbl}" Margin="95,0,0,0"/>
-                                <Label Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Content="PaO2/FiO2：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="4" Grid.Column="3" HorizontalAlignment="Right" Width="30" Grid.ColumnSpan="2" Margin="0,0,121,0"/>
-                                <Label Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Content="/" Style="{StaticResource lbl}" Margin="120,0,0,0"/>
-                                <TextBox Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="30" Margin="0,0,76,0"/>
-                                <Label Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Content="比值：" Style="{StaticResource lbl}" Margin="165,0,0,0"/>
-                                <Label Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Content="XX" Style="{StaticResource lbl}" Margin="215,0,0,0"/>
-                                <Label Grid.Row="5" Grid.Column="1" Content="HCO3：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" Width="30" Margin="0,0,31,0"/>
-                                <Label Grid.Row="5" Grid.Column="2" Content="BE：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="5" Grid.Column="2" HorizontalAlignment="Right" Width="30" Margin="0,0,52,0"/>
-                                <Label Grid.Row="5" Grid.Column="3" Content="SpO2：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="5" Grid.Column="3" HorizontalAlignment="Right" Width="30" Margin="0,0,34,0"/>
-                                <Label Grid.Row="6" Grid.Column="1" Content="HB：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="6" Grid.Column="1" HorizontalAlignment="Right" Width="30" Margin="0,0,49,0"/>
-                                <Label Grid.Row="6" Grid.Column="2" Content="Hct：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="6" Grid.Column="2" HorizontalAlignment="Right" Width="30" Margin="0,0,46,0"/>
-
-                                <Label Grid.Row="7" Grid.Column="0" Content="Hematology" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="7" Grid.Column="1" Content="Platelet：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="7" Grid.Column="1" HorizontalAlignment="Right" Width="30" Margin="0,0,21,0"/>
-                                <Label Grid.Row="7" Grid.Column="2" Content="PT/PT control：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="7" Grid.Column="2" HorizontalAlignment="Right" Width="30" Margin="0,0,105,0" Grid.ColumnSpan="2"/>
-                                <Label Grid.Row="7" Grid.Column="2" Content="/" Style="{StaticResource lbl}" Grid.ColumnSpan="2" Margin="135,0,0,0"/>
-                                <TextBox Grid.Row="7" Grid.Column="2" HorizontalAlignment="Right" Width="30" Margin="0,0,61,0" Grid.ColumnSpan="2"/>
-                                <Label Grid.Row="7" Grid.Column="4" Content="aPTT/aPTT control：" Style="{StaticResource lbl}" Grid.ColumnSpan="2"/>
-                                <TextBox Grid.Row="7" Grid.Column="4" HorizontalAlignment="Right" Width="30" Margin="0,0,76,0" Grid.ColumnSpan="2"/>
-                                <Label Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2" Content="/" Style="{StaticResource lbl}" Margin="0,0,61,0" HorizontalAlignment="Right"/>
-                                <TextBox Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="30" Margin="0,0,31,0"/>
-
-                                <Label Grid.Row="8" Grid.Column="0" Content="Hepatic" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="8" Grid.Column="1" Content="GPT：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="8" Grid.Column="1" HorizontalAlignment="Right" Width="30" Margin="0,0,43,0"/>
-                                <Label Grid.Row="8" Grid.Column="2" Content="GOT：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="8" Grid.Column="2" HorizontalAlignment="Right" Width="30" Margin="0,0,40,0"/>
-                                <Label Grid.Row="8" Grid.Column="3" Content="D-bil：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="8" Grid.Column="3" HorizontalAlignment="Right" Width="30" Margin="0,0,38,0"/>
-                                <Label Grid.Row="8" Grid.Column="4" Content="T-bil：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="8" Grid.Column="4" HorizontalAlignment="Right" Width="30" Margin="0,0,39,0"/>
-
-                                <Label Grid.Row="9" Grid.Column="0" Content="Renal" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="9" Grid.Column="1" Content="BUN：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="9" Grid.Column="1" HorizontalAlignment="Right" Width="30" Margin="0,0,39,0"/>
-                                <Label Grid.Row="9" Grid.Column="2" Content="Cr：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="9" Grid.Column="2" HorizontalAlignment="Right" Width="30" Margin="0,0,53,0"/>
-                                <Label Grid.Row="9" Grid.Column="3" Content="Urine(24Hr)：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="9" Grid.Column="3" HorizontalAlignment="Right" Width="30" Grid.ColumnSpan="2" Margin="0,0,117,0"/>
-                                <Label Grid.Row="10" Grid.Column="1" Content="Na：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="10" Grid.Column="1" HorizontalAlignment="Right" Width="30" Margin="0,0,49,0"/>
-                                <Label Grid.Row="10" Grid.Column="2" Content="K：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="10" Grid.Column="2" HorizontalAlignment="Right" Width="30" Margin="0,0,59,0"/>
-                                <Label Grid.Row="10" Grid.Column="3" Content="i-Calcium：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="10" Grid.Column="3" HorizontalAlignment="Right" Width="30" Margin="0,0,10,0"/>
-                                <Label Grid.Row="10" Grid.Column="4" Content="T-Calcium：" Style="{StaticResource lbl}"/>
-                                <TextBox Grid.Row="10" Grid.Column="4" HorizontalAlignment="Right" Width="30" Margin="0,0,5,0"/>-->
                             </uc:PaddedGrid>
-
-                            <!--2-->
-                            <Label Grid.Row="1" Grid.Column="0" Content="ICU severity score：" Style="{StaticResource GridTitle}"/>
-                            <Grid Grid.Row="1" Grid.Column="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                </Grid.RowDefinitions>
-
-                                <Label Grid.Row="0" Grid.Column="0" Content="APACHE II：" Style="{StaticResource GridTitle}"/>
-                                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
-                                    <TextBox Style="{StaticResource txtStyle}" Width="69"/>
-                                    <Label Content="檢查資料有缺，故APACHE II分數僅供參考。" Style="{StaticResource lbl}"/>
-                                </StackPanel>
-                                <Label Grid.Row="1" Grid.Column="0" Content="TISS：" Style="{StaticResource GridTitle}"/>
-                                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-                                    <TextBox Style="{StaticResource txtStyle}" Width="69"/>
-                                    <Label Content="轉入ICU主要原因是Major trauma，請務必填寫此分數。" Style="{StaticResource lbl}"/>
-                                </StackPanel>
-                            </Grid>
-
-                        </uc:PaddedGrid>
-                    </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
                 </TabItem>
             </TabControl>
         </Grid>
