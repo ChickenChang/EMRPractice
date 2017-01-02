@@ -183,14 +183,10 @@ namespace EMRPractice
                     {
                         //修改
                         lvSurgery.IsEnabled = false;
-<<<<<<< HEAD
-                        pg.IsEnabled = true;
-=======
                         pgSurgeryModify.IsEnabled = true;
 
                         surgery = lvSurgery.SelectedItem as Surgery;
-
->>>>>>> origin/master
+                        
                     }
                     break;
                 case Key.Escape:
@@ -214,7 +210,7 @@ namespace EMRPractice
                                 var value = lvSurgery.SelectedValue;
                                 Surgery obj = new EMRPractice.Surgery
                                 {
-                                    surgeryTime = dpSurgeryTime.Text,
+                                    //surgeryTime = dpSurgeryTime.Text,
                                     diagnosis = tvDignosis.Text,
                                     surgeryName = tvSurgeryName.Text,
                                     surgeryEvaluation = tvSurgeryEvaluation.Text
