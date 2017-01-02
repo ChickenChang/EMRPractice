@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HAMI.ModelLayer.UsrControl;
+using System.Collections.ObjectModel;
 
 namespace EMRPractice
 {
@@ -23,12 +24,19 @@ namespace EMRPractice
     {
 
         ViewModel vm;
+
+        public List<Surgery> MemberCollect = new List<Surgery>();
+
         public MainWindow()
         {
             InitializeComponent();
 
+            btnPrevious.IsEnabled = false;
+            lvSurgery.IsEnabled = false;
+            this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
+
             vm = new ViewModel();
-             var Subject = new List<ucRadioButtonDTO>();
+            var Subject = new List<ucRadioButtonDTO>();
             Subject.Add(new ucRadioButtonDTO { ItemNo = 1, DisplayName = "ㄧ般外科", Value = "val_1" });
             Subject.Add(new ucRadioButtonDTO { ItemNo = 2, DisplayName = "婦產科", Value = "val_2" });
             Subject.Add(new ucRadioButtonDTO { ItemNo = 3, DisplayName = "骨科", Value = "val_3" });
@@ -75,6 +83,170 @@ namespace EMRPractice
             this.ucRB_DiseaseHistory.ItemList = DiseaseHistory;
             //this.DataContext =  vm;
 
+            //MemberCollect.Add(new Surgery()
+            //{
+            //    surgeryTime = "2017/01/01",
+            //    surgeryName = "腦部手術",
+            //    Division = "腦部外科",
+            //    surgeryType = "開刀",
+            //    surgeryDoctor = "丁勝利",
+            //    diagnosis = "腦內出血，沒救了"
+            //});
+            ListViewItem_Refresh();
+
         }
+        void ListViewItem_Refresh()
+        {
+            lvSurgery.Items.Clear();
+            foreach (Surgery m in MemberCollect)
+            {
+                lvSurgery.Items.Add(m);
+            }
+            Surgery s = new Surgery();
+            s.surgeryTime = "新增";
+            lvSurgery.Items.Add(s);
+        }
+
+        void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            Surgery surgery = lvSurgery.SelectedItem as Surgery;
+            switch (e.Key)
+            {
+                case Key.F1:
+                    tcMain.SelectedIndex = 0;
+                    break;
+                case Key.F2:
+                    tcMain.SelectedIndex = 1;
+                    break;
+                case Key.F3:
+                    tcMain.SelectedIndex = 2;
+                    break;
+                case Key.F4:
+                    tcMain.SelectedIndex = 3;
+                    break;
+                case Key.F5:
+                    MemberCollect.Add(new Surgery()
+                    {
+                        surgeryTime = "2017/01/02",
+                        surgeryName = "腦部手術",
+                        Division = "腦部外科",
+                        surgeryType = "開刀",
+                        surgeryDoctor = "丁勝利",
+                        diagnosis = "腦內出血，沒救了"
+                    });
+                    ListViewItem_Refresh();
+                    break;
+                case Key.Delete:
+                    MemberCollect.Remove(surgery);
+                    ListViewItem_Refresh();
+                    lvSurgery.SelectedIndex = 0;
+                    lvSurgery.Focus();
+                    break;
+                case Key.Enter:
+                    if (surgery.surgeryTime.Equals("新增"))
+                    {
+                        //新增
+                        lvSurgery.IsEnabled = false;
+                        pg.IsEnabled = true;
+
+                        dpSurgeryTime.Text = "";
+                        tvDignosis.Text = "";
+                        tvSurgeryName.Text = "";
+                        tvSurgeryEvaluation.Text = "";
+                    }
+                    else
+                    {
+                        //修改
+                        lvSurgery.IsEnabled = false;
+                        pg.IsEnabled = true;
+
+                        surgery = lvSurgery.SelectedItem as Surgery;
+
+                    }
+                    break;
+                case Key.Escape:
+                    //離開
+                    if (pg.IsEnabled == true && tcMain.SelectedIndex == 1)
+                    {
+                        lvSurgery.IsEnabled = true;
+                        pg.IsEnabled = false;
+                        MessageBoxResult result = MessageBox.Show("是否要存檔?", "警告", MessageBoxButton.YesNo);
+                        switch (result)
+                        {
+                            case MessageBoxResult.Yes:
+                                //surgery = lvSurgery.SelectedItem as Surgery;
+                                //MemberCollect.Find
+                                break;
+                            case MessageBoxResult.No:
+                                break;
+                        }
+                        lvSurgery.SelectedIndex = 0;
+                        lvSurgery.Focus();
+                    }
+                    
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void btnClick(object sender, RoutedEventArgs e)
+        {
+            switch (((Button)sender).Name)
+            {
+                case "btnPrevious":
+                    tcMain.SelectedIndex = tcMain.SelectedIndex - 1;
+                    break;
+                case "btnNext":
+                    tcMain.SelectedIndex = tcMain.SelectedIndex + 1;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+
+
+        private void tcMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (tcMain.SelectedIndex == 0)
+            {
+                btnPrevious.IsEnabled = false;
+                btnNext.IsEnabled = true;
+            }
+            else if (tcMain.SelectedIndex == 3)
+            {
+                btnPrevious.IsEnabled = true;
+                btnNext.IsEnabled = false;
+            }
+            else
+            {
+                btnPrevious.IsEnabled = true;
+                btnNext.IsEnabled = true;
+            }
+        }
+
+        private void lvSurgery_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Surgery surgery = lvSurgery.SelectedItem as Surgery;
+            if (surgery != null)
+            {
+                dpSurgeryTime.Text = surgery.surgeryTime;
+                tvDignosis.Text = surgery.diagnosis;
+                tvSurgeryName.Text = surgery.surgeryName;
+                tvSurgeryEvaluation.Text = surgery.surgeryEvaluation;
+            }
+        }
+    }
+
+    public class Surgery
+    {
+        public string surgeryTime { get; set; }
+        public string surgeryName { get; set; }
+        public string Division { get; set; }
+        public string surgeryType { get; set; }
+        public string surgeryDoctor { get; set; }
+        public string diagnosis { get; set; }
+        public string surgeryEvaluation { get; set; }
     }
 }
