@@ -8,16 +8,16 @@
              d:DesignHeight="270" d:DesignWidth="480">
     <Grid>
         <StackPanel Orientation="Horizontal">
-            <TextBox x:Name="txtYear" Width="50" Style="{StaticResource txtStyle}" PreviewTextInput="PreviewTextInput"/>
+            <TextBox x:Name="txtYear" Width="50" Style="{StaticResource txtBaseStyle}" PreviewTextInput="PreviewTextInput"/>
             <Label Content="/" />
-            <TextBox x:Name="txtMonth" Width="30" Style="{StaticResource txtStyle}" PreviewTextInput="PreviewTextInput"/>
+            <TextBox x:Name="txtMonth" Width="30" Style="{StaticResource txtBaseStyle}" PreviewTextInput="PreviewTextInput"/>
             <Label Content="/" />
-            <TextBox x:Name="txtDay" Width="30" Style="{StaticResource txtStyle}" PreviewTextInput="PreviewTextInput"/>
+            <TextBox x:Name="txtDay" Width="30" Style="{StaticResource txtBaseStyle}" PreviewTextInput="PreviewTextInput"/>
             <Label Content="    " />
             <StackPanel x:Name="TimeRegion" Orientation="Horizontal">
-                <TextBox x:Name="txtHour" Width="30"    Style="{StaticResource txtStyle}" PreviewTextInput="PreviewTextInput"/>
+                <TextBox x:Name="txtHour" Width="30"    Style="{StaticResource txtBaseStyle}" PreviewTextInput="PreviewTextInput"/>
                 <Label Content="：" />
-                <TextBox x:Name="txtMinute" Width="30" Style="{StaticResource txtStyle}" PreviewTextInput="PreviewTextInput" />
+                <TextBox x:Name="txtMinute" Width="30" Style="{StaticResource txtBaseStyle}" PreviewTextInput="PreviewTextInput" />
             </StackPanel>
         </StackPanel>
     </Grid>

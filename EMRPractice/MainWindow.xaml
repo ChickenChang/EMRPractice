@@ -25,8 +25,8 @@
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
 
-
-            <TabControl x:Name="tcMain" Grid.Row="1" SelectionChanged="tcMain_SelectionChanged">
+            <TabControl x:Name="tcMain" Grid.Row="1" SelectionChanged="tcMain_SelectionChanged" Margin="5,0,0,0">
+                <!--入住資訊-->
                 <TabItem Header="#入住資訊" Style="{StaticResource TabItem}">
                     <StackPanel>
                         <uc:PaddedGrid Padding="10" ShowGridLines="False">
@@ -43,7 +43,7 @@
                                 <RowDefinition Height="auto"/>
                             </Grid.RowDefinitions>
 
-                            <!--1-->
+                            <!--基本資料-->
                             <Label Grid.Row="0" Grid.Column="0" Content="基本資料：" Style="{StaticResource GridTitle}"/>
                             <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
                                 <Grid.ColumnDefinitions>
@@ -59,46 +59,38 @@
 
                                 <Label Grid.Row="0" Grid.Column="0" Content="病歷號：" Style="{StaticResource  GridTitle}"/>
                                 <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
-                                    <TextBox Style="{StaticResource txtStyle}" Width="100"/>
+                                    <TextBox x:Name="txtMRID" Style="{StaticResource txtBaseStyle}" Width="100"/>
                                     <Label Content="姓名：" Style="{StaticResource lbl}" HorizontalContentAlignment="Right"/>
-                                    <Label Content="王小明" Style="{StaticResource lbl}" HorizontalContentAlignment="Left"/>
+                                    <Label x:Name="lblName" Content="王小明" Style="{StaticResource lbl}" HorizontalContentAlignment="Left"/>
                                     <Label Content="性別：" Style="{StaticResource lbl}" HorizontalContentAlignment="Right"/>
-                                    <Label Content="男" Style="{StaticResource lbl}" HorizontalContentAlignment="Left"/>
+                                    <Label x:Name="lblGender" Content="男" Style="{StaticResource lbl}" HorizontalContentAlignment="Left"/>
                                 </StackPanel>
 
                                 <Label Grid.Row="1" Grid.Column="0" Content="入ICU時間：" Style="{StaticResource GridTitle}" Width="81"/>
                                 <uc:DateTimeBlock Grid.Row="1" Grid.Column="1" />
 
                                 <Label Grid.Row="2" Grid.Column="0" Content="來源單位：" Style="{StaticResource GridTitle}" Width="73"/>
-                                <uc:ucRadioButton Grid.Row="2" Grid.Column="1" Name="ucRB_SourceUnit" />
+                                <uc:ucRadioButton Grid.Row="2" Grid.Column="1" Name="rbSourceUnit" />
                             </Grid>
 
-                            <!--2-->
+                            <!--科別-->
                             <Label Grid.Row="1" Grid.Column="0" Content="科別：" Style="{StaticResource GridTitle}"/>
+                            <uc:ucRadioButton Grid.Row="1" Grid.Column="1" x:Name="rbSubect_ImportInfoTab" Grid.ColumnSpan="3"/>
 
-                            <uc:ucRadioButton Grid.Row="1" Grid.Column="1" Name="ucRB_Subect0" Grid.ColumnSpan="3"/>
-
-                            <!--3-->
+                            <!--醫師-->
                             <Label Grid.Row="2" Grid.Column="0" Content="醫師：" Style="{StaticResource GridTitle}"/>
-                            <uc:ucRadioButton Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" />
-
+                            <uc:ucRadioButton Grid.Row="2" Grid.Column="1" x:Name="rbDoctor_ImportInfoTab" Grid.ColumnSpan="3" />
                         </uc:PaddedGrid>
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="#2" Style="{StaticResource TabItem}">
-                    <StackPanel>
-                        <uc:PaddedGrid Padding="10" ShowGridLines="False" Height="120">
-                            <!--<DataGrid x:Name ="dataGrid" ItemsSource ="{Binding}" AutoGenerateColumns ="False" IsReadOnly="True">
-                                <DataGrid.Columns >
-                                    <DataGridTextColumn Header ="手術日期" Width ="100" Binding ="{ Binding surgeryTime }"/>
-                                    <DataGridTextColumn Header ="手術名稱" Width ="100" Binding ="{ Binding surgeryName }"/>
-                                    <DataGridTextColumn Header ="科別" Width ="100" Binding ="{ Binding Division }"/>
-                                    <DataGridTextColumn Header ="手術種類" Width ="100" Binding ="{ Binding surgeryType }"/>
-                                </DataGrid.Columns>
-                            </DataGrid>-->
-                            <ListView x:Name ="lvSurgery" SelectionChanged="lvSurgery_SelectionChanged">
-                            <ListView.View>
-                                <GridView>
+                <!--診斷與手術名稱-->
+                <TabItem Header="#診斷與手術名稱" Style="{StaticResource TabItem}">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <!--手術 ListView-->
+                            <ListView x:Name ="lvSurgery" SelectionChanged="lvSurgery_SelectionChanged" Margin="10,10,10,0" Height="120">
+                                <ListView.View>
+                                    <GridView>
                                         <GridViewColumn Header="手術日期" Width="100"
                                         DisplayMemberBinding="{Binding surgeryTime}"/>
                                         <GridViewColumn Header="手術名稱" Width="100"
@@ -108,92 +100,59 @@
                                         <GridViewColumn Header="手術種類" Width="100"
                                         DisplayMemberBinding="{Binding surgeryType}"/>
                                     </GridView>
-                            </ListView.View>
+                                </ListView.View>
                             </ListView>
+                            <!--修改區塊-->
+                            <uc:PaddedGrid x:Name="pgSurgeryModify" Margin="10,5,10,0" Padding="5" ShowGridLines="False">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
 
-                        </uc:PaddedGrid>
-                        <uc:PaddedGrid x:Name="pg" Padding="5" ShowGridLines="False">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"></ColumnDefinition>
-                                <ColumnDefinition Width="3*"></ColumnDefinition>
-                                <ColumnDefinition Width="1*"></ColumnDefinition>
-                                <ColumnDefinition Width="3*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                            </Grid.RowDefinitions>
+                                <!--手術種類&手術日期-->
+                                <Label Grid.Row="0" Grid.Column="0" Content="手術種類：" Style="{StaticResource GridTitle}" />
+                                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                                    <RadioButton GroupName="SurgeryType" Content="Emergent" IsChecked="True"/>
+                                    <RadioButton GroupName="SurgeryType" Content="Elective" Margin="5,0,0,0"/>
+                                </StackPanel>
+                                <Label Grid.Row="0" Grid.Column="2" Content="手術日期：" Style="{StaticResource GridTitle}"/>
+                                <uc:DateTimeBlock Grid.Row="0" Grid.Column="3" ShowTimeRegion="False" />
 
-                            <!--1-->
-                            <Label Grid.Row="0" Grid.Column="0" Content="手術種類：" Style="{StaticResource GridTitle}" />
-                            <uc:PaddedGrid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" />
+                                <!--科別-->
+                                <Label Grid.Row="1" Grid.Column="0" Content="科別：" Style="{StaticResource GridTitle}"/>
+                                <uc:ucRadioButton Grid.Row="1" Grid.Column="1" x:Name="rbSubject_SurgeryTab" Grid.ColumnSpan="3" />
 
-                            <Label Grid.Row="0" Grid.Column="2" Content="手術日期：" Style="{StaticResource GridTitle}"/>
-                            <DatePicker x:Name="dpSurgeryTime" Grid.Row="0" Grid.Column="3" />
+                                <!--醫師-->
+                                <Label Grid.Row="2" Grid.Column="0" Content="醫師：" Style="{StaticResource GridTitle}"/>
+                                <uc:ucRadioButton Grid.Row="2" Grid.Column="1" x:Name="rbDoctor_SurgeryTab" Grid.ColumnSpan="3" />
 
-                            <!--2-->
-                            <Label Grid.Row="1" Grid.Column="0" Content="科別：" Style="{StaticResource GridTitle}"/>
-                            <uc:ucRadioButton Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" />
+                                <!--一般診斷-->
+                                <Label Grid.Row="3" Grid.Column="0" Content="一般診斷：" Style="{StaticResource GridTitle}"/>
+                                <TextBox x:Name="tvDignosis" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource txtLargeTextArea}" />
 
-                            <!--3-->
-                            <Label Grid.Row="2" Grid.Column="0" Content="醫師：" Style="{StaticResource GridTitle}"/>
-                            <uc:ucRadioButton Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" />
+                                <!--手術名稱-->
+                                <Label Grid.Row="4" Grid.Column="0" Content="手術名稱：" Style="{StaticResource GridTitle}" />
+                                <TextBox x:Name="tvSurgeryName" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource txtLargeTextArea}"/>
 
-                            <!--4-->
-                            <Label Grid.Row="3" Grid.Column="0" Content="一般診斷：" Style="{StaticResource GridTitle}"/>
-                            <TextBox x:Name="tvDignosis" Grid.Row="3" Grid.Column="1" Height="60" Grid.ColumnSpan="3" />
-
-                            <!--5-->
-                            <Label Grid.Row="4" Grid.Column="0" Content="手術名稱：" Style="{StaticResource GridTitle}" />
-                            <TextBox x:Name="tvSurgeryName" Grid.Row="4" Grid.Column="1" Height="60" Grid.ColumnSpan="3"/>
-
-                            <!--6-->
-                            <Label Grid.Row="5" Grid.Column="0" Content="術後評估：" Style="{StaticResource GridTitle}" />
-                            <TextBox x:Name="tvSurgeryEvaluation" Grid.Row="5" Grid.Column="1" Height="60" Grid.ColumnSpan="3"/>
-
-                        </uc:PaddedGrid>
-
-                    </StackPanel>
+                                <!--術後評估-->
+                                <Label Grid.Row="5" Grid.Column="0" Content="術後評估：" Style="{StaticResource GridTitle}" />
+                                <TextBox x:Name="tvSurgeryEvaluation" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource txtLargeTextArea}"/>
+                            </uc:PaddedGrid>
+                        </StackPanel>
+                    </ScrollViewer>
                 </TabItem>
+                <!--轉入主因 & 重大病史-->
                 <TabItem Header="#轉入主因 &amp; 重大病史" Style="{StaticResource TabItem}">
-                    <StackPanel>
-                        <uc:PaddedGrid Padding="10" ShowGridLines="False">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                            </Grid.RowDefinitions>
-
-                            <!--1-->
-                            <Label Grid.Row="0" Grid.Column="0" Content="轉入ICU主因：" Style="{StaticResource GridTitle}"/>
-                            <uc:ucRadioButton Grid.Row="0" Grid.Column="1" x:Name="ucRB_ImportReason" ItemsInRow="3" />
-
-                            <!--2-->
-                            <Label Grid.Row="1" Grid.Column="0" Content="主訴(C.C.)：" Style="{StaticResource GridTitle}"/>
-                            <TextBox Grid.Row="1" Grid.Column="1" Height="auto" MinHeight="60" Style="{StaticResource txtStyle}" HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
-
-                            <!--3-->
-                            <Label Grid.Row="2" Grid.Column="0" Content="現況病史(P.I.)：" Style="{StaticResource GridTitle}"/>
-                            <TextBox Grid.Row="2" Grid.Column="1" Height="auto" MinHeight="60" Style="{StaticResource txtStyle}" HorizontalAlignment="Stretch" TextWrapping="Wrap"/>
-
-                            <!--4-->
-                            <Label Grid.Row="3" Grid.Column="0" Content="過去重大病史：" Style="{StaticResource GridTitle}"/>
-                            <uc:ucRadioButton Grid.Row="3" Grid.Column="1" x:Name="ucRB_DiseaseHistory" />
-
-                        </uc:PaddedGrid>
-                    </StackPanel>
-                </TabItem>
-
-                <TabItem Header="#狀況評估" Style="{StaticResource TabItem}">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <StackPanel>
                             <uc:PaddedGrid Padding="10" ShowGridLines="False">
@@ -204,9 +163,44 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
 
-                                <!--1-->
+                                <!--轉入ICU主因-->
+                                <Label Grid.Row="0" Grid.Column="0" Content="轉入ICU主因：" Style="{StaticResource GridTitle}"/>
+                                <uc:ucRadioButton Grid.Row="0" Grid.Column="1" x:Name="rbImportReason" ItemsInRow="3" />
+
+                                <!--主訴(C.C.)-->
+                                <Label Grid.Row="1" Grid.Column="0" Content="主訴(C.C.)：" Style="{StaticResource GridTitle}"/>
+                                <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtCC" Style="{StaticResource txtLargeTextArea}"/>
+
+                                <!--現況病史(P.I.)-->
+                                <Label Grid.Row="2" Grid.Column="0" Content="現況病史(P.I.)：" Style="{StaticResource GridTitle}"/>
+                                <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtPI" Style="{StaticResource txtLargeTextArea}" />
+
+                                <!--過去重大病史-->
+                                <Label Grid.Row="3" Grid.Column="0" Content="過去重大病史：" Style="{StaticResource GridTitle}"/>
+                                <uc:ucRadioButton Grid.Row="3" Grid.Column="1" x:Name="rbDiseaseHistory" />
+                            </uc:PaddedGrid>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <!--狀況評估-->
+                <TabItem Header="#狀況評估" Style="{StaticResource TabItem}">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <uc:PaddedGrid Padding="5" ShowGridLines="False">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+
+                                <!--轉入前24hr內最差狀況-->
                                 <Label Grid.Row="0" Grid.Column="0" Content="轉入前24hr內最差狀況：" Style="{StaticResource GridTitle}"/>
                                 <uc:PaddedGrid Padding="5" Grid.Row="0" Grid.Column="1">
                                     <Grid.ColumnDefinitions>
@@ -222,9 +216,12 @@
                                         <RowDefinition Height="auto"/>
                                     </Grid.RowDefinitions>
 
+                                    <!--Hemodynamics-->
                                     <Label Grid.Row="0" Grid.Column="0" Content="Hemodynamics" Style="{StaticResource GridTitle}"/>
                                     <Grid Grid.Row="0" Grid.Column="1">
                                         <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="auto"/>
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="auto"/>
@@ -239,32 +236,33 @@
                                         </Grid.RowDefinitions>
 
                                         <Label Grid.Row="0" Grid.Column="0" Content="BT：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtSignInput}"/>
                                         <Label Grid.Row="0" Grid.Column="2" Content="HR：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource txtSignInput}"/>
                                         <Label Grid.Row="0" Grid.Column="4" Content="SBP/DBP (MAP)：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource txtStyle}" />
-
-                                        <Label Grid.Row="1" Grid.Column="0" Content="RR：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtStyle}"/>
-                                        <Label Grid.Row="1" Grid.Column="2" Content="WBC(B/S)：" Style="{StaticResource GridTitle}"/>
-                                        <StackPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" Orientation="Horizontal">
-                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource txtSignInput}" />
+                                        <Label Grid.Row="0" Grid.Column="6" Content="RR：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="7" Style="{StaticResource txtSignInput}"/>
+                                        
+                                        <Label Grid.Row="1" Grid.Column="0" Content="WBC(B/S)：" Style="{StaticResource GridTitle}"/>
+                                        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal">
+                                            <TextBox Style="{StaticResource txtSignInput}"/>
                                             <Label Content="(" Style="{StaticResource lbl}"/>
-                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <TextBox Style="{StaticResource txtSignInput}"/>
                                             <Label Content="/" Style="{StaticResource lbl}"/>
-                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <TextBox Style="{StaticResource txtSignInput}"/>
                                             <Label Content=")" Style="{StaticResource lbl}"/>
                                         </StackPanel>
 
                                         <Label Grid.Row="2" Grid.Column="0" Content="PCT：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txtSignInput}"/>
                                         <Label Grid.Row="2" Grid.Column="2" Content="Lactate：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="2" Grid.Column="3" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="2" Grid.Column="3" Style="{StaticResource txtSignInput}"/>
                                         <Label Grid.Row="2" Grid.Column="4" Content="BNP：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="2" Grid.Column="5" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="2" Grid.Column="5" Style="{StaticResource txtSignInput}"/>
                                     </Grid>
 
+                                    <!--Neurological-->
                                     <Label Grid.Row="1" Grid.Column="0" Content="Neurological" Style="{StaticResource GridTitle}"/>
                                     <Grid Grid.Row="1" Grid.Column="1">
                                         <Grid.ColumnDefinitions>
@@ -282,22 +280,25 @@
 
                                         <Label Grid.Row="0" Grid.Column="0" Content="GCS(E/V/M)：" Style="{StaticResource GridTitle}"/>
                                         <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal">
-                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <TextBox Style="{StaticResource txtSignInput}"/>
                                             <Label Content="/" Style="{StaticResource lbl}"/>
-                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <TextBox Style="{StaticResource txtSignInput}"/>
                                             <Label Content="/" Style="{StaticResource lbl}"/>
-                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <TextBox Style="{StaticResource txtSignInput}"/>
                                         </StackPanel>
                                         <Label Grid.Row="0" Grid.Column="4" Content="Albumin：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource txtSignInput}"/>
 
                                         <Label Grid.Row="1" Grid.Column="0" Content="Glucose：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtSignInput}"/>
                                     </Grid>
-
+                                    
+                                    <!--ABG-->
                                     <Label Grid.Row="2" Grid.Column="0" Content="ABG" Style="{StaticResource GridTitle}"/>
                                     <Grid Grid.Row="2" Grid.Column="1">
                                         <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="auto"/>
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="auto"/>
@@ -309,38 +310,37 @@
                                             <RowDefinition Height="auto"/>
                                             <RowDefinition Height="auto"/>
                                             <RowDefinition Height="auto"/>
-                                            <RowDefinition Height="auto"/>
                                         </Grid.RowDefinitions>
 
                                         <Label Grid.Row="0" Grid.Column="0" Content="Arterial pH：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtSignInput}"/>
                                         <Label Grid.Row="0" Grid.Column="2" Content="PaCO2：" Style="{StaticResource GridTitle}"/>
                                         <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal">
-                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <TextBox Style="{StaticResource txtSignInput}"/>
                                             <Label Content="%" Style="{StaticResource lbl}"/>
                                         </StackPanel>
 
                                         <Label Grid.Row="1" Grid.Column="0" Content="PaO2/FiO2：" Style="{StaticResource GridTitle}"/>
                                         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal">
-                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <TextBox Style="{StaticResource txtSignInput}"/>
                                             <Label Content="/" Style="{StaticResource lbl}" />
-                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <TextBox Style="{StaticResource txtSignInput}"/>
                                             <Label Content="比值：" Style="{StaticResource lbl}"/>
                                         </StackPanel>
                                         <Label Grid.Row="1" Grid.Column="4" Content="HCO3：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="1" Grid.Column="5" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="1" Grid.Column="5" Style="{StaticResource txtSignInput}"/>
 
                                         <Label Grid.Row="2" Grid.Column="0" Content="BE：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txtSignInput}"/>
                                         <Label Grid.Row="2" Grid.Column="2" Content="SpO2：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="2" Grid.Column="3" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="2" Grid.Column="3" Style="{StaticResource txtSignInput}"/>
                                         <Label Grid.Row="2" Grid.Column="4" Content="HB：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="2" Grid.Column="5" Style="{StaticResource txtStyle}"/>
-
-                                        <Label Grid.Row="3" Grid.Column="0" Content="Hct：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="2" Grid.Column="5" Style="{StaticResource txtSignInput}"/>
+                                        <Label Grid.Row="2" Grid.Column="6" Content="Hct：" Style="{StaticResource GridTitle}"/>
+                                        <TextBox Grid.Row="2" Grid.Column="7" Style="{StaticResource txtSignInput}"/>
                                     </Grid>
 
+                                    <!--Hematology-->
                                     <Label Grid.Row="3" Grid.Column="0" Content="Hematology" Style="{StaticResource GridTitle}"/>
                                     <Grid Grid.Row="3" Grid.Column="1">
                                         <Grid.ColumnDefinitions>
@@ -357,22 +357,23 @@
                                         </Grid.RowDefinitions>
 
                                         <Label Grid.Row="0" Grid.Column="0" Content="Platelet：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtSignInput}"/>
                                         <Label Grid.Row="0" Grid.Column="2" Content="PT/PT control：" Style="{StaticResource  GridTitle}"/>
                                         <StackPanel Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3" Orientation="Horizontal">
-                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <TextBox Style="{StaticResource txtSignInput}"/>
                                             <Label Content="/" Style="{StaticResource lbl}"/>
-                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <TextBox Style="{StaticResource txtSignInput}"/>
                                         </StackPanel>
 
                                         <Label Grid.Row="1" Grid.Column="2" Content="aPTT/aPTT control：" Style="{StaticResource GridTitle}"/>
                                         <StackPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" Orientation="Horizontal">
-                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <TextBox Style="{StaticResource txtSignInput}"/>
                                             <Label Content="/" Style="{StaticResource lbl}"/>
-                                            <TextBox Style="{StaticResource txtStyle}"/>
+                                            <TextBox Style="{StaticResource txtSignInput}"/>
                                         </StackPanel>
                                     </Grid>
-
+                                    
+                                    <!--Hepatic-->
                                     <Label Grid.Row="4" Grid.Column="0" Content="Hepatic" Style="{StaticResource GridTitle}"/>
                                     <Grid Grid.Row="4" Grid.Column="1">
                                         <Grid.ColumnDefinitions>
@@ -390,15 +391,16 @@
                                         </Grid.RowDefinitions>
 
                                         <Label Grid.Row="0" Grid.Column="0" Content="GPT：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtSignInput}"/>
                                         <Label Grid.Row="0" Grid.Column="2" Content="GOT：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource txtSignInput}"/>
                                         <Label Grid.Row="0" Grid.Column="4" Content="D-bil：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource txtSignInput}"/>
                                         <Label Grid.Row="0" Grid.Column="6" Content="T-bil：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="0" Grid.Column="7" Style="{StaticResource txtStyle}" />
+                                        <TextBox Grid.Row="0" Grid.Column="7" Style="{StaticResource txtSignInput}" />
                                     </Grid>
 
+                                    <!--Renal-->
                                     <Label Grid.Row="5" Grid.Column="0" Content="Renal" Style="{StaticResource GridTitle}"/>
                                     <Grid Grid.Row="5" Grid.Column="1">
                                         <Grid.ColumnDefinitions>
@@ -417,24 +419,24 @@
                                         </Grid.RowDefinitions>
 
                                         <Label Grid.Row="0" Grid.Column="0" Content="BUN：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtSignInput}"/>
                                         <Label Grid.Row="0" Grid.Column="2" Content="Cr：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource txtSignInput}"/>
                                         <Label Grid.Row="0" Grid.Column="4" Content="Urine(24Hr)：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource txtSignInput}"/>
                                         <Label Grid.Row="0" Grid.Column="6" Content="Na：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="0" Grid.Column="7" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="0" Grid.Column="7" Style="{StaticResource txtSignInput}"/>
 
                                         <Label Grid.Row="1" Grid.Column="0" Content="K：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtSignInput}"/>
                                         <Label Grid.Row="1" Grid.Column="2" Content="i-Calcium：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource txtSignInput}"/>
                                         <Label Grid.Row="1" Grid.Column="4" Content="T-Calcium：" Style="{StaticResource GridTitle}"/>
-                                        <TextBox Grid.Row="1" Grid.Column="5" Style="{StaticResource txtStyle}"/>
+                                        <TextBox Grid.Row="1" Grid.Column="5" Style="{StaticResource txtSignInput}"/>
                                     </Grid>
                                 </uc:PaddedGrid>
 
-                                <!--2-->
+                                <!--ICU severity score-->
                                 <Label Grid.Row="1" Grid.Column="0" Content="ICU severity score：" Style="{StaticResource GridTitle}"/>
                                 <Grid Grid.Row="1" Grid.Column="1">
                                     <Grid.ColumnDefinitions>
@@ -446,18 +448,20 @@
                                         <RowDefinition Height="auto"/>
                                     </Grid.RowDefinitions>
 
+                                    <!--APACHE II-->
                                     <Label Grid.Row="0" Grid.Column="0" Content="APACHE II：" Style="{StaticResource GridTitle}"/>
                                     <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
-                                        <TextBox Style="{StaticResource txtStyle}" Width="69"/>
+                                        <TextBox Style="{StaticResource txtBaseStyle}" Width="69"/>
                                         <Label Content="檢查資料有缺，故APACHE II分數僅供參考。" Style="{StaticResource lbl}"/>
                                     </StackPanel>
+
+                                    <!--TISS-->
                                     <Label Grid.Row="1" Grid.Column="0" Content="TISS：" Style="{StaticResource GridTitle}"/>
                                     <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-                                        <TextBox Style="{StaticResource txtStyle}" Width="69"/>
+                                        <TextBox Style="{StaticResource txtBaseStyle}" Width="69"/>
                                         <Label Content="轉入ICU主要原因是Major trauma，請務必填寫此分數。" Style="{StaticResource lbl}"/>
                                     </StackPanel>
                                 </Grid>
-
                             </uc:PaddedGrid>
                         </StackPanel>
                     </ScrollViewer>

@@ -76,11 +76,30 @@ namespace EMRPractice
             DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 9, DisplayName = "ESRD", Value = "val_9" });
             DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 10, DisplayName = "Liver cirrhosis", Value = "val_10" });
             DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 11, DisplayName = "Steroid use", Value = "val_11" });
+            var Doctor = new List<ucRadioButtonDTO>();
+            Doctor.Add(new ucRadioButtonDTO { ItemNo = 1, DisplayName = "醫師1", Value = "val_1" });
+            Doctor.Add(new ucRadioButtonDTO { ItemNo = 2, DisplayName = "醫師2", Value = "val_2" });
+            Doctor.Add(new ucRadioButtonDTO { ItemNo = 3, DisplayName = "醫師3", Value = "val_3" });
+            Doctor.Add(new ucRadioButtonDTO { ItemNo = 4, DisplayName = "醫師4", Value = "val_4" });
+            Doctor.Add(new ucRadioButtonDTO { ItemNo = 5, DisplayName = "醫師5", Value = "val_5" });
+            Doctor.Add(new ucRadioButtonDTO { ItemNo = 6, DisplayName = "醫師6", Value = "val_6" });
+            Doctor.Add(new ucRadioButtonDTO { ItemNo = 7, DisplayName = "醫師7", Value = "val_7" });
+            Doctor.Add(new ucRadioButtonDTO { ItemNo = 8, DisplayName = "醫師8", Value = "val_8" });
+            Doctor.Add(new ucRadioButtonDTO { ItemNo = 9, DisplayName = "醫師9", Value = "val_9" });
+            Doctor.Add(new ucRadioButtonDTO { ItemNo = 10, DisplayName = "醫師10", Value = "val_10" });
+            Doctor.Add(new ucRadioButtonDTO { ItemNo = 11, DisplayName = "醫師11", Value = "val_11" });
 
-            this.ucRB_Subect0.ItemList = Subject;
-            this.ucRB_SourceUnit.ItemList = SourceUnit;
-            this.ucRB_ImportReason.ItemList = ImportReason;
-            this.ucRB_DiseaseHistory.ItemList = DiseaseHistory;
+            this.rbSubect_ImportInfoTab.ItemList = Subject;
+            this.rbSubject_SurgeryTab.ItemList = Subject;
+
+            this.rbSourceUnit.ItemList = SourceUnit;
+
+            this.rbImportReason.ItemList = ImportReason;
+
+            this.rbDiseaseHistory.ItemList = DiseaseHistory;
+
+            this.rbDoctor_ImportInfoTab.ItemList = Doctor;
+            this.rbDoctor_SurgeryTab.ItemList = Doctor;
             //this.DataContext =  vm;
 
             //MemberCollect.Add(new Surgery()
@@ -147,9 +166,9 @@ namespace EMRPractice
                     {
                         //新增
                         lvSurgery.IsEnabled = false;
-                        pg.IsEnabled = true;
+                        pgSurgeryModify.IsEnabled = true;
 
-                        dpSurgeryTime.Text = "";
+                        //dpSurgeryTime.Text = "";
                         tvDignosis.Text = "";
                         tvSurgeryName.Text = "";
                         tvSurgeryEvaluation.Text = "";
@@ -158,7 +177,7 @@ namespace EMRPractice
                     {
                         //修改
                         lvSurgery.IsEnabled = false;
-                        pg.IsEnabled = true;
+                        pgSurgeryModify.IsEnabled = true;
 
                         surgery = lvSurgery.SelectedItem as Surgery;
 
@@ -166,10 +185,10 @@ namespace EMRPractice
                     break;
                 case Key.Escape:
                     //離開
-                    if (pg.IsEnabled == true && tcMain.SelectedIndex == 1)
+                    if (pgSurgeryModify.IsEnabled == true && tcMain.SelectedIndex == 1)
                     {
                         lvSurgery.IsEnabled = true;
-                        pg.IsEnabled = false;
+                        pgSurgeryModify.IsEnabled = false;
                         MessageBoxResult result = MessageBox.Show("是否要存檔?", "警告", MessageBoxButton.YesNo);
                         switch (result)
                         {
@@ -231,7 +250,7 @@ namespace EMRPractice
             Surgery surgery = lvSurgery.SelectedItem as Surgery;
             if (surgery != null)
             {
-                dpSurgeryTime.Text = surgery.surgeryTime;
+                //dpSurgeryTime.Text = surgery.surgeryTime;
                 tvDignosis.Text = surgery.diagnosis;
                 tvSurgeryName.Text = surgery.surgeryName;
                 tvSurgeryEvaluation.Text = surgery.surgeryEvaluation;
