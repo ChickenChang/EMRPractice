@@ -15,26 +15,33 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <TextBox Name="txtInput" Grid.Row="0" Grid.Column="0" Width="50" Height="25" Style="{StaticResource txtStyle}"/>
-        <Grid Grid.Row="0" Grid.Column="1" Name="ContentGrid" Margin="20,0,0,0">
-            <Grid.ColumnDefinitions>
-                <!--後端生成-->
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <!--後端生成-->
-            </Grid.RowDefinitions>
+        <TextBox Name="txtInput" Grid.Row="0" Grid.Column="0" Width="50" Height="25" Style="{StaticResource txtStyle}" 
+                 PreviewTextInput="PreviewTextInput" LostFocus="txtInput_LostFocus"/>
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+            <Grid Name="ContentGrid" Margin="20,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <!--後端生成-->
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <!--後端生成-->
+                </Grid.RowDefinitions>
 
-            <!--<Label Grid.Row="0" Grid.Column="0" Content="1. ㄧ般外科" Style="{StaticResource lbl}"/>
-            <Label Grid.Row="0" Grid.Column="1" Content="2. 婦產科" Style="{StaticResource lbl}"/>
-            <Label Grid.Row="0" Grid.Column="2" Content="3. 骨科" Style="{StaticResource lbl}"/>
-            <Label Grid.Row="0" Grid.Column="3" Content="4. 泌尿外科" Style="{StaticResource lbl}"/>
-            <Label Grid.Row="0" Grid.Column="4" Content="5. 神經外科" Style="{StaticResource lbl}"/>
-            <Label Grid.Row="1" Grid.Column="0" Content="6. 整形外科" Style="{StaticResource lbl}"/>
-            <Label Grid.Row="1" Grid.Column="1" Content="7. 口腔外科" Style="{StaticResource lbl}"/>
-            <Label Grid.Row="1" Grid.Column="2" Content="8. 大腸直腸外科" Style="{StaticResource lbl}"/>
-            <Label Grid.Row="1" Grid.Column="3" Content="9. 胸腔外科" Style="{StaticResource lbl}"/>
-            <Label Grid.Row="1" Grid.Column="4" Content="10. 耳鼻喉科" Style="{StaticResource lbl}"/>
-            <Label Grid.Row="2" Grid.Column="0" Content="11. 心血管外科" Style="{StaticResource lbl}"/>-->
-        </Grid>
+                <!--<Label Grid.Row="0" Grid.Column="0" Content="1. ㄧ般外科" Style="{StaticResource lbl}"/>
+                <Label Grid.Row="0" Grid.Column="1" Content="2. 婦產科" Style="{StaticResource lbl}"/>
+                <Label Grid.Row="0" Grid.Column="2" Content="3. 骨科" Style="{StaticResource lbl}"/>
+                <Label Grid.Row="0" Grid.Column="3" Content="4. 泌尿外科" Style="{StaticResource lbl}"/>
+                <Label Grid.Row="0" Grid.Column="4" Content="5. 神經外科" Style="{StaticResource lbl}"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="6. 整形外科" Style="{StaticResource lbl}"/>
+                <Label Grid.Row="1" Grid.Column="1" Content="7. 口腔外科" Style="{StaticResource lbl}"/>
+                <Label Grid.Row="1" Grid.Column="2" Content="8. 大腸直腸外科" Style="{StaticResource lbl}"/>
+                <Label Grid.Row="1" Grid.Column="3" Content="9. 胸腔外科" Style="{StaticResource lbl}"/>
+                <Label Grid.Row="1" Grid.Column="4" Content="10. 耳鼻喉科" Style="{StaticResource lbl}"/>
+                <Label Grid.Row="2" Grid.Column="0" Content="11. 心血管外科" Style="{StaticResource lbl}"/>-->
+            </Grid>
+            <StackPanel x:Name="OtherOptionRegion" Orientation="Horizontal" Visibility="Visible">
+                <Label Content="其他：" Style="{StaticResource GridTitle}" Margin="20,0,0,0" />
+                <TextBox x:Name="txtOtherOption" Width="200" Style="{StaticResource txtStyle}" />
+            </StackPanel>            
+        </StackPanel>
     </Grid>
 </UserControl>

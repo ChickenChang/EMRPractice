@@ -14,9 +14,11 @@
             <Label Content="/" />
             <TextBox x:Name="txtDay" Width="30" Style="{StaticResource txtStyle}" PreviewTextInput="PreviewTextInput"/>
             <Label Content="    " />
-            <TextBox x:Name="txtHour" Width="30"    Style="{StaticResource txtStyle}" PreviewTextInput="PreviewTextInput"/>
-            <Label Content="：" />
-            <TextBox x:Name="txtMinute" Width="30" Style="{StaticResource txtStyle}" PreviewTextInput="PreviewTextInput" />
+            <StackPanel x:Name="TimeRegion" Orientation="Horizontal">
+                <TextBox x:Name="txtHour" Width="30"    Style="{StaticResource txtStyle}" PreviewTextInput="PreviewTextInput"/>
+                <Label Content="：" />
+                <TextBox x:Name="txtMinute" Width="30" Style="{StaticResource txtStyle}" PreviewTextInput="PreviewTextInput" />
+            </StackPanel>
         </StackPanel>
     </Grid>
 </UserControl>

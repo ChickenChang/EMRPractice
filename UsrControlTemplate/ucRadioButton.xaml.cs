@@ -1,19 +1,12 @@
-﻿using System;
+﻿using HAMI.ModelLayer.UsrControl;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.ComponentModel;
-using HAMI.ModelLayer.UsrControl;
 
 namespace UsrControlTemplate
 {
@@ -30,7 +23,7 @@ namespace UsrControlTemplate
         /// </summary>
         public List<ucRadioButtonDTO> ItemList
         {
-            get{ return (List<ucRadioButtonDTO>)GetValue(ItemListProperty); }
+            get { return (List<ucRadioButtonDTO>)GetValue(ItemListProperty); }
             set
             {
                 if (!object.Equals(ItemListProperty, value))
@@ -42,7 +35,7 @@ namespace UsrControlTemplate
         }
         public static readonly DependencyProperty ItemListProperty =
             DependencyProperty.Register("ItemList", typeof(List<ucRadioButtonDTO>), typeof(ucRadioButton), new PropertyMetadata(null));
-        
+
         /// <summary>
         /// How many items in one row
         /// </summary>
@@ -54,14 +47,72 @@ namespace UsrControlTemplate
         public static readonly DependencyProperty ItemsInRowProperty =
             DependencyProperty.Register("ItemsInRow", typeof(int), typeof(ucRadioButton), new PropertyMetadata(5));
 
+        /// <summary>
+        /// 是否顯示其他選項
+        /// </summary>
+        public bool ShowOtherOption
+        {
+            get;set;
+        }
+        public static readonly DependencyProperty ShowOtherOptionProperty =
+            DependencyProperty.Register("ShowOtherOption", typeof(bool), typeof(ucRadioButton), new PropertyMetadata(true, new PropertyChangedCallback(SetOtherOptionRegion)));
+
         #endregion
 
-        #region Property Changed Even Handler
-        
+        #region EventHandler
+
         /// <summary>
         /// 用來控制DataSource改變時重Bind User Control
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
+
+        #region ControlEvent
+
+        /// <summary>
+        /// TextBox只可輸入數字
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        /// <summary>
+        /// txtInput LostFocus
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtInput_LostFocus(object sender, RoutedEventArgs e)
+        {
+            int inputIndex = Convert.ToInt32(txtInput.Text);
+            if (inputIndex > ItemList.Count)
+            {
+                //不合理的輸入值
+            }
+            else
+            {
+                var dto = ItemList.Find(x => x.ItemNo == inputIndex);
+                var label = (Label)LogicalTreeHelper.FindLogicalNode(this.ContentGrid, dto.Value);
+                label.Background = Brushes.LightGreen;
+            }
+        }
+
+        /// <summary>
+        /// 設定顯示其他選項區塊
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="e"></param>
+        private static void SetOtherOptionRegion(DependencyObject obj, DependencyPropertyChangedEventArgs e)
+        {
+            var instance = (ucRadioButton)obj;
+            var visibility = (bool)e.NewValue == true ? Visibility.Visible : Visibility.Collapsed;
+
+            instance.OtherOptionRegion.Visibility = visibility;
+        }
 
         #endregion
 
@@ -83,7 +134,7 @@ namespace UsrControlTemplate
             }
 
             //Set Row
-            for (int i = 0; i < Convert.ToInt16(Math.Ceiling((decimal)ItemList.Count / ItemsInRow)); i++)
+            for (int i = 0; i < Convert.ToInt32(Math.Ceiling((decimal)ItemList.Count / ItemsInRow)); i++)
             {
                 var definition = new RowDefinition();
                 definition.Height = GridLength.Auto;
@@ -95,9 +146,10 @@ namespace UsrControlTemplate
             {
                 Label label = new Label();
                 label.Content = string.Format("{0}. {1}", ItemList[i].ItemNo, ItemList[i].DisplayName);
+                label.Name = ItemList[i].Value.ToString();
                 //label.Style = (Style)FindResource("lbl");
 
-                Grid.SetRow(label, Convert.ToInt16(Math.Floor((decimal)i / ItemsInRow)));
+                Grid.SetRow(label, Convert.ToInt32(Math.Floor((decimal)i / ItemsInRow)));
                 Grid.SetColumn(label, i % ItemsInRow);
                 this.ContentGrid.Children.Add(label);
             }
@@ -112,9 +164,10 @@ namespace UsrControlTemplate
             InitializeComponent();
 
             // 事件註冊
-            PropertyChanged += DataBind;            
+            PropertyChanged += DataBind;
         }
 
         #endregion
+
     }
 }

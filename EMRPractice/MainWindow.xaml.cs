@@ -45,6 +45,17 @@ namespace EMRPractice
             SourceUnit.Add(new ucRadioButtonDTO { ItemNo = 2, DisplayName = "OR", Value = "val_2" });
             SourceUnit.Add(new ucRadioButtonDTO { ItemNo = 3, DisplayName = "ICU", Value = "val_3" });
             SourceUnit.Add(new ucRadioButtonDTO { ItemNo = 4, DisplayName = "Ward", Value = "val_4" });
+            var ImportReason = new List<ucRadioButtonDTO>();
+            ImportReason.Add(new ucRadioButtonDTO { ItemNo = 1, DisplayName = "Servere sepsis / Septic shock", Value = "val_1" });
+            ImportReason.Add(new ucRadioButtonDTO { ItemNo = 2, DisplayName = "Acute conscious deterioration", Value = "val_2" });
+            ImportReason.Add(new ucRadioButtonDTO { ItemNo = 3, DisplayName = "Hemorrhangic shock", Value = "val_3" });
+            ImportReason.Add(new ucRadioButtonDTO { ItemNo = 4, DisplayName = "Post-CPCR", Value = "val_4" });
+            ImportReason.Add(new ucRadioButtonDTO { ItemNo = 5, DisplayName = "Heart failure", Value = "val_5" });
+            ImportReason.Add(new ucRadioButtonDTO { ItemNo = 6, DisplayName = "High risk major operation", Value = "val_6" });
+            ImportReason.Add(new ucRadioButtonDTO { ItemNo = 7, DisplayName = "Respiratory failure", Value = "val_7" });
+            ImportReason.Add(new ucRadioButtonDTO { ItemNo = 8, DisplayName = "Scheduled for major operation", Value = "val_8" });
+            ImportReason.Add(new ucRadioButtonDTO { ItemNo = 9, DisplayName = "Major trauma", Value = "val_9" });
+            ImportReason.Add(new ucRadioButtonDTO { ItemNo = 10, DisplayName = "Unstable vital sign", Value = "val_10" });
 
             this.ucRB_Subect0.ItemList = Subject;
             this.ucRB_SourceUnit.ItemList = SourceUnit;
