@@ -32,6 +32,7 @@ namespace EMRPractice
             InitializeComponent();
 
             btnPrevious.IsEnabled = false;
+            lvSurgery.IsEnabled = false;
             this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
 
             vm = new ViewModel();
@@ -52,20 +53,48 @@ namespace EMRPractice
             SourceUnit.Add(new ucRadioButtonDTO { ItemNo = 2, DisplayName = "OR", Value = "val_2" });
             SourceUnit.Add(new ucRadioButtonDTO { ItemNo = 3, DisplayName = "ICU", Value = "val_3" });
             SourceUnit.Add(new ucRadioButtonDTO { ItemNo = 4, DisplayName = "Ward", Value = "val_4" });
+            var ImportReason = new List<ucRadioButtonDTO>();
+            ImportReason.Add(new ucRadioButtonDTO { ItemNo = 1, DisplayName = "Servere sepsis / Septic shock", Value = "val_1" });
+            ImportReason.Add(new ucRadioButtonDTO { ItemNo = 2, DisplayName = "Acute conscious deterioration", Value = "val_2" });
+            ImportReason.Add(new ucRadioButtonDTO { ItemNo = 3, DisplayName = "Hemorrhangic shock", Value = "val_3" });
+            ImportReason.Add(new ucRadioButtonDTO { ItemNo = 4, DisplayName = "Post-CPCR", Value = "val_4" });
+            ImportReason.Add(new ucRadioButtonDTO { ItemNo = 5, DisplayName = "Heart failure", Value = "val_5" });
+            ImportReason.Add(new ucRadioButtonDTO { ItemNo = 6, DisplayName = "High risk major operation", Value = "val_6" });
+            ImportReason.Add(new ucRadioButtonDTO { ItemNo = 7, DisplayName = "Respiratory failure", Value = "val_7" });
+            ImportReason.Add(new ucRadioButtonDTO { ItemNo = 8, DisplayName = "Scheduled for major operation", Value = "val_8" });
+            ImportReason.Add(new ucRadioButtonDTO { ItemNo = 9, DisplayName = "Major trauma", Value = "val_9" });
+            ImportReason.Add(new ucRadioButtonDTO { ItemNo = 10, DisplayName = "Unstable vital sign", Value = "val_10" });
+            var DiseaseHistory = new List<ucRadioButtonDTO>();
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 1, DisplayName = "DM", Value = "val_1" });
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 2, DisplayName = "HTN", Value = "val_2" });
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 3, DisplayName = "CVA", Value = "val_3" });
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 4, DisplayName = "CAD", Value = "val_4" });
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 5, DisplayName = "HF", Value = "val_5" });
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 6, DisplayName = "Arrhythmia", Value = "val_6" });
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 7, DisplayName = "COPD", Value = "val_7" });
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 8, DisplayName = "CRI", Value = "val_8" });
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 9, DisplayName = "ESRD", Value = "val_9" });
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 10, DisplayName = "Liver cirrhosis", Value = "val_10" });
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 11, DisplayName = "Steroid use", Value = "val_11" });
 
             this.ucRB_Subect0.ItemList = Subject;
             this.ucRB_SourceUnit.ItemList = SourceUnit;
+            this.ucRB_ImportReason.ItemList = ImportReason;
+            this.ucRB_DiseaseHistory.ItemList = DiseaseHistory;
+            //this.DataContext =  vm;
 
-            MemberCollect.Add(new Surgery()
-            {
-                surgeryTime = "2017/01/01",
-                surgeryName = "腦部手術",
-                Division = "腦部外科",
-                surgeryType = "開刀",
-            });
+            //MemberCollect.Add(new Surgery()
+            //{
+            //    surgeryTime = "2017/01/01",
+            //    surgeryName = "腦部手術",
+            //    Division = "腦部外科",
+            //    surgeryType = "開刀",
+            //    surgeryDoctor = "丁勝利",
+            //    diagnosis = "腦內出血，沒救了"
+            //});
             ListViewItem_Refresh();
 
-    }
+        }
         void ListViewItem_Refresh()
         {
             lvSurgery.Items.Clear();
@@ -73,10 +102,14 @@ namespace EMRPractice
             {
                 lvSurgery.Items.Add(m);
             }
+            Surgery s = new Surgery();
+            s.surgeryTime = "新增";
+            lvSurgery.Items.Add(s);
         }
 
         void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
+            Surgery surgery = lvSurgery.SelectedItem as Surgery;
             switch (e.Key)
             {
                 case Key.F1:
@@ -98,20 +131,59 @@ namespace EMRPractice
                         surgeryName = "腦部手術",
                         Division = "腦部外科",
                         surgeryType = "開刀",
+                        surgeryDoctor = "丁勝利",
+                        diagnosis = "腦內出血，沒救了"
                     });
                     ListViewItem_Refresh();
                     break;
-                case Key.F6:
-                    Surgery surgery = lvSurgery.SelectedItem as Surgery;
+                case Key.Delete:
                     MemberCollect.Remove(surgery);
                     ListViewItem_Refresh();
                     lvSurgery.SelectedIndex = 0;
+                    lvSurgery.Focus();
                     break;
                 case Key.Enter:
-                    lvSurgery.IsEnabled = false;
+                    if (surgery.surgeryTime.Equals("新增"))
+                    {
+                        //新增
+                        lvSurgery.IsEnabled = false;
+                        pg.IsEnabled = true;
+
+                        dpSurgeryTime.Text = "";
+                        tvDignosis.Text = "";
+                        tvSurgeryName.Text = "";
+                        tvSurgeryEvaluation.Text = "";
+                    }
+                    else
+                    {
+                        //修改
+                        lvSurgery.IsEnabled = false;
+                        pg.IsEnabled = true;
+
+                        surgery = lvSurgery.SelectedItem as Surgery;
+
+                    }
                     break;
                 case Key.Escape:
-                    lvSurgery.IsEnabled = true;
+                    //離開
+                    if (pg.IsEnabled == true && tcMain.SelectedIndex == 1)
+                    {
+                        lvSurgery.IsEnabled = true;
+                        pg.IsEnabled = false;
+                        MessageBoxResult result = MessageBox.Show("是否要存檔?", "警告", MessageBoxButton.YesNo);
+                        switch (result)
+                        {
+                            case MessageBoxResult.Yes:
+                                //surgery = lvSurgery.SelectedItem as Surgery;
+                                //MemberCollect.Find
+                                break;
+                            case MessageBoxResult.No:
+                                break;
+                        }
+                        lvSurgery.SelectedIndex = 0;
+                        lvSurgery.Focus();
+                    }
+                    
                     break;
                 default:
                     break;
@@ -131,9 +203,9 @@ namespace EMRPractice
                 default:
                     break;
             }
-
-            
         }
+
+
 
         private void tcMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -153,6 +225,18 @@ namespace EMRPractice
                 btnNext.IsEnabled = true;
             }
         }
+
+        private void lvSurgery_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Surgery surgery = lvSurgery.SelectedItem as Surgery;
+            if (surgery != null)
+            {
+                dpSurgeryTime.Text = surgery.surgeryTime;
+                tvDignosis.Text = surgery.diagnosis;
+                tvSurgeryName.Text = surgery.surgeryName;
+                tvSurgeryEvaluation.Text = surgery.surgeryEvaluation;
+            }
+        }
     }
 
     public class Surgery
@@ -161,5 +245,8 @@ namespace EMRPractice
         public string surgeryName { get; set; }
         public string Division { get; set; }
         public string surgeryType { get; set; }
+        public string surgeryDoctor { get; set; }
+        public string diagnosis { get; set; }
+        public string surgeryEvaluation { get; set; }
     }
 }
