@@ -4,17 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EMRPractice"
+        xmlns:assembly ="clr-namespace:System;assembly=mscorlib"
         xmlns:uc="clr-namespace:UsrControlTemplate;assembly=UsrControlTemplate"
         mc:Ignorable="d"
         WindowState="Maximized"
-<<<<<<< HEAD
-        Title="MainWindow" Height="540" Width="960" Loaded="Window_Loaded">
-    <!--<Window.DataContext>
-        <local:MainWindow></local:MainWindow>
-    </Window.DataContext>-->
-=======
+
         Title="MainWindow" Height="540" Width="960">
->>>>>>> origin/master
     <Viewbox>
         <Grid Height="540" Width="960">
             <Grid.Background>
@@ -30,13 +25,9 @@
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
 
-<<<<<<< HEAD
-            <TabControl x:Name="tcMain" Grid.Row="1" Grid.ColumnSpan="2" Margin="4,0,103,0">
-                <TabItem Header="#1">
-=======
-            <TabControl Grid.Row="1">
+
+            <TabControl x:Name="tcMain" Grid.Row="1" SelectionChanged="tcMain_SelectionChanged">
                 <TabItem Header="#入住資訊" Style="{StaticResource TabItem}">
->>>>>>> origin/master
                     <StackPanel>
                         <uc:PaddedGrid Padding="10" ShowGridLines="False">
                             <Grid.ColumnDefinitions>
@@ -46,6 +37,7 @@
                                 <ColumnDefinition Width="3*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
                                 <RowDefinition Height="auto"/>
                                 <RowDefinition Height="auto"/>
                                 <RowDefinition Height="auto"/>
@@ -64,30 +56,7 @@
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
 
-<<<<<<< HEAD
-                                <Label Grid.Row="0" Content="病歷號：" Style="{StaticResource lbl}" Width="56"/>
-                                <TextBox Grid.Row="0" Margin="56,0,686,2" Width="73" Style="{StaticResource txt}"/>
-                                <Label Grid.Row="0" Content="姓名：" Margin="134,0,0,0" Width="43" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="0" Content="王小明" Margin="177,0,0,0" Style="{StaticResource lbl}" Width="55"/>
-                                <Label Grid.Row="0"  Content="性別：" Margin="232,0,0,0" Style="{StaticResource lbl}" Width="43"/>
-                                <Label Grid.Row="0" Content="男" Margin="275,0,0,0" Style="{StaticResource lbl}" Width="25"/>
 
-                                <Label Grid.Row="1" Content="入ICU時間：" Style="{StaticResource lbl}" Width="81"/>
-                                <TextBox Grid.Row="1" Margin="81,0,0,0" Style="{StaticResource txt}" Width="50" RenderTransformOrigin="0.507,0.509"/>
-                                <Label Grid.Row="1" Content="/" Margin="131,0,0,0" Style="{StaticResource lbl}" Width="17"/>
-                                <TextBox Grid.Row="1" Margin="148,0,0,0" Style="{StaticResource txt}" Width="29" />
-                                <Label Content="/" Margin="177,27,0,0" Style="{StaticResource lbl}" Width="17" Grid.RowSpan="2"/>
-                                <TextBox Grid.Row="1" Margin="194,0,0,0" Style="{StaticResource txt}" Width="29"/>
-                                <TextBox Grid.Row="1" Margin="241,0,0,0" Style="{StaticResource txt}" Width="29"/>
-                                <Label Grid.Row="1" Content=":" Margin="275,0,0,0" Style="{StaticResource lbl}" Width="17"/>
-                                <TextBox Margin="292,0,0,0" Width="29" Style="{StaticResource txt}" Grid.Row="1"/>
-
-                                <Grid Grid.Row="2">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="1*"/>
-                                        <ColumnDefinition Width="4*"/>
-                                    </Grid.ColumnDefinitions>
-=======
                                 <Label Grid.Row="0" Grid.Column="0" Content="病歷號：" Style="{StaticResource  GridTitle}"/>
                                 <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
                                     <TextBox Style="{StaticResource txtStyle}" Width="100"/>
@@ -96,7 +65,6 @@
                                     <Label Content="性別：" Style="{StaticResource lbl}" HorizontalContentAlignment="Right"/>
                                     <Label Content="男" Style="{StaticResource lbl}" HorizontalContentAlignment="Left"/>
                                 </StackPanel>
->>>>>>> origin/master
 
                                 <Label Grid.Row="1" Grid.Column="0" Content="入ICU時間：" Style="{StaticResource GridTitle}" Width="81"/>
                                 <uc:DateTimeBlock Grid.Row="1" Grid.Column="1" />
@@ -107,11 +75,8 @@
 
                             <!--2-->
                             <Label Grid.Row="1" Grid.Column="0" Content="科別：" Style="{StaticResource GridTitle}"/>
-<<<<<<< HEAD
-                            <uc:ucRadioButton Grid.Row="1" Grid.Column="1" Name="ucRB" Grid.ColumnSpan="3"/>
-=======
+
                             <uc:ucRadioButton Grid.Row="1" Grid.Column="1" Name="ucRB_Subect0" Grid.ColumnSpan="3"/>
->>>>>>> origin/master
 
                             <!--3-->
                             <Label Grid.Row="2" Grid.Column="0" Content="醫師：" Style="{StaticResource GridTitle}"/>
@@ -121,53 +86,33 @@
                     </StackPanel>
                 </TabItem>
                 <TabItem Header="#2" Style="{StaticResource TabItem}">
-                    <ScrollViewer CanContentScroll="True" VerticalScrollBarVisibility="Auto">
-                        <StackPanel>
-                            <uc:PaddedGrid Padding="10" ShowGridLines="False">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1*"></ColumnDefinition>
-                                    <ColumnDefinition Width="3*"></ColumnDefinition>
-                                    <ColumnDefinition Width="1*"></ColumnDefinition>
-                                    <ColumnDefinition Width="3*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                </Grid.RowDefinitions>
+                    <StackPanel>
+                        <uc:PaddedGrid Padding="10" ShowGridLines="False" Height="120">
+                            <!--<DataGrid x:Name ="dataGrid" ItemsSource ="{Binding}" AutoGenerateColumns ="False" IsReadOnly="True">
+                                <DataGrid.Columns >
+                                    <DataGridTextColumn Header ="手術日期" Width ="100" Binding ="{ Binding surgeryTime }"/>
+                                    <DataGridTextColumn Header ="手術名稱" Width ="100" Binding ="{ Binding surgeryName }"/>
+                                    <DataGridTextColumn Header ="科別" Width ="100" Binding ="{ Binding Division }"/>
+                                    <DataGridTextColumn Header ="手術種類" Width ="100" Binding ="{ Binding surgeryType }"/>
+                                </DataGrid.Columns>
+                            </DataGrid>-->
+                            <ListView x:Name ="lvSurgery">
+                            <ListView.View>
+                                <GridView>
+                                        <GridViewColumn Header="手術日期" Width="100"
+                                        DisplayMemberBinding="{Binding surgeryTime}"/>
+                                        <GridViewColumn Header="手術名稱" Width="100"
+                                        DisplayMemberBinding="{Binding surgeryName}"/>
+                                        <GridViewColumn Header="科別" Width="100"
+                                        DisplayMemberBinding="{Binding Division}"/>
+                                        <GridViewColumn Header="手術種類" Width="100"
+                                        DisplayMemberBinding="{Binding surgeryType}"/>
+                                    </GridView>
+                            </ListView.View>
+                            </ListView>
 
-                                <!--1-->
-                                <Label Grid.Row="0" Grid.Column="0" Content="手術種類：" Style="{StaticResource GridTitle}" />
-                                <uc:PaddedGrid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" />
-
-                                <Label Grid.Row="0" Grid.Column="2" Content="手術日期：" Style="{StaticResource GridTitle}"/>
-                                <DatePicker Grid.Row="0" Grid.Column="3" />
-
-                                <!--2-->
-                                <Label Grid.Row="1" Grid.Column="0" Content="科別：" Style="{StaticResource GridTitle}"/>
-                                <uc:ucRadioButton Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" />
-
-                                <!--3-->
-                                <Label Grid.Row="2" Grid.Column="0" Content="醫師：" Style="{StaticResource GridTitle}"/>
-                                <uc:ucRadioButton Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" />
-
-                                <!--4-->
-                                <Label Grid.Row="3" Grid.Column="0" Content="一般診斷：" Style="{StaticResource GridTitle}"/>
-                                <TextBox Grid.Row="3" Grid.Column="1" Height="60" Grid.ColumnSpan="3" />
-
-                                <!--5-->
-                                <Label Grid.Row="4" Grid.Column="0" Content="手術名稱：" Style="{StaticResource GridTitle}" />
-                                <TextBox Grid.Row="4" Grid.Column="1" Height="60" Grid.ColumnSpan="3"/>
-
-                                <!--6-->
-                                <Label Grid.Row="5" Grid.Column="0" Content="術後評估：" Style="{StaticResource GridTitle}" />
-                                <TextBox Grid.Row="5" Grid.Column="1" Height="60" Grid.ColumnSpan="3"/>
-
-                            </uc:PaddedGrid>
-                            <!--<Grid>
+                        </uc:PaddedGrid>
+                        <uc:PaddedGrid Padding="5" ShowGridLines="False">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1*"></ColumnDefinition>
                                 <ColumnDefinition Width="3*"></ColumnDefinition>
@@ -183,240 +128,36 @@
                                 <RowDefinition Height="auto"/>
                             </Grid.RowDefinitions>
 
-                            -->
                             <!--1-->
-                            <!--
-                            <Label Grid.Row="0" Grid.Column="0" Content="手術種類："/>
-                            <Grid Grid.Row="0" Grid.Column="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1*"/>
-                                    <ColumnDefinition Width="2*"/>
-                                </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Content="手術種類：" Style="{StaticResource GridTitle}" />
+                            <uc:PaddedGrid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" />
 
-                                <TextBox Grid.Column="0" Width="50" Height="25"></TextBox>
-                                <StackPanel Grid.Column="1" Orientation="Horizontal">
-                                    <Label Content="1. Emergent"/>
-                                    <Label Content="2. Elective"/>
-                                </StackPanel>
-                            </Grid>
-                            <Label Grid.Row="0" Grid.Column="2" Content="手術日期：" />
+                            <Label Grid.Row="0" Grid.Column="2" Content="手術日期：" Style="{StaticResource GridTitle}"/>
                             <DatePicker Grid.Row="0" Grid.Column="3" />
 
-                            -->
                             <!--2-->
-                            <!--
-                            <Label Grid.Row="1" Grid.Column="0" Content="科別："/>
-                            <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1*"/>
-                                    <ColumnDefinition Width="6*"/>
-                                </Grid.ColumnDefinitions>
+                            <Label Grid.Row="1" Grid.Column="0" Content="科別：" Style="{StaticResource GridTitle}"/>
+                            <uc:ucRadioButton Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" />
 
-                                <TextBox Grid.Column="0" Width="50" Height="25" ></TextBox>
-                                <Grid Grid.Column="1">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="auto"/>
-                                    </Grid.RowDefinitions>
-
-                                    <Label Grid.Row="0" Grid.Column="0" Content="1. ㄧ般外科" />
-                                    <Label Grid.Row="0" Grid.Column="1" Content="2. 婦產科"/>
-                                    <Label Grid.Row="0" Grid.Column="2" Content="3. 骨科"/>
-                                    <Label Grid.Row="0" Grid.Column="3" Content="4. 泌尿外科"/>
-                                    <Label Grid.Row="0" Grid.Column="4" Content="5. 神經外科"/>
-                                    <Label Grid.Row="1" Grid.Column="0" Content="6. 整形外科"/>
-                                    <Label Grid.Row="1" Grid.Column="1" Content="7. 口腔外科"/>
-                                    <Label Grid.Row="1" Grid.Column="2" Content="8. 大腸直腸外科"/>
-                                    <Label Grid.Row="1" Grid.Column="3" Content="9. 胸腔外科"/>
-                                    <Label Grid.Row="1" Grid.Column="4" Content="10. 耳鼻喉科"/>
-                                    <Label Grid.Row="2" Grid.Column="0" Content="11. 心血管外科"/>
-                                </Grid>
-                            </Grid>
-
-                            -->
                             <!--3-->
-                            <!--
-                            <Label Grid.Row="2" Grid.Column="0" Content="醫師："/>
-                            <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1*"/>
-                                    <ColumnDefinition Width="6*"/>
-                                </Grid.ColumnDefinitions>
+                            <Label Grid.Row="2" Grid.Column="0" Content="醫師：" Style="{StaticResource GridTitle}"/>
+                            <uc:ucRadioButton Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" />
 
-                                <TextBox Grid.Column="0" Width="50" Height="25" ></TextBox>
-                                <Grid Grid.Column="1">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
-                                    </Grid.RowDefinitions>
-
-                                    <Label Grid.Row="0" Grid.Column="0" Content="1. 醫師1" />
-                                    <Label Grid.Row="0" Grid.Column="1" Content="2. 醫師2"/>
-                                    <Label Grid.Row="0" Grid.Column="2" Content="3. 醫師3"/>
-                                    <Label Grid.Row="0" Grid.Column="3" Content="4. 醫師4"/>
-                                    <Label Grid.Row="0" Grid.Column="4" Content="5. 醫師5"/>
-                                </Grid>
-                            </Grid>
-
-                            -->
                             <!--4-->
-                            <!--
-                            <Label Grid.Row="3" Grid.Column="0" Content="主要一般診斷：" />
-                            <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" />
+                            <Label Grid.Row="3" Grid.Column="0" Content="一般診斷：" Style="{StaticResource GridTitle}"/>
+                            <TextBox Grid.Row="3" Grid.Column="1" Height="60" Grid.ColumnSpan="3" />
 
-                            -->
                             <!--5-->
-                            <!--
-                            <Label Grid.Row="4" Grid.Column="0" Content="手術名稱：" />
-                            <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"/>
+                            <Label Grid.Row="4" Grid.Column="0" Content="手術名稱：" Style="{StaticResource GridTitle}" />
+                            <TextBox Grid.Row="4" Grid.Column="1" Height="60" Grid.ColumnSpan="3"/>
 
-                            -->
                             <!--6-->
-                            <!--
-                            <Label Grid.Row="5" Grid.Column="0" Content="術後評估：" />
-                            <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"/>
+                            <Label Grid.Row="5" Grid.Column="0" Content="術後評估：" Style="{StaticResource GridTitle}" />
+                            <TextBox Grid.Row="5" Grid.Column="1" Height="60" Grid.ColumnSpan="3"/>
 
-                        </Grid>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"></ColumnDefinition>
-                                <ColumnDefinition Width="3*"></ColumnDefinition>
-                                <ColumnDefinition Width="1*"></ColumnDefinition>
-                                <ColumnDefinition Width="3*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                            </Grid.RowDefinitions>
+                        </uc:PaddedGrid>
 
-                            -->
-                            <!--1-->
-                            <!--
-                            <Label Grid.Row="0" Grid.Column="0" Content="手術種類："/>
-                            <Grid Grid.Row="0" Grid.Column="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1*"/>
-                                    <ColumnDefinition Width="2*"/>
-                                </Grid.ColumnDefinitions>
-
-                                <TextBox Grid.Column="0" Width="50" Height="25"></TextBox>
-                                <StackPanel Grid.Column="1" Orientation="Horizontal">
-                                    <Label Content="1. Emergent"/>
-                                    <Label Content="2. Elective"/>
-                                </StackPanel>
-                            </Grid>
-                            <Label Grid.Row="0" Grid.Column="2" Content="手術日期：" />
-                            <DatePicker Grid.Row="0" Grid.Column="3" />
-
-                            -->
-                            <!--2-->
-                            <!--
-                            <Label Grid.Row="1" Grid.Column="0" Content="科別："/>
-                            <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1*"/>
-                                    <ColumnDefinition Width="6*"/>
-                                </Grid.ColumnDefinitions>
-
-                                <TextBox Grid.Column="0" Width="50" Height="25" ></TextBox>
-                                <Grid Grid.Column="1">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="auto"/>
-                                        <RowDefinition Height="auto"/>
-                                    </Grid.RowDefinitions>
-
-                                    <Label Grid.Row="0" Grid.Column="0" Content="1. ㄧ般外科" />
-                                    <Label Grid.Row="0" Grid.Column="1" Content="2. 婦產科"/>
-                                    <Label Grid.Row="0" Grid.Column="2" Content="3. 骨科"/>
-                                    <Label Grid.Row="0" Grid.Column="3" Content="4. 泌尿外科"/>
-                                    <Label Grid.Row="0" Grid.Column="4" Content="5. 神經外科"/>
-                                    <Label Grid.Row="1" Grid.Column="0" Content="6. 整形外科"/>
-                                    <Label Grid.Row="1" Grid.Column="1" Content="7. 口腔外科"/>
-                                    <Label Grid.Row="1" Grid.Column="2" Content="8. 大腸直腸外科"/>
-                                    <Label Grid.Row="1" Grid.Column="3" Content="9. 胸腔外科"/>
-                                    <Label Grid.Row="1" Grid.Column="4" Content="10. 耳鼻喉科"/>
-                                    <Label Grid.Row="2" Grid.Column="0" Content="11. 心血管外科"/>
-                                </Grid>
-                            </Grid>
-
-                            -->
-                            <!--3-->
-                            <!--
-                            <Label Grid.Row="2" Grid.Column="0" Content="醫師："/>
-                            <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1*"/>
-                                    <ColumnDefinition Width="6*"/>
-                                </Grid.ColumnDefinitions>
-
-                                <TextBox Grid.Column="0" Width="50" Height="25" ></TextBox>
-                                <Grid Grid.Column="1">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
-                                    </Grid.RowDefinitions>
-
-                                    <Label Grid.Row="0" Grid.Column="0" Content="1. 醫師1" />
-                                    <Label Grid.Row="0" Grid.Column="1" Content="2. 醫師2"/>
-                                    <Label Grid.Row="0" Grid.Column="2" Content="3. 醫師3"/>
-                                    <Label Grid.Row="0" Grid.Column="3" Content="4. 醫師4"/>
-                                    <Label Grid.Row="0" Grid.Column="4" Content="5. 醫師5"/>
-                                </Grid>
-                            </Grid>
-
-                            -->
-                            <!--4-->
-                            <!--
-                            <Label Grid.Row="3" Grid.Column="0" Content="主要一般診斷：" />
-                            <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" />
-
-                            -->
-                            <!--5-->
-                            <!--
-                            <Label Grid.Row="4" Grid.Column="0" Content="手術名稱：" />
-                            <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"/>
-
-                            -->
-                            <!--6-->
-                            <!--
-                            <Label Grid.Row="5" Grid.Column="0" Content="術後評估：" />
-                            <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"/>
-
-                        </Grid>-->
-                        </StackPanel>
-                    </ScrollViewer>
+                    </StackPanel>
                 </TabItem>
                 <TabItem Header="#3" Style="{StaticResource TabItem}">
                     <StackPanel>
@@ -669,9 +410,9 @@
                     </StackPanel>
                 </TabItem>
             </TabControl>
-            <Button x:Name="btnPrevious" Content="上一頁" Margin="0,71,170,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75" Click="btnClick"/>
-            <Button x:Name="btnSave" Content="暫存" Margin="0,71,90,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75" Click="btnClick"/>
-            <Button x:Name="btnNext" Content="下一頁" Margin="0,71,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75" Click="btnClick"/>
+            <Button x:Name="btnPrevious" Content="上一頁" Grid.Column="1" HorizontalAlignment="Left" Margin="10,303,0,0" Grid.Row="1" VerticalAlignment="Top" Width="87" Height="50" Click="btnClick"/>
+            <Button x:Name="btnSave" Content="暫存" Grid.Column="1" HorizontalAlignment="Left" Margin="10,358,0,0" Grid.Row="1" VerticalAlignment="Top" Width="87" Height="50" Click="btnClick"/>
+            <Button x:Name="btnNext" Content="下一頁" Grid.Column="1" HorizontalAlignment="Left" Margin="10,413,0,0" Grid.Row="1" VerticalAlignment="Top" Width="87" Height="50" Click="btnClick"/>
         </Grid>
     </Viewbox>
 

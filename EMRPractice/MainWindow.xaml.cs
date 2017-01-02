@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HAMI.ModelLayer.UsrControl;
+using System.Collections.ObjectModel;
 
 namespace EMRPractice
 {
@@ -23,28 +24,18 @@ namespace EMRPractice
     {
 
         ViewModel vm;
+
+        public List<Surgery> MemberCollect = new List<Surgery>();
+
         public MainWindow()
         {
             InitializeComponent();
 
+            btnPrevious.IsEnabled = false;
+            this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
+
             vm = new ViewModel();
-<<<<<<< HEAD
-            vm.Subject = new List<ucRadioButtonDTO>();
-            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 1, DisplayName = "ㄧ般外科", Value = "val_1" });
-            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 2, DisplayName = "婦產科", Value = "val_2" });
-            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 3, DisplayName = "骨科", Value = "val_3" });
-            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 4, DisplayName = "泌尿外科", Value = "val_4" });
-            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 5, DisplayName = "神經外科", Value = "val_5" });
-            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 6, DisplayName = "整形外科", Value = "val_6" });
-            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 7, DisplayName = "口腔外科", Value = "val_7" });
-            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 8, DisplayName = "大腸直腸外科", Value = "val_8" });
-            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 9, DisplayName = "胸腔外科", Value = "val_9" });
-            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 10, DisplayName = "耳鼻喉科", Value = "val_10" });
-            vm.Subject.Add(new ucRadioButtonDTO { ItemNo = 11, DisplayName = "心血管外科", Value = "val_11" });
-            //this.ucRB.ItemList = vm.Subject;
-            //this.DataContext = this;
-=======
-             var Subject = new List<ucRadioButtonDTO>();
+            var Subject = new List<ucRadioButtonDTO>();
             Subject.Add(new ucRadioButtonDTO { ItemNo = 1, DisplayName = "ㄧ般外科", Value = "val_1" });
             Subject.Add(new ucRadioButtonDTO { ItemNo = 2, DisplayName = "婦產科", Value = "val_2" });
             Subject.Add(new ucRadioButtonDTO { ItemNo = 3, DisplayName = "骨科", Value = "val_3" });
@@ -64,15 +55,24 @@ namespace EMRPractice
 
             this.ucRB_Subect0.ItemList = Subject;
             this.ucRB_SourceUnit.ItemList = SourceUnit;
-            //this.DataContext =  vm;
->>>>>>> origin/master
 
-        }
+            MemberCollect.Add(new Surgery()
+            {
+                surgeryTime = "2017/01/01",
+                surgeryName = "腦部手術",
+                Division = "腦部外科",
+                surgeryType = "開刀",
+            });
+            ListViewItem_Refresh();
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+    }
+        void ListViewItem_Refresh()
         {
-            this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
-            btnPrevious.IsEnabled = false;
+            lvSurgery.Items.Clear();
+            foreach (Surgery m in MemberCollect)
+            {
+                lvSurgery.Items.Add(m);
+            }
         }
 
         void MainWindow_KeyDown(object sender, KeyEventArgs e)
@@ -91,24 +91,30 @@ namespace EMRPractice
                 case Key.F4:
                     tcMain.SelectedIndex = 3;
                     break;
+                case Key.F5:
+                    MemberCollect.Add(new Surgery()
+                    {
+                        surgeryTime = "2017/01/02",
+                        surgeryName = "腦部手術",
+                        Division = "腦部外科",
+                        surgeryType = "開刀",
+                    });
+                    ListViewItem_Refresh();
+                    break;
+                case Key.F6:
+                    Surgery surgery = lvSurgery.SelectedItem as Surgery;
+                    MemberCollect.Remove(surgery);
+                    ListViewItem_Refresh();
+                    lvSurgery.SelectedIndex = 0;
+                    break;
+                case Key.Enter:
+                    lvSurgery.IsEnabled = false;
+                    break;
+                case Key.Escape:
+                    lvSurgery.IsEnabled = true;
+                    break;
                 default:
                     break;
-            }
-
-            if (tcMain.SelectedIndex == 0)
-            {
-                btnPrevious.IsEnabled = false;
-                btnNext.IsEnabled = true;
-            }
-            else if (tcMain.SelectedIndex == 3)
-            {
-                btnPrevious.IsEnabled = true;
-                btnNext.IsEnabled = false;
-            }
-            else
-            {
-                btnPrevious.IsEnabled = true;
-                btnNext.IsEnabled = true;
             }
         }
 
@@ -126,12 +132,17 @@ namespace EMRPractice
                     break;
             }
 
-            if(tcMain.SelectedIndex == 0)
+            
+        }
+
+        private void tcMain_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (tcMain.SelectedIndex == 0)
             {
                 btnPrevious.IsEnabled = false;
                 btnNext.IsEnabled = true;
             }
-            else if(tcMain.SelectedIndex == 3)
+            else if (tcMain.SelectedIndex == 3)
             {
                 btnPrevious.IsEnabled = true;
                 btnNext.IsEnabled = false;
@@ -142,5 +153,13 @@ namespace EMRPractice
                 btnNext.IsEnabled = true;
             }
         }
+    }
+
+    public class Surgery
+    {
+        public string surgeryTime { get; set; }
+        public string surgeryName { get; set; }
+        public string Division { get; set; }
+        public string surgeryType { get; set; }
     }
 }
