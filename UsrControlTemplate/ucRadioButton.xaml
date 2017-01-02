@@ -38,7 +38,7 @@
                 <Label Grid.Row="1" Grid.Column="4" Content="10. 耳鼻喉科" Style="{StaticResource lbl}"/>
                 <Label Grid.Row="2" Grid.Column="0" Content="11. 心血管外科" Style="{StaticResource lbl}"/>-->
             </Grid>
-            <StackPanel x:Name="OtherOptionRegion" Orientation="Horizontal" Visibility="Visible">
+            <StackPanel x:Name="OtherOptionRegion" Orientation="Horizontal" Visibility="Collapsed">
                 <Label Content="其他：" Style="{StaticResource GridTitle}" Margin="20,0,0,0" />
                 <TextBox x:Name="txtOtherOption" Width="200" Style="{StaticResource txtStyle}" />
             </StackPanel>            

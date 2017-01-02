@@ -56,9 +56,23 @@ namespace EMRPractice
             ImportReason.Add(new ucRadioButtonDTO { ItemNo = 8, DisplayName = "Scheduled for major operation", Value = "val_8" });
             ImportReason.Add(new ucRadioButtonDTO { ItemNo = 9, DisplayName = "Major trauma", Value = "val_9" });
             ImportReason.Add(new ucRadioButtonDTO { ItemNo = 10, DisplayName = "Unstable vital sign", Value = "val_10" });
+            var DiseaseHistory = new List<ucRadioButtonDTO>();
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 1, DisplayName = "DM", Value = "val_1" });
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 2, DisplayName = "HTN", Value = "val_2" });
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 3, DisplayName = "CVA", Value = "val_3" });
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 4, DisplayName = "CAD", Value = "val_4" });
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 5, DisplayName = "HF", Value = "val_5" });
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 6, DisplayName = "Arrhythmia", Value = "val_6" });
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 7, DisplayName = "COPD", Value = "val_7" });
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 8, DisplayName = "CRI", Value = "val_8" });
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 9, DisplayName = "ESRD", Value = "val_9" });
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 10, DisplayName = "Liver cirrhosis", Value = "val_10" });
+            DiseaseHistory.Add(new ucRadioButtonDTO { ItemNo = 11, DisplayName = "Steroid use", Value = "val_11" });
 
             this.ucRB_Subect0.ItemList = Subject;
             this.ucRB_SourceUnit.ItemList = SourceUnit;
+            this.ucRB_ImportReason.ItemList = ImportReason;
+            this.ucRB_DiseaseHistory.ItemList = DiseaseHistory;
             //this.DataContext =  vm;
 
         }

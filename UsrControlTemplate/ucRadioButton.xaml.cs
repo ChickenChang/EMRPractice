@@ -52,10 +52,10 @@ namespace UsrControlTemplate
         /// </summary>
         public bool ShowOtherOption
         {
-            get;set;
+            get; set;
         }
         public static readonly DependencyProperty ShowOtherOptionProperty =
-            DependencyProperty.Register("ShowOtherOption", typeof(bool), typeof(ucRadioButton), new PropertyMetadata(true, new PropertyChangedCallback(SetOtherOptionRegion)));
+            DependencyProperty.Register("ShowOtherOption", typeof(bool), typeof(ucRadioButton), new PropertyMetadata(false, new PropertyChangedCallback(SetOtherOptionRegion)));
 
         #endregion
 
@@ -88,14 +88,14 @@ namespace UsrControlTemplate
         /// <param name="e"></param>
         private void txtInput_LostFocus(object sender, RoutedEventArgs e)
         {
-            int inputIndex = Convert.ToInt32(txtInput.Text);
-            if (inputIndex > ItemList.Count)
+            var validator = this.InputValidate(txtInput.Text);
+            if (!string.IsNullOrEmpty(validator))
             {
                 //不合理的輸入值
             }
             else
             {
-                var dto = ItemList.Find(x => x.ItemNo == inputIndex);
+                var dto = ItemList.Find(x => x.ItemNo == Convert.ToInt32(txtInput.Text));
                 var label = (Label)LogicalTreeHelper.FindLogicalNode(this.ContentGrid, dto.Value);
                 label.Background = Brushes.LightGreen;
             }
@@ -153,6 +153,21 @@ namespace UsrControlTemplate
                 Grid.SetColumn(label, i % ItemsInRow);
                 this.ContentGrid.Children.Add(label);
             }
+        }
+
+        /// <summary>
+        /// 輸入驗證
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private string InputValidate(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                return "未輸入選項!!";
+            if (Convert.ToInt32(input) > ItemList.Count)
+                return "超過選項範圍!!";
+
+            return string.Empty;
         }
 
         #endregion
