@@ -5,7 +5,7 @@
     <Style x:Key="lbl" TargetType="Label">
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Top" />
-        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontSize" Value="12"/>
         <Setter Property="Width" Value="auto" />
     </Style>
 

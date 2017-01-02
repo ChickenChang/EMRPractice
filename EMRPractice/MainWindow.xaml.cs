@@ -26,7 +26,7 @@ namespace EMRPractice
         ViewModel vm;
 
         public List<Surgery> MemberCollect = new List<Surgery>();
-
+        //public ObservableCollection<Surgery> MemberCollect = new ObservableCollection<Surgery>();
         public MainWindow()
         {
             InitializeComponent();
@@ -97,14 +97,17 @@ namespace EMRPractice
         }
         void ListViewItem_Refresh()
         {
-            lvSurgery.Items.Clear();
-            foreach (Surgery m in MemberCollect)
-            {
-                lvSurgery.Items.Add(m);
-            }
-            Surgery s = new Surgery();
-            s.surgeryTime = "新增";
-            lvSurgery.Items.Add(s);
+            //lvSurgery.Items.Clear();
+            //foreach (Surgery m in MemberCollect)
+            //{
+            //    lvSurgery.Items.Add(m);
+            //}
+            //Surgery s = new Surgery();
+            //s.surgeryTime = "新增";
+            //lvSurgery.Items.Add(s);
+            lvSurgery.ItemsSource = this.MemberCollect;
+            var view = CollectionViewSource.GetDefaultView(this.MemberCollect);
+            view.Refresh();
         }
 
         void MainWindow_KeyDown(object sender, KeyEventArgs e)
@@ -125,6 +128,9 @@ namespace EMRPractice
                     tcMain.SelectedIndex = 3;
                     break;
                 case Key.F5:
+                    tcMain.SelectedIndex = 4;
+                    break;
+                case Key.F6:
                     MemberCollect.Add(new Surgery()
                     {
                         surgeryTime = "2017/01/02",
@@ -159,9 +165,6 @@ namespace EMRPractice
                         //修改
                         lvSurgery.IsEnabled = false;
                         pg.IsEnabled = true;
-
-                        surgery = lvSurgery.SelectedItem as Surgery;
-
                     }
                     break;
                 case Key.Escape:
@@ -175,15 +178,32 @@ namespace EMRPractice
                         {
                             case MessageBoxResult.Yes:
                                 //surgery = lvSurgery.SelectedItem as Surgery;
-                                //MemberCollect.Find
+                                //int surgeryIndex = MemberCollect.FindIndex(x => x.surgeryName.Contains(surgery.surgeryName));
+                                //surgery.surgeryTime = dpSurgeryTime.Text;
+                                //surgery.diagnosis = tvDignosis.Text;
+                                //surgery.surgeryName = tvSurgeryName.Text;
+                                //surgery.surgeryEvaluation = tvSurgeryEvaluation.Text;
+                                //MemberCollect[surgeryIndex] = surgery;
+                                int index = lvSurgery.SelectedIndex;
+                                var value = lvSurgery.SelectedValue;
+                                Surgery obj = new EMRPractice.Surgery
+                                {
+                                    surgeryTime = dpSurgeryTime.Text,
+                                    diagnosis = tvDignosis.Text,
+                                    surgeryName = tvSurgeryName.Text,
+                                    surgeryEvaluation = tvSurgeryEvaluation.Text
+                                };
+                                this.MemberCollect[index] = obj;
+                                ListViewItem_Refresh();
                                 break;
                             case MessageBoxResult.No:
+
                                 break;
                         }
                         lvSurgery.SelectedIndex = 0;
                         lvSurgery.Focus();
                     }
-                    
+
                     break;
                 default:
                     break;
@@ -214,7 +234,7 @@ namespace EMRPractice
                 btnPrevious.IsEnabled = false;
                 btnNext.IsEnabled = true;
             }
-            else if (tcMain.SelectedIndex == 3)
+            else if (tcMain.SelectedIndex == 4)
             {
                 btnPrevious.IsEnabled = true;
                 btnNext.IsEnabled = false;
