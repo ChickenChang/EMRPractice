@@ -29,6 +29,8 @@ namespace EMRPractice
 
             this.MainFrame.Content = new OnServiceNote();
         }
-    }
+                        
+     }
+
     
 }
