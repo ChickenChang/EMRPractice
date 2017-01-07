@@ -13,8 +13,16 @@ namespace UsrControlTemplate
     /// <summary>
     /// ucRadioButton.xaml 的互動邏輯
     /// </summary>
-    public partial class ucRadioButton : UserControl, INotifyPropertyChanged
+    public partial class ucRadioButton : UserControl
     {
+        #region Public Property
+
+        /// <summary>
+        /// 目前選取選項的Value
+        /// </summary>
+        public string SelectedValue { get; set; }
+
+        #endregion
 
         #region DependenyProperty (DP)
 
@@ -29,12 +37,11 @@ namespace UsrControlTemplate
                 if (!object.Equals(ItemListProperty, value))
                 {
                     SetValue(ItemListProperty, value);
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ItemList"));
                 }
             }
         }
         public static readonly DependencyProperty ItemListProperty =
-            DependencyProperty.Register("ItemList", typeof(List<ucRadioButtonDTO>), typeof(ucRadioButton), new PropertyMetadata(null));
+            DependencyProperty.Register("ItemList", typeof(List<ucRadioButtonDTO>), typeof(ucRadioButton), new PropertyMetadata(null, new PropertyChangedCallback(DataBind)));
 
         /// <summary>
         /// How many items in one row
@@ -58,16 +65,7 @@ namespace UsrControlTemplate
             DependencyProperty.Register("ShowOtherOption", typeof(bool), typeof(ucRadioButton), new PropertyMetadata(false, new PropertyChangedCallback(SetOtherOptionRegion)));
 
         #endregion
-
-        #region EventHandler
-
-        /// <summary>
-        /// 用來控制DataSource改變時重Bind User Control
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        #endregion
-
+        
         #region ControlEvent
 
         /// <summary>
@@ -95,8 +93,16 @@ namespace UsrControlTemplate
             }
             else
             {
+                // 取消上一次選項的反色
+                if (this.SelectedValue != null)
+                {
+                    var previousLabel = (Label)LogicalTreeHelper.FindLogicalNode(this.ContentGrid, this.SelectedValue);
+                    previousLabel.Background = Brushes.White;
+                }
+
                 var dto = ItemList.Find(x => x.ItemNo == Convert.ToInt32(txtInput.Text));
                 var label = (Label)LogicalTreeHelper.FindLogicalNode(this.ContentGrid, dto.Value);
+                this.SelectedValue = dto.Value;
                 label.Background = Brushes.LightGreen;
             }
         }
@@ -123,35 +129,37 @@ namespace UsrControlTemplate
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void DataBind(object sender, EventArgs e)
+        private static void DataBind(DependencyObject obj, DependencyPropertyChangedEventArgs e)
         {
+            var thisRB = (ucRadioButton)obj;
+
             // Set Column
-            for (int i = 0; i < this.ItemsInRow; i++)
+            for (int i = 0; i < thisRB.ItemsInRow; i++)
             {
                 var definition = new ColumnDefinition();
                 definition.Width = new GridLength(1, GridUnitType.Star);
-                this.ContentGrid.ColumnDefinitions.Add(definition);
+                thisRB.ContentGrid.ColumnDefinitions.Add(definition);
             }
 
             //Set Row
-            for (int i = 0; i < Convert.ToInt32(Math.Ceiling((decimal)ItemList.Count / ItemsInRow)); i++)
+            for (int i = 0; i < Convert.ToInt32(Math.Ceiling((decimal)thisRB.ItemList.Count / thisRB.ItemsInRow)); i++)
             {
                 var definition = new RowDefinition();
                 definition.Height = GridLength.Auto;
-                this.ContentGrid.RowDefinitions.Add(definition);
+                thisRB.ContentGrid.RowDefinitions.Add(definition);
             }
 
             // 將選項Bind上Grid
-            for (int i = 0; i < ItemList.Count; i++)
+            for (int i = 0; i < thisRB.ItemList.Count; i++)
             {
                 Label label = new Label();
-                label.Content = string.Format("{0}. {1}", ItemList[i].ItemNo, ItemList[i].DisplayName);
-                label.Name = ItemList[i].Value.ToString();
+                label.Content = string.Format("{0}. {1}", thisRB.ItemList[i].ItemNo, thisRB.ItemList[i].DisplayName);
+                label.Name = thisRB.ItemList[i].Value.ToString();
                 //label.Style = (Style)FindResource("lbl");
 
-                Grid.SetRow(label, Convert.ToInt32(Math.Floor((decimal)i / ItemsInRow)));
-                Grid.SetColumn(label, i % ItemsInRow);
-                this.ContentGrid.Children.Add(label);
+                Grid.SetRow(label, Convert.ToInt32(Math.Floor((decimal)i / thisRB.ItemsInRow)));
+                Grid.SetColumn(label, i % thisRB.ItemsInRow);
+                thisRB.ContentGrid.Children.Add(label);
             }
         }
 
@@ -177,9 +185,7 @@ namespace UsrControlTemplate
         public ucRadioButton()
         {
             InitializeComponent();
-
-            // 事件註冊
-            PropertyChanged += DataBind;
+            
         }
 
         #endregion
