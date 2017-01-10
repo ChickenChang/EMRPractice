@@ -1,0 +1,803 @@
+﻿<Page x:Class="EMRPractice.Areas.Views.ProgressNote"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EMRPractice.Areas.Views"
+      xmlns:uc="clr-namespace:UsrControlTemplate;assembly=UsrControlTemplate"
+      xmlns:viewModel="clr-namespace:EMRPractice.Areas.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="540" d:DesignWidth="960"
+      Title="ProgressNote">
+    <Page.DataContext>
+        <viewModel:ProgressNoteModel />
+    </Page.DataContext>
+    <Viewbox>
+        <Grid Height="540" Width="960">
+            <Grid.Background>
+                <ImageBrush ImageSource="..\..\Theme\kkk.jpg" Stretch="UniformToFill"></ImageBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="24*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <TabControl x:Name="tcMain" Grid.Row="1" Margin="5,0,0,0">
+                <!--主要診斷與手術名稱-->
+                <TabItem Header="#主要診斷&#10;與手術名稱" Style="{StaticResource TabItem}">
+                    <StackPanel>
+                        <uc:PaddedGrid Padding="10" ShowGridLines="False">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="7*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!--主要診斷-->
+                            <Label Grid.Row="0" Grid.Column="0" Content="主要診斷：" Style="{StaticResource GridTitle}" />
+                            <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtLargeTextArea}" />
+
+                            <!--手術名稱-->
+                            <Label Grid.Row="1" Grid.Column="0" Content="手術名稱：" Style="{StaticResource GridTitle}" />
+                            <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtLargeTextArea}" />
+                        </uc:PaddedGrid>
+                    </StackPanel>
+                </TabItem>
+
+                <!--Cardiovascular-->
+                <TabItem Header="#Cardiovascular" Style="{StaticResource TabItem}">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <uc:PaddedGrid Padding="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+
+                                <!--Basic-->
+                                <Grid Grid.Row="0" Grid.Column="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" Content="SBP/DBP：" Style="{StaticResource GridTitle}" />
+                                    <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                                        <TextBox Style="{StaticResource txtSignInput}"/>
+                                        <Label Content="/" Style="{StaticResource lbl}"/>
+                                        <TextBox Style="{StaticResource txtSignInput}"/>
+                                    </StackPanel>
+                                    <Label Grid.Row="0" Grid.Column="2" Content="HR：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource txtSignInput}"/>
+                                    <Label Grid.Row="0" Grid.Column="4" Content="Rhythm：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource txtSignInput}"/>
+
+                                    <Label Grid.Row="1" Grid.Column="0" Content="Pul SBP/DBP：" Style="{StaticResource GridTitle}" />
+                                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                                        <TextBox Style="{StaticResource txtSignInput}"/>
+                                        <Label Content="/" Style="{StaticResource lbl}"/>
+                                        <TextBox Style="{StaticResource txtSignInput}"/>
+                                    </StackPanel>
+                                    <Label Grid.Row="1" Grid.Column="2" Content="ScvO2：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource txtSignInput}"/>
+                                    <Label Grid.Row="1" Grid.Column="4" Content="Peripheral：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Grid.Row="1" Grid.Column="5" Style="{StaticResource txtSignInput}"/>
+
+                                    <Label Grid.Row="2" Grid.Column="0" Content="BNP：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txtSignInput}"/>
+                                    <Label Grid.Row="2" Grid.Column="2" Content="CK：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Grid.Row="2" Grid.Column="3" Style="{StaticResource txtSignInput}"/>
+                                    <Label Grid.Row="2" Grid.Column="4" Content="CK-MB：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Grid.Row="2" Grid.Column="5" Style="{StaticResource txtSignInput}"/>
+                                    <Label Grid.Row="2" Grid.Column="6" Content="Tn-I：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Grid.Row="2" Grid.Column="7" Style="{StaticResource txtSignInput}"/>
+                                </Grid>
+
+                                <!--Inotropics-->
+                                <Label Grid.Row="1" Grid.Column="0" Content="Inotropics" Style="{StaticResource GridTitle}" />
+                                <Grid Grid.Row="1" Grid.Column="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" Content="Dopamine：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtSignInput}"/>
+                                    <Label Grid.Row="0" Grid.Column="2" Content="Levophed：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource txtSignInput}"/>
+                                    <Label Grid.Row="0" Grid.Column="4" Content="Bosmine：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource txtSignInput}"/>
+                                    <Label Grid.Row="0" Grid.Column="6" Content="Dobutamine：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Grid.Row="0" Grid.Column="7" Style="{StaticResource txtSignInput}"/>
+                                    <Label Grid.Row="0" Grid.Column="8" Content="Pitressin：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Grid.Row="0" Grid.Column="9" Style="{StaticResource txtSignInput}"/>
+                                </Grid>
+
+                                <!--Hypotensive-->
+                                <Label Grid.Row="2" Grid.Column="0" Content="Hypotensive" Style="{StaticResource GridTitle}" />
+                                <Grid Grid.Row="2" Grid.Column="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" Content="Perdipine：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtSignInput}"/>
+                                    <Label Grid.Row="0" Grid.Column="2" Content="NTG：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource txtSignInput}"/>
+                                    <Label Grid.Row="0" Grid.Column="4" Content="Nitropruss：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource txtSignInput}"/>
+
+                                    <StackPanel Grid.Row="1" Grid.Column="0">
+                                        <Label Content="Other1：" />
+                                        <Label Content="(藥名/劑量/頻次)" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" Orientation="Horizontal">
+                                        <TextBox Style="{StaticResource txtBaseStyle}" Width="100" />
+                                        <Label Content="/" Style="{StaticResource lbl}"/>
+                                        <TextBox Style="{StaticResource txtSignInput}" />
+                                        <Label Content="/" Style="{StaticResource lbl}"/>
+                                        <TextBox Style="{StaticResource txtSignInput}" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="0">
+                                        <Label Content="Other2：" />
+                                        <Label Content="(藥名/劑量/頻次)" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="7" Orientation="Horizontal">
+                                        <TextBox Style="{StaticResource txtBaseStyle}" Width="100" />
+                                        <Label Content="/" Style="{StaticResource lbl}"/>
+                                        <TextBox Style="{StaticResource txtSignInput}" />
+                                        <Label Content="/" Style="{StaticResource lbl}"/>
+                                        <TextBox Style="{StaticResource txtSignInput}" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="0">
+                                        <Label Content="Other3：" />
+                                        <Label Content="(藥名/劑量/頻次)" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="7" Orientation="Horizontal">
+                                        <TextBox Style="{StaticResource txtBaseStyle}" Width="100" />
+                                        <Label Content="/" Style="{StaticResource lbl}"/>
+                                        <TextBox Style="{StaticResource txtSignInput}" />
+                                        <Label Content="/" Style="{StaticResource lbl}"/>
+                                        <TextBox Style="{StaticResource txtSignInput}" />
+                                    </StackPanel>
+                                </Grid>
+
+                                <!--其他-->
+                                <Label Grid.Row="3" Grid.Column="0" Content="其他：" Style="{StaticResource GridTitle}" />
+                                <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource txtLargeTextArea}" />
+                            </uc:PaddedGrid>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+
+                <!--Respiratory-->
+                <TabItem Header="#Respiratory" Style="{StaticResource TabItem}">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <uc:PaddedGrid Padding="5" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+
+                                <!--Basic-->
+                                <Label Grid.Row="0" Grid.Column="0" Content="Basic" Style="{StaticResource GridTitle}" />
+                                <Grid Grid.Row="0" Grid.Column="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" Content="RR：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtSignInput}" />
+                                    <Label Grid.Row="0" Grid.Column="2" Content="SpO2：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource txtSignInput}" />
+                                    <Label Grid.Row="0" Grid.Column="4" Content="FiO2：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource txtSignInput}" />
+                                </Grid>
+
+                                <!--Respiratory Mode-->
+                                <Label Grid.Row="1" Grid.Column="0" Content="Respiratory Mode：" Style="{StaticResource GridTitle}" />
+                                <uc:ucRadioButton Grid.Row="1" Grid.Column="1" ItemList="{Binding Path=RespiratoryMode}"/>
+
+                                <!--Breathing Sound待補-->
+
+                                <!--Cough-->
+                                <Label Grid.Row="2" Grid.Column="0" Content="Cough" Style="{StaticResource GridTitle}" />
+                                <Grid Grid.Row="2" Grid.Column="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--reflex-->
+                                    <Label Grid.Row="0" Grid.Column="0" Content="reflex：" Style="{StaticResource GridTitle}" />
+                                    <uc:ucRadioButton Grid.Row="0" Grid.Column="1" ItemList="{Binding Path=CoughReflex}"/>
+                                    <!--strength-->
+                                    <Label Grid.Row="0" Grid.Column="2" Content="strength：" Style="{StaticResource GridTitle}" />
+                                    <uc:ucRadioButton Grid.Row="0" Grid.Column="3" ItemList="{Binding Path=CoughStrength}"/>
+                                </Grid>
+
+                                <!--Sputum-->
+                                <Label Grid.Row="3" Grid.Column="0" Content="Sputum" Style="{StaticResource GridTitle}" />
+                                <Grid Grid.Row="3" Grid.Column="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <!--amount-->
+                                    <Label Grid.Row="0" Grid.Column="0" Content="amount：" Style="{StaticResource GridTitle}" />
+                                    <uc:ucRadioButton Grid.Row="0" Grid.Column="1" ItemList="{Binding Path=SputumAmount}"/>
+                                    <!--characteristics-->
+                                    <Label Grid.Row="1" Grid.Column="0" Content="characteristics：" Style="{StaticResource GridTitle}" />
+                                    <uc:ucRadioButton Grid.Row="1" Grid.Column="1" ItemList="{Binding Path=SputumCharacteristics}"/>
+                                </Grid>
+
+                                <!--ABG-->
+                                <Label Grid.Row="4" Grid.Column="0" Content="ABG" Style="{StaticResource GridTitle}" />
+                                <Grid Grid.Row="4" Grid.Column="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" Content="PaO2：" Style="{StaticResource GridTitle}"/>
+                                    <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtSignInput}"/>
+                                    <Label Grid.Row="0" Grid.Column="2" Content="FiO2：" Style="{StaticResource GridTitle}"/>
+                                    <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource txtSignInput}"/>
+                                    <Label Grid.Row="0" Grid.Column="4" Content="PaO2/FiO2：" Style="{StaticResource GridTitle}"/>
+                                    <!--<TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource txtSignInput}" />-->
+
+                                    <Label Grid.Row="1" Grid.Column="0" Content="PaCO2：" Style="{StaticResource GridTitle}"/>
+                                    <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtSignInput}"/>
+                                    <Label Grid.Row="1" Grid.Column="2" Content="HCO3：" Style="{StaticResource GridTitle}"/>
+                                    <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource txtSignInput}"/>
+                                    <Label Grid.Row="1" Grid.Column="4" Content="BE：" Style="{StaticResource GridTitle}"/>
+                                    <TextBox Grid.Row="1" Grid.Column="5" Style="{StaticResource txtSignInput}" />
+
+                                    <Label Grid.Row="2" Grid.Column="0" Content="SpO2：" Style="{StaticResource GridTitle}"/>
+                                    <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txtSignInput}"/>
+                                    <Label Grid.Row="2" Grid.Column="2" Content="Arterial pH：" Style="{StaticResource GridTitle}"/>
+                                    <TextBox Grid.Row="2" Grid.Column="3" Style="{StaticResource txtSignInput}"/>
+                                </Grid>
+
+                                <!--其他-->
+                                <Label Grid.Row="5" Grid.Column="0" Content="Others：" Style="{StaticResource GridTitle}" />
+                                <TextBox Grid.Row="5" Grid.Column="1" Style="{StaticResource txtLargeTextArea}" />
+                            </uc:PaddedGrid>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+
+                <!--Neurological-->
+                <TabItem Header="#Neurological" Style="{StaticResource TabItem}">
+                    <StackPanel>
+                        <uc:PaddedGrid Padding="5" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+
+                            <!--GCS-->
+                            <Label Grid.Row="0" Grid.Column="0" Content="GCS" Style="{StaticResource GridTitle}" />
+                            <Label Grid.Row="0" Grid.Column="1" Content="E：" Style="{StaticResource GridTitle}" />
+                            <TextBox Grid.Row="0" Grid.Column="2" Style="{StaticResource txtSignInput}" />
+                            <Label Grid.Row="0" Grid.Column="3" Content="V：" Style="{StaticResource GridTitle}" />
+                            <TextBox Grid.Row="0" Grid.Column="4" Style="{StaticResource txtSignInput}" />
+                            <Label Grid.Row="0" Grid.Column="5" Content="M：" Style="{StaticResource GridTitle}" />
+                            <TextBox Grid.Row="0" Grid.Column="6" Style="{StaticResource txtSignInput}" />
+
+                            <!--Iris Size-->
+                            <Label Grid.Row="1" Grid.Column="0" Content="Iris size" Style="{StaticResource GridTitle}" />
+                            <Label Grid.Row="1" Grid.Column="1" Content="Right：" Style="{StaticResource GridTitle}" />
+                            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" >
+                                <TextBox Style="{StaticResource txtSignInput}" />
+                                <Label Content="mm" Style="{StaticResource lbl}" />
+                            </StackPanel>
+                            <Label Grid.Row="1" Grid.Column="3" Content="Left：" Style="{StaticResource GridTitle}" />
+                            <StackPanel Grid.Row="1" Grid.Column="4" Orientation="Horizontal">
+                                <TextBox Style="{StaticResource txtSignInput}" />
+                                <Label Content="m" Style="{StaticResource lbl}" />
+                            </StackPanel>
+
+                            <!--Light reflex-->
+                            <Label Grid.Row="2" Grid.Column="0" Content="Light reflex" Style="{StaticResource GridTitle}" />
+                            <Label Grid.Row="2" Grid.Column="1" Content="Right：" Style="{StaticResource GridTitle}" />
+                            <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" Style="{StaticResource StackPanel}">
+                                <RadioButton GroupName="LightReflex_Right" Content="+"/>
+                                <RadioButton GroupName="LightReflex_Right" Content="-"/>
+                            </StackPanel>
+                            <Label Grid.Row="2" Grid.Column="3" Content="Left：" Style="{StaticResource GridTitle}" />
+                            <StackPanel Grid.Row="2" Grid.Column="4" Orientation="Horizontal" Style="{StaticResource StackPanel}">
+                                <RadioButton GroupName="LightReflex_Left" Content="+"/>
+                                <RadioButton GroupName="LightReflex_Left" Content="-"/>
+                            </StackPanel>
+
+                            <!--ICP-->
+                            <Label Grid.Row="3" Grid.Column="0" Content="ICP" Style="{StaticResource GridTitle}" />
+                            <Label Grid.Row="3" Grid.Column="1" Content="ICP：" Style="{StaticResource GridTitle}" />
+                            <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
+                                <TextBox Style="{StaticResource txtSignInput}" />
+                                <Label Content="mmHg" Style="{StaticResource lbl}" />
+                            </StackPanel>
+                            <Label Grid.Row="3" Grid.Column="3" Content="CPP：" Style="{StaticResource GridTitle}" />
+                            <StackPanel Grid.Row="3" Grid.Column="4" Orientation="Horizontal">
+                                <TextBox Style="{StaticResource txtSignInput}" />
+                                <Label Content="mmHg" Style="{StaticResource lbl}" />
+                            </StackPanel>
+
+                            <!--其他-->
+                            <Label Grid.Row="4" Grid.Column="0" Content="Others：" Style="{StaticResource GridTitle}" />
+                            <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="7" Style="{StaticResource txtLargeTextArea}" />
+                        </uc:PaddedGrid>
+                    </StackPanel>
+                </TabItem>
+
+                <!--Nephological-->
+                <TabItem Header="#Nephological" Style="{StaticResource TabItem}">
+                    <StackPanel>
+                        <uc:PaddedGrid Padding="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!--Urine amount and characteristics-->
+                            <Label Grid.Row="0" Grid.Column="0" Content="Urine amount and characteristics：" Style="{StaticResource GridTitle}" />
+                            <Grid Grid.Row="0" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Content="Body weight：" Style="{StaticResource GridTitle}" />
+                                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                                    <TextBox Style="{StaticResource txtSignInput}" />
+                                    <Label Content="kg" Style="{StaticResource lbl}" />
+                                </StackPanel>
+                                <Label Grid.Row="0" Grid.Column="2" Content="測量日期：" Style="{StaticResource GridTitle}" />
+                                <uc:DateTimeBlock Grid.Row="0" Grid.Column="3" ShowTimeRegion="False" />
+
+                                <Label Grid.Row="1" Grid.Column="0" Content="I/O：" Style="{StaticResource GridTitle}" />
+                                <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Orientation="Horizontal">
+                                    <TextBox Style="{StaticResource txtSignInput}" />
+                                    <Label Content="ml      in past" Style="{StaticResource lbl}"/>
+                                    <uc:ucRadioButton ItemList="{Binding Path=InPastTime}"/>
+                                </StackPanel>
+
+                                <Label Grid.Row="2" Grid.Column="0" Content="U/O：" Style="{StaticResource GridTitle}" />
+                                <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" Orientation="Horizontal">
+                                    <TextBox Style="{StaticResource txtSignInput}" />
+                                    <Label Content="ml      in past" Style="{StaticResource lbl}"/>
+                                    <uc:ucRadioButton ItemList="{Binding Path=InPastTime}"/>
+                                </StackPanel>
+
+                                <Label Grid.Row="3" Grid.Column="0" Content="Lasix：" Style="{StaticResource GridTitle}" />
+                                <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Orientation="Horizontal">
+                                    <TextBox Style="{StaticResource txtSignInput}" />
+                                    <Label Content="ml      in past" Style="{StaticResource lbl}"/>
+                                    <uc:ucRadioButton ItemList="{Binding Path=InPastTime}"/>
+                                </StackPanel>
+
+                                <Label Grid.Row="4" Grid.Column="0" Content="Color：" Style="{StaticResource GridTitle}" />
+                                <uc:ucRadioButton Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" ItemsInRow="4" ItemList="{Binding Path=UrineColor}"/>
+
+                                <Label Grid.Row="5" Grid.Column="0" Content="Sediments amount：" Style="{StaticResource GridTitle}" />
+                                <uc:ucRadioButton Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4" ItemList="{Binding Path=SedimentsAmount}"/>
+                            </Grid>
+
+
+                            <!--Lab data-->
+                            <Label Grid.Row="1" Grid.Column="0" Content="Lab data：" Style="{StaticResource GridTitle}" />
+                            <Grid Grid.Row="1" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Content="BUN：" Style="{StaticResource GridTitle}" />
+                                <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtSignInput}" />
+                                <Label Grid.Row="0" Grid.Column="2" Content="Cr：" Style="{StaticResource GridTitle}" />
+                                <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource txtSignInput}" />
+                                <Label Grid.Row="0" Grid.Column="4" Content="Na：" Style="{StaticResource GridTitle}" />
+                                <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource txtSignInput}" />
+                                <Label Grid.Row="0" Grid.Column="6" Content="K：" Style="{StaticResource GridTitle}" />
+                                <TextBox Grid.Row="0" Grid.Column="7" Style="{StaticResource txtSignInput}" />
+
+                                <Label Grid.Row="1" Grid.Column="0" Content="i-Calcium：" Style="{StaticResource GridTitle}" />
+                                <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtSignInput}" />
+                                <Label Grid.Row="1" Grid.Column="2" Content="P：" Style="{StaticResource GridTitle}" />
+                                <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource txtSignInput}" />
+                                <Label Grid.Row="1" Grid.Column="4" Content="Mg：" Style="{StaticResource GridTitle}" />
+                                <TextBox Grid.Row="1" Grid.Column="5" Style="{StaticResource txtSignInput}" />
+                            </Grid>
+
+                            <!--Others-->
+                            <Label Grid.Row="2" Grid.Column="0" Content="Others：" Style="{StaticResource GridTitle}" />
+                            <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txtLargeTextArea}" />
+                        </uc:PaddedGrid>
+                    </StackPanel>
+                </TabItem>
+
+                <!--Hepatointestinal-->
+                <TabItem Header="#Hepatointestinal" Style="{StaticResource TabItem}">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <uc:PaddedGrid Padding="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto " />
+                                    <RowDefinition Height="auto " />
+                                    <RowDefinition Height="auto " />
+                                    <RowDefinition Height="auto " />
+                                    <RowDefinition Height="auto " />
+                                </Grid.RowDefinitions>
+
+                                <!--Abdominal PE-->
+                                <Label Grid.Row="0" Grid.Column="0" Content="Abdominal PE" Style="{StaticResource GridTitle}" />
+                                <Grid Grid.Row="0" Grid.Column="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" Content="Soft：" Style="{StaticResource GridTitle}" />
+                                    <uc:ucRadioButton Grid.Row="0" Grid.Column="1" ItemList="{Binding Path=Binary}" />
+
+                                    <Label Grid.Row="1" Grid.Column="0" Content="Distention：" Style="{StaticResource GridTitle}" />
+                                    <uc:ucRadioButton Grid.Row="1" Grid.Column="1" ItemList="{Binding Path=Binary}" />
+
+                                    <Label Grid.Row="2" Grid.Column="0" Content="Tenderness：" Style="{StaticResource GridTitle}" />
+                                    <uc:ucRadioButton Grid.Row="2" Grid.Column="1" ItemList="{Binding Path=DRRLLP}" />
+
+                                    <Label Grid.Row="3" Grid.Column="0" Content="Rebound Pain：" Style="{StaticResource GridTitle}" />
+                                    <uc:ucRadioButton Grid.Row="3" Grid.Column="1" ItemList="{Binding Path=DRRLLP}" />
+
+                                    <Label Grid.Row="4" Grid.Column="0" Content="Murphy sign：" Style="{StaticResource GridTitle}" />
+                                    <uc:ucRadioButton Grid.Row="4" Grid.Column="1" ItemList="{Binding Path=Binary}" />
+
+                                    <Label Grid.Row="5" Grid.Column="0" Content="Jaundice：" Style="{StaticResource GridTitle}" />
+                                    <uc:ucRadioButton Grid.Row="5" Grid.Column="1" ItemList="{Binding Path=Binary}" />
+
+                                    <StackPanel Grid.Row="6" Grid.Column="0">
+                                        <Label Content="Hepatic encephalopathy/" Style="{StaticResource GridTitle}" />
+                                        <Label Content="Flapping tremor：" Style="{StaticResource GridTitle}" />
+                                    </StackPanel>
+                                    <uc:ucRadioButton Grid.Row="6" Grid.Column="1" ItemList="{Binding Path=Binary}" />
+
+                                    <Label Grid.Row="7" Grid.Column="0" Content="Ascites：" Style="{StaticResource GridTitle}" />
+                                    <uc:ucRadioButton Grid.Row="7" Grid.Column="1" ItemList="{Binding Path=Binary}" />
+
+                                    <Label Grid.Row="8" Grid.Column="0" Content="Bowel Sound：" Style="{StaticResource GridTitle}" />
+                                    <uc:ucRadioButton Grid.Row="8" Grid.Column="1" ItemList="{Binding Path=HNH}" />
+
+                                    <Label Grid.Row="9" Grid.Column="0" Content="Stool：" Style="{StaticResource GridTitle}" />
+                                    <uc:ucRadioButton Grid.Row="9" Grid.Column="1" ItemList="{Binding Path=D14}" />
+
+                                    <Label Grid.Row="10" Grid.Column="0" Content="Color：" Style="{StaticResource GridTitle}" />
+                                    <uc:ucRadioButton Grid.Row="10" Grid.Column="1" ItemList="{Binding Path=AbdominalColor}" />
+                                </Grid>
+
+                                <!--NG tube/OG tube/Gastrostomy tube-->
+                                <StackPanel Grid.Row="1" Grid.Column="0">
+                                    <Label Content="NG tube/OG tube/" Style="{StaticResource GridTitle}" />
+                                    <Label Content="Gastrostomy tube" Style="{StaticResource GridTitle}" />
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                                    <Label Content="Tube：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Style="{StaticResource txtSignInput}"/>
+                                    <Label Content="Amount：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Style="{StaticResource txtSignInput}"/>
+                                    <Label Content="Color：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Style="{StaticResource txtSignInput}"/>
+                                </StackPanel>
+
+                                <!--Lab data-->
+                                <Label Grid.Row="2" Grid.Column="0" Content="Lab data：" Style="{StaticResource GridTitle}" />
+                                <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                                    <Label Content="GOT：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Style="{StaticResource txtSignInput}"/>
+                                    <Label Content="GPT：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Style="{StaticResource txtSignInput}"/>
+                                    <Label Content="r-GT：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Style="{StaticResource txtSignInput}"/>
+                                    <Label Content="Ammonia：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Style="{StaticResource txtSignInput}"/>
+                                    <Label Content="T-Bil：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Style="{StaticResource txtSignInput}"/>
+                                    <Label Content="D-Bil：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Style="{StaticResource txtSignInput}"/>
+                                </StackPanel>
+                                
+                                <!--Ascites-->
+                                <Label Grid.Row="3" Grid.Column="0" Content="Ascites：" Style="{StaticResource GridTitle}" />
+                                <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                                    <Label Content="Amount：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Style="{StaticResource txtSignInput}"/>
+                                    <Label Content="Color：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Style="{StaticResource txtSignInput}"/>
+                                    <Label Content="Albumin/Amylase：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Style="{StaticResource txtSignInput}"/>
+                                    <Label Content="/" Style="{StaticResource GridTitle}" />
+                                    <TextBox Style="{StaticResource txtSignInput}"/>
+                                </StackPanel>
+                                <!--Others-->
+                                <Label Grid.Row="4" Grid.Column="0" Content="Others：" Style="{StaticResource GridTitle}" />
+                                <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource txtLargeTextArea}" />
+                            </uc:PaddedGrid>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+
+                <!--管線-->
+                <TabItem Header="#管線" Style="{StaticResource TabItem}">
+                    <DockPanel>
+                        <!--管線 ListView-->
+                        <ListView DockPanel.Dock="Top" x:Name ="lvTube" SelectionChanged="lvTube_SelectionChanged"  Margin="10,10,10,0" Height="120">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="狀態" Width="100"
+                                        DisplayMemberBinding="{Binding Status}"/>
+                                    <GridViewColumn Header="管線種類" Width="100"
+                                        DisplayMemberBinding="{Binding Category}"/>
+                                    <GridViewColumn Header="位置" Width="100"
+                                        DisplayMemberBinding="{Binding Location}"/>
+                                    <GridViewColumn Header="放置日期" Width="100"
+                                        DisplayMemberBinding="{Binding SetDate}"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+
+                        <ScrollViewer DockPanel.Dock="Bottom" VerticalScrollBarVisibility="Auto">
+                            <StackPanel>
+                                <!--修改區塊-->
+                                <uc:PaddedGrid x:Name="pgSurgeryModify" Padding="5" ShowGridLines="False" Margin="10,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <!--管線狀態-->
+                                    <Label Grid.Row="0" Grid.Column="0" Content="管線狀態：" Style="{StaticResource GridTitle}" />
+                                    <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtStatus" Style="{StaticResource txtLargeTextArea}" />
+
+                                    <!--管線種類-->
+                                    <Label Grid.Row="1" Grid.Column="0" Content="管線種類：" Style="{StaticResource GridTitle}"/>
+                                    <uc:ucRadioButton Grid.Row="1" Grid.Column="1" x:Name="rbCategoty" ItemList="{Binding Path=TubeCategory}"/>
+
+                                    <!--管線位置-->
+                                    <Label Grid.Row="2" Grid.Column="0" Content="管線位置：" Style="{StaticResource GridTitle}"/>
+                                    <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtLocation" Style="{StaticResource txtLargeTextArea}" />
+
+                                    <!--放置日期-->
+                                    <Label Grid.Row="3" Grid.Column="0" Content="放置日期：" Style="{StaticResource GridTitle}"/>
+                                    <uc:DateTimeBlock Grid.Row="3" Grid.Column="1" x:Name="dpSetDate" ShowTimeRegion="False" />
+                                </uc:PaddedGrid>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </DockPanel>
+                </TabItem>
+
+                <!--其他重要治療計畫及事宜-->
+                <TabItem Header="#其他重要&#10;治療計畫及事宜" Style="{StaticResource TabItem}">
+                    <StackPanel>
+                        <uc:PaddedGrid Padding="10" ShowGridLines="False">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!--其他重要治療計畫及事宜-->
+                            <Label Grid.Row="0" Grid.Column="0" Content="其他重要治療計畫及事宜：" Style="{StaticResource GridTitle}"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtLargeTextArea}" Height="100"/>
+                        </uc:PaddedGrid>
+
+                        <Label Content="提示訊息" Style="{StaticResource lbl}" Margin="10,10,10,0"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <uc:PaddedGrid Grid.Row="0" Grid.Column="0" Padding="7" Width="250" ShowGridLines="False" HorizontalAlignment="Left" Margin="10,0,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Content="1.入住資訊：" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="1" Grid.Column="0" Content="2.診斷與手術名稱：" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="2" Grid.Column="0" Content="3.轉入原因&amp;重大病史：" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="3" Grid.Column="0" Content="4.狀況評估：" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="4" Grid.Column="0" Content="5.其他重要治療計畫及事宜：" Style="{StaticResource lbl}"/>
+
+                                <Label Grid.Row="0" Grid.Column="1" Content="未完成" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="1" Grid.Column="1" Content="未完成" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="2" Grid.Column="1" Content="未完成" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="3" Grid.Column="1" Content="未完成" Style="{StaticResource lbl}"/>
+                                <Label Grid.Row="4" Grid.Column="1" Content="未完成" Style="{StaticResource lbl}"/>
+                            </uc:PaddedGrid>
+
+                            <Label Content="負責人員" Style="{StaticResource lbl}" Margin="367,-25,0,0" Grid.Column="1"/>
+
+                            <uc:PaddedGrid Grid.Row="0" Grid.Column="1" Padding="7" Width="250" ShowGridLines="False" HorizontalAlignment="Right" Margin="0,0,10,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Content="專科護理師代號：" Style="{StaticResource GridTitle}"/>
+                                <Label Grid.Row="1" Grid.Column="0" Content="醫師代號：" Style="{StaticResource GridTitle}"/>
+                                <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtBaseStyle}" Width="100"/>
+                                <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtBaseStyle}" Width="100"/>
+                            </uc:PaddedGrid>
+                        </Grid>
+
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Viewbox>
+
+</Page>

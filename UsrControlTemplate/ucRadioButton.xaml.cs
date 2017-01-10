@@ -134,10 +134,11 @@ namespace UsrControlTemplate
             var thisRB = (ucRadioButton)obj;
 
             // Set Column
-            for (int i = 0; i < thisRB.ItemsInRow; i++)
+            for (int i = 0; i < (thisRB.ItemsInRow > thisRB.ItemList.Count ? thisRB.ItemList.Count : thisRB.ItemsInRow); i++)
             {
                 var definition = new ColumnDefinition();
-                definition.Width = new GridLength(1, GridUnitType.Star);
+                definition.Width = new GridLength(1, GridUnitType.Auto);
+                //definition.Width = GridLength.Auto;
                 thisRB.ContentGrid.ColumnDefinitions.Add(definition);
             }
 

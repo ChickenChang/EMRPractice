@@ -14,7 +14,7 @@
     </Page.DataContext>
 
     <Viewbox>
-        <Grid Height="540" Width="960" x:Name="exe">
+        <Grid Height="540" Width="960">
             <Grid.Background>
                 <ImageBrush ImageSource="..\..\Theme\kkk.jpg" Stretch="UniformToFill"></ImageBrush>
             </Grid.Background>
@@ -58,7 +58,6 @@
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
-
 
                                 <Label Grid.Row="0" Grid.Column="0" Content="病歷號：" Style="{StaticResource  GridTitle}"/>
                                 <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
