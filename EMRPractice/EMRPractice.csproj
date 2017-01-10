@@ -56,10 +56,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Areas\ViewModels\OnServiceNoteModel.cs" />
+    <Compile Include="Areas\ViewModels\ProgressNoteModel.cs" />
     <Compile Include="Areas\Views\OnServiceNote.xaml.cs">
       <DependentUpon>OnServiceNote.xaml</DependentUpon>
     </Compile>
     <Page Include="Areas\Views\OnServiceNote.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Areas\Views\ProgressNote.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -70,6 +75,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Views\ProgressNote.xaml.cs">
+      <DependentUpon>ProgressNote.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

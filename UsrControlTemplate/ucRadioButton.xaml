@@ -15,10 +15,10 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <TextBox Name="txtInput" Grid.Row="0" Grid.Column="0" Width="50" Height="25" Style="{StaticResource txtBaseStyle}" 
+        <TextBox Name="txtInput" Grid.Row="0" Grid.Column="0" Width="50" Height="25" Style="{StaticResource txtBaseStyle}" VerticalAlignment="Top"
                  PreviewTextInput="PreviewTextInput" LostFocus="txtInput_LostFocus"/>
         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
-            <Grid Name="ContentGrid" Margin="20,0,0,0">
+            <Grid Name="ContentGrid" Margin="10,0,0,0">
                 <Grid.ColumnDefinitions>
                     <!--後端生成-->
                 </Grid.ColumnDefinitions>

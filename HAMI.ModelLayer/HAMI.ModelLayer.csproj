@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OnServiceNote\SurgeryDTO.cs" />
+    <Compile Include="ProgressNote\TubeDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsrControl\ucRadioButtonDTO.cs" />
   </ItemGroup>
