@@ -725,60 +725,9 @@
 
                 <!--其他重要治療計畫及事宜-->
                 <TabItem Header="#其他重要&#10;治療計畫及事宜" Style="{StaticResource TabItem}">
-                    <StackPanel>
-                        <uc:PaddedGrid Padding="10" ShowGridLines="False">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="auto"/>
-                            </Grid.RowDefinitions>
-
-                            <!--其他重要治療計畫及事宜-->
-                            <Label Grid.Row="0" Grid.Column="0" Content="其他重要治療計畫及事宜：" Style="{StaticResource GridTitle}"/>
-                            <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtLargeTextArea}" Height="100"/>
-                        </uc:PaddedGrid>
-
-                        <Label Content="提示訊息" Style="{StaticResource lbl}" Margin="10,10,10,0"/>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                            </Grid.RowDefinitions>
-
-                            <uc:PaddedGrid Grid.Row="0" Grid.Column="0" Padding="7" Width="250" ShowGridLines="False" HorizontalAlignment="Left" Margin="10,0,0,0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                </Grid.RowDefinitions>
-                                <Label Grid.Row="0" Grid.Column="0" Content="1.入住資訊：" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="1" Grid.Column="0" Content="2.診斷與手術名稱：" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="2" Grid.Column="0" Content="3.轉入原因&amp;重大病史：" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="3" Grid.Column="0" Content="4.狀況評估：" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="4" Grid.Column="0" Content="5.其他重要治療計畫及事宜：" Style="{StaticResource lbl}"/>
-
-                                <Label Grid.Row="0" Grid.Column="1" Content="未完成" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="1" Grid.Column="1" Content="未完成" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="2" Grid.Column="1" Content="未完成" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="3" Grid.Column="1" Content="未完成" Style="{StaticResource lbl}"/>
-                                <Label Grid.Row="4" Grid.Column="1" Content="未完成" Style="{StaticResource lbl}"/>
-                            </uc:PaddedGrid>
-
-                            <Label Content="負責人員" Style="{StaticResource lbl}" Margin="367,-25,0,0" Grid.Column="1"/>
-
-                            <uc:PaddedGrid Grid.Row="0" Grid.Column="1" Padding="7" Width="250" ShowGridLines="False" HorizontalAlignment="Right" Margin="0,0,10,0">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <uc:PaddedGrid Padding="10" ShowGridLines="False">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"></ColumnDefinition>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -787,14 +736,73 @@
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
-                                <Label Grid.Row="0" Grid.Column="0" Content="專科護理師代號：" Style="{StaticResource GridTitle}"/>
-                                <Label Grid.Row="1" Grid.Column="0" Content="醫師代號：" Style="{StaticResource GridTitle}"/>
-                                <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtBaseStyle}" Width="100"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtBaseStyle}" Width="100"/>
-                            </uc:PaddedGrid>
-                        </Grid>
 
-                    </StackPanel>
+                                <!--其他重要治療計畫及事宜-->
+                                <Label Grid.Row="0" Grid.Column="0" Content="其他重要治療計畫及事宜：" Style="{StaticResource GridTitle}"/>
+                                <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtLargeTextArea}" Height="100"/>
+                            </uc:PaddedGrid>
+
+                            <Label Content="提示訊息" Style="{StaticResource lbl}" Margin="10,10,10,0"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+
+                                <uc:PaddedGrid Grid.Row="0" Grid.Column="0" Padding="7" Width="250" ShowGridLines="False" HorizontalAlignment="Left" Margin="10,0,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" Content="1.主要診斷與手術名稱：" Style="{StaticResource lbl}"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Content="2.Cardiovascular：" Style="{StaticResource lbl}"/>
+                                    <Label Grid.Row="2" Grid.Column="0" Content="3.Respiratory：" Style="{StaticResource lbl}"/>
+                                    <Label Grid.Row="3" Grid.Column="0" Content="4.Neurological：" Style="{StaticResource lbl}"/>
+                                    <Label Grid.Row="4" Grid.Column="0" Content="5.Nephological：" Style="{StaticResource lbl}"/>
+                                    <Label Grid.Row="5" Grid.Column="0" Content="6.Hepatointestinal：" Style="{StaticResource lbl}"/>
+                                    <Label Grid.Row="6" Grid.Column="0" Content="7.管線：" Style="{StaticResource lbl}"/>
+
+                                    <Label Grid.Row="0" Grid.Column="1" Content="未完成" Style="{StaticResource lbl}"/>
+                                    <Label Grid.Row="1" Grid.Column="1" Content="未完成" Style="{StaticResource lbl}"/>
+                                    <Label Grid.Row="2" Grid.Column="1" Content="未完成" Style="{StaticResource lbl}"/>
+                                    <Label Grid.Row="3" Grid.Column="1" Content="未完成" Style="{StaticResource lbl}"/>
+                                    <Label Grid.Row="4" Grid.Column="1" Content="未完成" Style="{StaticResource lbl}"/>
+                                    <Label Grid.Row="5" Grid.Column="1" Content="未完成" Style="{StaticResource lbl}"/>
+                                    <Label Grid.Row="6" Grid.Column="1" Content="未完成" Style="{StaticResource lbl}"/>
+                                </uc:PaddedGrid>
+
+                                <Label Content="負責人員" Style="{StaticResource lbl}" Margin="367,-25,0,0" Grid.Column="1"/>
+
+                                <uc:PaddedGrid Grid.Row="0" Grid.Column="1" Padding="7" Width="250" ShowGridLines="False" HorizontalAlignment="Right" Margin="0,0,10,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" Content="專科護理師代號：" Style="{StaticResource GridTitle}"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Content="醫師代號：" Style="{StaticResource GridTitle}"/>
+                                    <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtBaseStyle}" Width="100"/>
+                                    <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtBaseStyle}" Width="100"/>
+                                </uc:PaddedGrid>
+                            </Grid>
+
+                        </StackPanel>
+                    </ScrollViewer>
                 </TabItem>
             </TabControl>
         </Grid>
