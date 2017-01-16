@@ -28,7 +28,8 @@ namespace EMRPractice
             InitializeComponent();
 
             //this.MainFrame.Content = new OnServiceNote();
-            this.MainFrame.Content = new ProgressNote();
+            //this.MainFrame.Content = new ProgressNote();
+            this.MainFrame.Content = new BedLayout();
         }
                         
      }

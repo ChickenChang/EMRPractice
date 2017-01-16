@@ -8,16 +8,21 @@
              d:DesignHeight="270" d:DesignWidth="480">
     <Grid>
         <StackPanel Orientation="Horizontal">
-            <TextBox x:Name="txtYear" Width="50" Style="{StaticResource txtBaseStyle}" PreviewTextInput="PreviewTextInput"/>
-            <Label Content="/" />
-            <TextBox x:Name="txtMonth" Width="30" Style="{StaticResource txtBaseStyle}" PreviewTextInput="PreviewTextInput"/>
-            <Label Content="/" />
-            <TextBox x:Name="txtDay" Width="30" Style="{StaticResource txtBaseStyle}" PreviewTextInput="PreviewTextInput"/>
-            <Label Content="    " />
+            <TextBox x:Name="txtYear" Width="50" MaxLength="4" Style="{StaticResource txtBaseStyle}" PreviewTextInput="PreviewTextInput"/>
+            <Label x:Name="lblYear_Sign" Content="/" />
+            <Label x:Name="lblYear_Word" Content="西元年" Visibility="Collapsed" />
+            <TextBox x:Name="txtMonth" Width="30" MaxLength="2" Style="{StaticResource txtBaseStyle}" PreviewTextInput="PreviewTextInput"/>
+            <Label x:Name="lblMonth_Sign" Content="/" />
+            <Label x:Name="lblMonth_Word" Content="月" Visibility="Collapsed" />
+            <TextBox x:Name="txtDay" Width="30" MaxLength="2" Style="{StaticResource txtBaseStyle}" PreviewTextInput="PreviewTextInput"/>
+            <Label x:Name="lblDay_Sign" Content="    " />
+            <Label x:Name="lblDay_Word" Content="日" Visibility="Collapsed" />
             <StackPanel x:Name="TimeRegion" Orientation="Horizontal">
-                <TextBox x:Name="txtHour" Width="30"    Style="{StaticResource txtBaseStyle}" PreviewTextInput="PreviewTextInput"/>
-                <Label Content="：" />
-                <TextBox x:Name="txtMinute" Width="30" Style="{StaticResource txtBaseStyle}" PreviewTextInput="PreviewTextInput" />
+                <TextBox x:Name="txtHour" Width="30" MaxLength="2" Style="{StaticResource txtBaseStyle}" PreviewTextInput="PreviewTextInput"/>
+                <Label x:Name="lblHour_Sign" Content="：" />
+                <Label x:Name="lblHour_Word" Content="時" Visibility="Collapsed" />
+                <TextBox x:Name="txtMinute" Width="30" MaxLength="2" Style="{StaticResource txtBaseStyle}" PreviewTextInput="PreviewTextInput" />
+                <Label x:Name="lblMinute_Word" Content="分" Visibility="Collapsed" />
             </StackPanel>
         </StackPanel>
     </Grid>

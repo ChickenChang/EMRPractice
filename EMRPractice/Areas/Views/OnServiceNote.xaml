@@ -8,7 +8,7 @@
       xmlns:uc="clr-namespace:UsrControlTemplate;assembly=UsrControlTemplate"
       mc:Ignorable="d" 
       d:DesignHeight="540" d:DesignWidth="960"
-      Title="OnServiceNote">
+      Title="OnServiceNote" KeyDown="MainWindow_KeyDown">
     <Page.DataContext>
         <viewModel:OnServiceNoteModel/>
     </Page.DataContext>
@@ -28,9 +28,10 @@
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
 
+            <uc:PatientInfo Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="PatientInfo" />
             <TabControl x:Name="tcMain" Grid.Row="1" SelectionChanged="tcMain_SelectionChanged" Margin="5,0,0,0">
                 <!--入住資訊-->
-                <TabItem Header="#入住資訊" Style="{StaticResource TabItem}">
+                <TabItem Header="#入住資訊" Style="{StaticResource TabItem}" LostFocus="TabItem_LostFocus" >
                     <StackPanel>
                         <uc:PaddedGrid Padding="10" ShowGridLines="False">
                             <Grid.ColumnDefinitions>
@@ -69,10 +70,10 @@
                                 </StackPanel>
 
                                 <Label Grid.Row="1" Grid.Column="0" Content="入ICU時間：" Style="{StaticResource GridTitle}" Width="81"/>
-                                <uc:DateTimeBlock Grid.Row="1" Grid.Column="1" />
+                                <uc:DateTimeBlock Grid.Row="1" Grid.Column="1" x:Name="dpImportDateTime" />
 
                                 <Label Grid.Row="2" Grid.Column="0" Content="來源單位：" Style="{StaticResource GridTitle}" Width="73"/>
-                                <uc:ucRadioButton Grid.Row="2" Grid.Column="1" Name="rbSourceUnit" />
+                                <uc:ucRadioButton Grid.Row="2" Grid.Column="1" Name="rbSourceUnit" ItemList="{Binding Path=SourceUnit}"/>
                             </Grid>
 
                             <!--科別-->
@@ -80,7 +81,7 @@
                             <uc:ucRadioButton Grid.Row="1" Grid.Column="1" x:Name="rbSubect_ImportInfoTab" Grid.ColumnSpan="3" ItemList="{Binding Path=Subject}"/>
 
                             <!--醫師-->
-                            <Label Grid.Row="2" Grid.Column="0" Content="醫師：" Style="{StaticResource GridTitle}"/>
+                            <Label Grid.Row="2" Grid.Column="0" Content="主治醫師：" Style="{StaticResource GridTitle}"/>
                             <uc:ucRadioButton Grid.Row="2" Grid.Column="1" x:Name="rbDoctor_ImportInfoTab" Grid.ColumnSpan="3" />
                         </uc:PaddedGrid>
                     </StackPanel>

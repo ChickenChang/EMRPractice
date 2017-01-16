@@ -57,9 +57,16 @@
     </ApplicationDefinition>
     <Compile Include="Areas\ViewModels\OnServiceNoteModel.cs" />
     <Compile Include="Areas\ViewModels\ProgressNoteModel.cs" />
+    <Compile Include="Areas\Views\BedLayout.xaml.cs">
+      <DependentUpon>BedLayout.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Areas\Views\OnServiceNote.xaml.cs">
       <DependentUpon>OnServiceNote.xaml</DependentUpon>
     </Compile>
+    <Page Include="Areas\Views\BedLayout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Areas\Views\OnServiceNote.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

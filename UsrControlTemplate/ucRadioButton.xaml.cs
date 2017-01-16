@@ -22,6 +22,11 @@ namespace UsrControlTemplate
         /// </summary>
         public string SelectedValue { get; set; }
 
+        /// <summary>
+        /// 目前選取選項的Text
+        /// </summary>
+        public string SelectedText { get; set; }
+
         #endregion
 
         #region DependenyProperty (DP)
@@ -103,6 +108,7 @@ namespace UsrControlTemplate
                 var dto = ItemList.Find(x => x.ItemNo == Convert.ToInt32(txtInput.Text));
                 var label = (Label)LogicalTreeHelper.FindLogicalNode(this.ContentGrid, dto.Value);
                 this.SelectedValue = dto.Value;
+                this.SelectedText = dto.DisplayName;
                 label.Background = Brushes.LightGreen;
             }
         }
