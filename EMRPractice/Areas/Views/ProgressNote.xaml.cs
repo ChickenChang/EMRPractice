@@ -139,7 +139,7 @@ namespace EMRPractice.Areas.Views
 
             this.DataContext = model;
         }
-
+        
         void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
             TubeDTO tube = (TubeDTO)lvTube.SelectedItem;
