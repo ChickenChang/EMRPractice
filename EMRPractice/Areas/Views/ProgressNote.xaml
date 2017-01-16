@@ -27,6 +27,7 @@
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
 
+            <uc:PatientInfo Grid.Row="0" Grid.ColumnSpan="2" />
             <TabControl x:Name="tcMain" Grid.Row="1" Margin="5,0,0,0">
                 <!--主要診斷與手術名稱-->
                 <TabItem Header="#主要診斷&#10;與手術名稱" Style="{StaticResource TabItem}">
@@ -39,15 +40,20 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto"/>
                                 <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
                             </Grid.RowDefinitions>
 
+                            <!--執行日期-->
+                            <Label Grid.Row="0" Grid.Column="0" Content="執行日期：" Style="{StaticResource GridTitle}" />
+                            <uc:DateTimeBlock Grid.Row="0" Grid.Column="1" ShowTimeRegion="False" />
+
                             <!--主要診斷-->
-                            <Label Grid.Row="0" Grid.Column="0" Content="主要診斷：" Style="{StaticResource GridTitle}" />
-                            <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txtLargeTextArea}" />
+                            <Label Grid.Row="1" Grid.Column="0" Content="主要診斷：" Style="{StaticResource GridTitle}" />
+                            <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtLargeTextArea}" />
 
                             <!--手術名稱-->
-                            <Label Grid.Row="1" Grid.Column="0" Content="手術名稱：" Style="{StaticResource GridTitle}" />
-                            <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtLargeTextArea}" />
+                            <Label Grid.Row="2" Grid.Column="0" Content="手術名稱：" Style="{StaticResource GridTitle}" />
+                            <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txtLargeTextArea}" />
                         </uc:PaddedGrid>
                     </StackPanel>
                 </TabItem>

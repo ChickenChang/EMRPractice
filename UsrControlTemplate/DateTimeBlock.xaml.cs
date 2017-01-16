@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System;
 
 namespace UsrControlTemplate
 {
@@ -10,6 +11,26 @@ namespace UsrControlTemplate
     /// </summary>
     public partial class DateTimeBlock : UserControl
     {
+        #region Public Property
+
+        public DateTime Date
+        {
+            get { return new DateTime(int.Parse(txtYear.Text), int.Parse(txtMonth.Text), int.Parse(txtDay.Text), int.Parse(txtHour.Text), int.Parse(txtMinute.Text), 0); }
+            set
+            {
+                this.txtYear.Text = value.Year.ToString();
+                this.txtMonth.Text = value.Month.ToString();
+                this.txtDay.Text = value.Day.ToString();
+                if (ShowTimeRegion)
+                {
+                    this.txtHour.Text = value.Hour.ToString();
+                    this.txtMinute.Text = value.Minute.ToString();
+                }
+            }
+        }
+
+        #endregion
+
         #region DependenyProperty (DP)
 
         /// <summary>
