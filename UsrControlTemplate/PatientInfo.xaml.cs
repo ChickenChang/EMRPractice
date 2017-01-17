@@ -68,6 +68,19 @@ namespace UsrControlTemplate
         }
 
         /// <summary>
+        /// 入ICU日期時間
+        /// </summary>
+        public DateTime ImportDateTime
+        {
+            get { return this.dpImportDateTime.Date; }
+            set
+            {
+                this.dpImportDateTime.Date = value;
+                this.lblImportDayCount.Content = new TimeSpan(DateTime.Now.Ticks - value.Ticks).Days;
+            }
+        }
+
+        /// <summary>
         /// 入ICU天數
         /// </summary>
         public int ImportDayCount

@@ -274,5 +274,16 @@ namespace EMRPractice.Areas.Views
         }
 
         #endregion
+
+        private void TabItem_LostFocus(object sender, RoutedEventArgs e)
+        {
+            this.PatientInfo.RecordID = this.txtMRID.Text;
+            this.PatientInfo.PatientName = (string)this.lblName.Content;
+            this.PatientInfo.BedID = "";
+            if (this.dpImportDateTime.Validated)
+                this.PatientInfo.ImportDateTime = this.dpImportDateTime.Date;
+            this.PatientInfo.AttendingPhysician = this.rbDoctor_ImportInfoTab.SelectedText;
+            this.PatientInfo.SourceUnit = this.rbSourceUnit.SelectedText;
+        }
     }
 }
