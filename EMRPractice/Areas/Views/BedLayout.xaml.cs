@@ -36,7 +36,7 @@ namespace EMRPractice.Areas.Views
 
         private void BtnClickEvent(object sender, EventArgs e)
         {
-
+            NavigationService.Navigate(new PatientForm());
         }
     }
 }

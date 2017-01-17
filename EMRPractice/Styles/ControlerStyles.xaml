@@ -74,7 +74,7 @@
                             <Setter TargetName="Border" Property="Background" Value="GhostWhite" />
                         </Trigger>
                     </ControlTemplate.Triggers>
-                </ControlTemplate>                
+                </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Setter Property="FontSize" Value="10" />
@@ -88,5 +88,13 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+
+    <Style x:Key="BaseButton" TargetType="{x:Type Button}">
+        <Setter Property="Margin" Value="10,0,10,0" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Height" Value="35" />
+        <Setter Property="Background" Value="Aqua" />
+    </Style>
+
 </ResourceDictionary>

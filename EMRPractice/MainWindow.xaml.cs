@@ -30,6 +30,7 @@ namespace EMRPractice
             //this.MainFrame.Content = new OnServiceNote();
             //this.MainFrame.Content = new ProgressNote();
             this.MainFrame.Content = new BedLayout();
+            //this.MainFrame.Content = new PatientForm();
         }
                         
      }
